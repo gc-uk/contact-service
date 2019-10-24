@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Links
+{% endblock %}
+
+{% block pageDescription %}
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-1">Here is some information that might help</h1>
+
+<p class="govuk-body">This information is from our website, all links open in a new window.</p>
+
+        <ul class="govuk-list">
+            {% for i in pageData %}
+            <li><a href="{{i.value}}" class="govuk-link" target="_blank">{{i.text}}</a></li>
+            {% endfor %}
+        </ul>
+
+
+        {% if contactForm !== "" %}
+        <h2 class="govuk-heading-m">Still need to contact us?</h2>
+        <p class="govuk-body">Complete the <a href="/form/{{contactForm}}">contact form</a></p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact the Gambling Commission
+{% endblock %}
+
+{% block ogTitle %}
+Contact the Gambling Commission
+{% endblock %}
+
+{% block pageDescription %}
+Find answers to common questions and contact the Gambling Commission
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+            {% if err %}
+            <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+              data-module="govuk-error-summary">
+              <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  {% if err_first_name %}
+                  <li>
+                    <a href="#first-name">Provide your first name</a>
+                  </li>
+                  {% endif %}
+                  {% if err_last_name %}
+                  <li>
+                    <a href="#last-name">Provide your last name</a>
+                  </li>
+                  {% endif %}
+                  
+                  {% if err_email %}
+                  <li>
+                    <a href="#email">Provide your email address</a>
+                  </li>
+                  {% endif %}
+                  {% if err_detail %}
+                  <li>
+                    <a href="#detail">Provide some details</a>
+                  </li>
+                  {% endif %}                  
+                  {% if err_reply %}
+                  <li>
+                    <a href="#response-needed">Do you need a response from us?</a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+
+        <h1 class="govuk-heading-l">Send us a message {{formID}}</h1>
+        <form method="POST">
+            <div class="govuk-form-group {% if err_first_name %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="first-name">
+                    First name
+                </label>
+                {% if err_first_name %}
+                <span id="event-name-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Provide your first name
+                </span>
+    
+                {% endif %}
+                <input class="govuk-input govuk-!-width-two-thirds {% if err_first_name %}govuk-input--error{% endif %}" id="first-name" name="first-name" type="text">
+            </div>
+            <div class="govuk-form-group {% if err_last_name %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label" for="last-name">
+                        Last name
+                    </label>
+                    {% if err_last_name %}
+                    <span id="event-name-error" class="govuk-error-message">
+                      <span class="govuk-visually-hidden">Error:</span> Provide your last name
+                    </span>
+        
+                    {% endif %}
+                    <input class="govuk-input govuk-!-width-two-thirds {% if err_last_name %}govuk-input--error{% endif %}" id="last-name" name="last-name" type="text">
+                </div>
+                <div class="govuk-form-group {% if err_email %}govuk-form-group--error{% endif %}">
+                        <label class="govuk-label" for="email">
+                            Email address
+                        </label>
+                        {% if err_email %}
+                        <span id="event-name-error" class="govuk-error-message">
+                          <span class="govuk-visually-hidden">Error:</span> Provide your email address
+                        </span>
+            
+                        {% endif %}
+                        <input class="govuk-input govuk-!-width-two-thirds {% if err_email %}govuk-input--error{% endif %}" id="email" name="email" type="text">
+                    </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="telephone-number">
+                    Telephone number (Optional)
+                </label>
+                <span id="telephone-number-hint" class="govuk-hint">
+                    For international numbers include the country code
+                </span>
+                <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number"
+                    type="tel" aria-describedby="telephone-number-hint" autocomplete="tel">
+            </div>
+            <div class="govuk-form-group {% if err_detail %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="more-detail">
+                    What's your message?
+                </label>
+                <span id="more-detail-hint" class="govuk-hint">
+                    Don't include bank account or credit card details.
+                </span>
+                {% if err_detail %}
+                <span id="event-name-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Provide some details
+                </span>
+    
+                {% endif %}
+                <textarea class="govuk-textarea {% if err_detail %}govuk-textarea--error{% endif %}" id="detail" name="detail" rows="5"
+                    aria-describedby="more-detail-hint"></textarea>
+            </div>
+            <div class="govuk-form-group {% if err_reply %}govuk-form-group--error{% endif %}">
+                <fieldset class="govuk-fieldset" aria-describedby="response-needed-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h1 class="govuk-fieldset__heading">
+                            Do you need a response from us?
+                        </h1>
+                    </legend>
+                    {% if err_reply %}
+                    <span id="event-name-error" class="govuk-error-message">
+                      <span class="govuk-visually-hidden">Error:</span> Do you need a response from us?
+                    </span>
+        
+                    {% endif %}
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="response-needed" name="response-needed" type="radio"
+                                value="yes">
+                            <label class="govuk-label govuk-radios__label" for="response-needed">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="response-needed-2" name="response-needed"
+                                type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="response-needed-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="govuk-button">
+                Send
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

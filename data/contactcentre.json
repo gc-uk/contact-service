@@ -1,0 +1,410 @@
+{
+    "options": [
+        {
+            "type": "question",
+            "value": null,
+            "id": 1,
+            "text": "I have a concern about a gambling business or Alternative Dispute Resolution provider",
+            "parent": 0
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 2,
+            "text": "I am a licence holder or I'm applying for a licence",
+            "parent": 0
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 3,
+            "text": "I'm unsure if I need a licence to run a raffle, lottery or other game",
+            "parent": 0
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 4,
+            "text": "I have a general enquiry",
+            "parent": 0
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 100,
+            "text": "Are you unable to withdraw your money",
+            "parent": 1
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 110,
+            "text": "Do you have responsbile gambling Concerns",
+            "parent": 1
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 120,
+            "text": "Do you have other concerns about a gambling business",
+            "parent": 1
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 130,
+            "text": "Do you have concern about an Alternative Dispute Resolution provider",
+            "parent": 1
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 140,
+            "text": "Do you want to make changes to your licence",
+            "parent": 2
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 150,
+            "text": "Do you want information about e-services online",
+            "parent": 2
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 160,
+            "text": "How to renew your personal licence (maintenance process)",
+            "parent": 2
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 170,
+            "text": "How to make changes to your personal licence",
+            "parent": 2
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 180,
+            "text": "Are you looking to set up a commerical gambling business",
+            "parent": 2
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 190,
+            "text": "How to make a payment to the Commission",
+            "parent": 2
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 200,
+            "text": "Do you want to run a lottery/raffle",
+            "parent": 3
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 210,
+            "text": "Do you want to run a prize competition or free prize draw",
+            "parent": 3
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 220,
+            "text": "Do you want to do fundraising with bingo, casino, poker or race nights",
+            "parent": 3
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 230,
+            "text": "Do you want to run or take part in  a bingo or poker",
+            "parent": 3
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 240,
+            "text": "Are you looking to set up a commerical gambling business",
+            "parent": 3
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 250,
+            "text": "Can you give legal advice about my proposed business",
+            "parent": 3
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 260,
+            "text": "Check to see if a gambling business holds a licence",
+            "parent": 4
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 270,
+            "text": "Information about Loot Boxes and Social Gaming",
+            "parent": 4
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 280,
+            "text": "Gambling Safety Guidance for parents",
+            "parent": 4
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 290,
+            "text": "General Consumer Guidance ",
+            "parent": 4
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 300,
+            "text": "Tools to help you control your gambling",
+            "parent": 4
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 310,
+            "text": "Other enquiry",
+            "parent": 4
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1000,
+            "text": "Concern about self-exclusion",
+            "parent": 110
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1100,
+            "text": "Have you spent more than you can afford",
+            "parent": 110
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1200,
+            "text": "Concern about other responsible gambling tools",
+            "parent": 110
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1300,
+            "text": "Concern about Marketing & Advertising",
+            "parent": 120
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1400,
+            "text": "Concern about unfair gameplay",
+            "parent": 120
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1500,
+            "text": "Concern about customer service",
+            "parent": 120
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1600,
+            "text": "Concern about a technical fault",
+            "parent": 120
+        },
+        {
+            "type": "question",
+            "value": null,
+            "id": 1700,
+            "text": "Concern about how your data has been used",
+            "parent": 120
+        },
+        {
+            "type": "form",
+            "value": "w",
+            "id": 5000,
+            "text": null,
+            "parent": 100
+        },
+        {
+            "type": "form",
+            "value": "se",
+            "id": 5100,
+            "text": null,
+            "parent": 1000
+        },
+        {
+            "type": "form",
+            "value": "sr",
+            "id": 5200,
+            "text": null,
+            "parent": 1100
+        },
+        {
+            "type": "form",
+            "value": "sg",
+            "id": 5300,
+            "text": null,
+            "parent": 1200
+        },
+        {
+            "type": "form",
+            "value": "adr",
+            "id": 5400,
+            "text": null,
+            "parent": 130
+        },
+        {
+            "type": "form",
+            "value": "con",
+            "id": 5500,
+            "text": null,
+            "parent": 2
+        },
+        {
+            "type": "form",
+            "value": "gen",
+            "id": 5600,
+            "text": null,
+            "parent": 310
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-gambling-businesses/Compliance/General-compliance/Making-changes-to-an-existing-operating-licence.aspx",
+            "id": 6000,
+            "text": "Making changes to an existing operating licence",
+            "parent": 140
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-gambling-businesses/Compliance/General-compliance/Making-changes-to-an-existing-operating-licence.aspx            ",
+            "id": 6100,
+            "text": "Information about eServices",
+            "parent": 150
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-gambling-businesses/Do-I-need-a-licence/Personal-licence-maintenance.aspx",
+            "id": 6200,
+            "text": "How to renew your personal licence (maintenance process)",
+            "parent": 160
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-gambling-businesses/Do-I-need-a-licence/Personal-functional-licence.aspx",
+            "id": 6300,
+            "text": "How to make changes to your personal licence",
+            "parent": 170
+        },
+        {
+            "type": "link",
+            "value": "ADD LINK HERE",
+            "id": 6400,
+            "text": "Contact licensing",
+            "parent": 180
+        },
+        {
+            "type": "link",
+            "value": "COMMISSION BANK DETAILS?",
+            "id": 6500,
+            "text": "How to make a payment to the Commission",
+            "parent": 190
+        },
+        {
+            "type": "link",
+            "value": "http://www.gamblingcommission.gov.uk/PDF/quick-guides/Running-a-lottery-quick-guide.pdf",
+            "id": 6700,
+            "text": "Do you want to run a lottery/raffle?",
+            "parent": 200
+        },
+        {
+            "type": "link",
+            "value": "http://www.gamblingcommission.gov.uk/PDF/Prize-competitions-and-free-draws-the-requirements-of-the-gambling-act-2005.pdf",
+            "id": 6800,
+            "text": "Do you want to run a prize competition or free prize draw?",
+            "parent": 210
+        },
+        {
+            "type": "link",
+            "value": "http://www.gamblingcommission.gov.uk/for-the-public/Fundraising-and-promotions/Fundraising/Bingo-casino-or-poker-nights.aspx",
+            "id": 6900,
+            "text": "Do you want to do fundraising with bingo, casino, poker or race nights?",
+            "parent": 220
+        },
+        {
+            "type": "link",
+            "value": "http://www.gamblingcommission.gov.uk/for-the-public/Private-gambling-gaming.aspx",
+            "id": 7000,
+            "text": "Do you want to run or take part in a bingo or poker",
+            "parent": 230
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-gambling-businesses/Do-I-need-a-licence/Types-of-operating-licence.aspx",
+            "id": 7100,
+            "text": "Are you looking to set up a commerical gambling business?",
+            "parent": 240
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/Footer/Legal-advice.aspx",
+            "id": 7200,
+            "text": "Can you give legal advice about my proposed business",
+            "parent": 250
+        },
+        {
+            "type": "link",
+            "value": "https://secure.gamblingcommission.gov.uk/PublicRegister",
+            "id": 7300,
+            "text": "Check to see if a gambling business holds a licence",
+            "parent": 260
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/news-action-and-statistics/News/international-concern-over-blurred-lines-between-gambling-and-video-games",
+            "id": 7400,
+            "text": "Informaion about Loot Boxes and Social Gaming",
+            "parent": 270
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-the-public/Safer-gambling/Consumer-guides/Gambling-safely-guidance-for-parents.aspx",
+            "id": 7500,
+            "text": "Gambling Safety Guidance for parents",
+            "parent": 280
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-the-public/Safer-gambling/Consumer-guides/Consumer-guides.aspx",
+            "id": 7600,
+            "text": "General Consumer Guidance",
+            "parent": 290
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-the-public/Safer-gambling/Tools-to-help-you-control-your-gambling.aspx",
+            "id": 7700,
+            "text": "Tools to help you control your gambling",
+            "parent": 300
+        }
+    ]
+}

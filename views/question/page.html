@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact the Gambling Commission
+{% endblock %}
+
+{% block ogTitle %}
+Contact the Gambling Commission
+{% endblock %}
+
+{% block pageDescription %}
+Find answers to common questions and contact the Gambling Commission
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+   
+    <form method="POST" action="/question/page">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What does your query relate to?
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+
+            {% for i in pageData %}
+            {% if i.type === "question" %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="question-{{i.id}}" name="question" type="radio" value="{{i.id}}">
+              <label class="govuk-label govuk-radios__label" for="question-{{i.id}}">
+                {{i.text}}
+              </label>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button" type="submit">
+        Continue
+      </button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact the Gambling Commission
+{% endblock %}
+
+{% block ogTitle %}
+Contact the Gambling Commission
+{% endblock %}
+
+{% block pageDescription %}
+Find answers to common questions and contact the Gambling Commission
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+
+
+{% endblock %}
+
+{% block beforeContent %}
+{% if parentID !== "0" %}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Contact the Gambling Commission</h1>
+
+    <p class="govuk-body">You can use this service to find information about common queries, or complete an online form
+      to get in contact with us.</p>
+
+    <form method="GET">
+      <input type="hidden" name="refID" value="{{parentID}}"> 
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              What does your query relate to?
+            </h2>
+          </legend>
+          <div class="govuk-radios">
+
+            {% for i in questions %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="q-{{i.id}}" name="r" type="radio" value="{{i.id}}">
+              <label class="govuk-label govuk-radios__label" for="q-{{i.id}}">
+                {{i.question}}
+              </label>
+            </div>
+            {% endfor %}
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
