@@ -13,6 +13,10 @@ Links
 {% block heroContent %}
 {% endblock %}
 
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
