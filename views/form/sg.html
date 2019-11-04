@@ -1,0 +1,267 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Form M
+{% endblock %}
+
+{% block pageDescription %}
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block content %}
+<a href="/form/" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-1">Complete the form</h1>
+
+        <form>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                    <legend class="govuk-body">
+                        Have you contacted us before?
+                    </legend>
+
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
+                                value="yes">
+                            <label class="govuk-label govuk-radios__label" for="changed-name">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+                                value="no">
+                            <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    What is your full name
+                </label>
+                <input class="govuk-input" id="event-name" name="event-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    What is your user ID for online gambling
+                </label>
+                <input class="govuk-input" id="event-name" name="event-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                    What is your email address?
+                </label>
+                <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint"
+                    autocomplete="email" spellcheck="false">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="telephone-number">
+                    What is your telephone number?
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number"
+                    type="tel" autocomplete="tel">
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="response-needed-hint">
+                    <legend class="govuk-fieldset__legend">
+                        <h1 class="govuk-fieldset__heading">
+                            Would you like a response to your enquiry?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="response-needed" name="response" type="radio"
+                                value="yes" data-aria-controls="conditional-response-needed">
+                            <label class="govuk-label govuk-radios__label" for="response-needed">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-response-needed">
+                            <div class="govuk-form-group">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="event-name">
+                                        Do you require any reasonable adjustments? If so, provide details.
+                                    </label>
+                                    <input class="govuk-input" id="event-name" name="event-name" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                                        <legend class="govuk-body">
+                                            What is your preferred method of contact?
+                                        </legend>
+
+                                        <div class="govuk-radios govuk-radios--inline">
+                                            <div class="govuk-radios__item">
+                                                <input class="govuk-radios__input" id="changed-name" name="changed-name"
+                                                    type="radio" value="email">
+                                                <label class="govuk-label govuk-radios__label" for="changed-name">
+                                                    Email
+                                                </label>
+                                            </div>
+                                            <div class="govuk-radios__item">
+                                                <input class="govuk-radios__input" id="changed-name-2"
+                                                    name="changed-name" type="radio" value="Telephone">
+                                                <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                                    Telephone
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="response-needed-2" name="response" type="radio"
+                                value="no" data-aria-controls="conditional-response-needed-2">
+                            <label class="govuk-label govuk-radios__label" for="response-needed-2">
+                                No
+                            </label>
+                        </div>
+                </fieldset>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
+                    <legend class="govuk-fieldset__legend">
+                        <h1 class="govuk-fieldset__heading">
+                            Have you complained to the gambling business?
+                        </h1>
+                    </legend>
+                    <span id="complained-to-operator-hint" class="govuk-hint">
+                        Include supplimentary text about complaining in the first instance
+                    </span>
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator" name="complained-to-operator"
+                                type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator-2"
+                                name="complained-to-operator" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    What is the name of the gambling business?
+                </label>
+                <input class="govuk-input" id="event-name" name="event-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="gambling-tool-hint">
+                    <legend class="govuk-fieldset__legend">
+                        <h1 class="govuk-fieldset__heading">
+                            What responsible gambling tool is your concern about?
+                        </h1>
+                    </legend>
+                    <span id="gambling-tool-hint" class="govuk-hint">
+                        Select all that apply.
+                    </span>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="gambling-tool" name="gambling-tool"
+                                type="checkbox" value="self-exclusion">
+                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool">
+                                Self-exclusion
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="gambling-tool-2" name="gambling-tool"
+                                type="checkbox" value="time-out">
+                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-2">
+                                Time-out
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="gambling-tool-3" name="gambling-tool"
+                                type="checkbox" value="spend">
+                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-3">
+                                Spend limit
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="gambling-tool-4" name="gambling-tool"
+                                type="checkbox" value="play">
+                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-4">
+                                Play limit
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
+                    <legend class="govuk-fieldset__legend">
+                        <h1 class="govuk-fieldset__heading">
+                            Did the gambling business give you advice about the tools available?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator" name="complained-to-operator"
+                                type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator-2"
+                                name="complained-to-operator" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="more-detail">
+                    Provide a summary of your enquiry
+
+                </label>
+                <span id="more-detail-hint" class="govuk-hint">
+                    Include supplimentary text about the type of information we need
+                </span>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"
+                    aria-describedby="more-detail-hint"></textarea>
+            </div>
+        </form>
+    </div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+    Submit
+</button>
+
+{% endblock %}
