@@ -21,27 +21,56 @@ Form M
         <h1 class="govuk-heading-1">Complete the form</h1>
 
         <form>
-            <div class="govuk-form-group govuk-form-group--error">
-                <label class="govuk-label" for="full-name">
-                    What is your full name?
+
+                <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                            <legend class="govuk-body">
+                                Have you contacted us before?
+                            </legend>
+        
+                            <div class="govuk-radios govuk-radios--inline">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
+                                        value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+                                        value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="first-name">
+                    First name
                 </label>
-                <span id="full-name-error" class="govuk-error-message">
-                    <span class="govuk-visually-hidden">Error:</span> Enter your full name
-                </span>
-                <input class="govuk-input govuk-input--error" id="full-name" name="full-name" type="text"
-                    aria-describedby="full-name-error" autocomplete="name" spellcheck="false">
+                <input class="govuk-input" id="first-name" name="first-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="last-name">
+                    Last name
+                </label>
+                <input class="govuk-input" id="last-name" name="last-name" type="text">
             </div>
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="event-name">
                     What is your user ID for online gambling
                 </label>
-                <input class="govuk-input" id="event-name" name="event-name" type="text">
+                <input class="govuk-input" id="user-name" name="user-name" type="text">
             </div>
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="email">
-                    What is your email address?
+                    Email address
                 </label>
                 <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint"
                     autocomplete="email" spellcheck="false">
@@ -49,7 +78,7 @@ Form M
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="telephone-number">
-                    What is your telephone number?
+                    Telephone number
                 </label>
                 <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number"
                     type="tel" autocomplete="tel">
@@ -59,10 +88,5 @@ Form M
 </div>
 
 
-<a href="/forms/info-summary" role="button" draggable="false" class="govuk-button govuk-button" data-module="govuk-button">
-        Continue
-        <svg class="govuk-button__start-icon" width="17" height="19" role="presentation" focusable="false">
-        </svg>
-      </a>
 
 {% endblock %}

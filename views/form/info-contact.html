@@ -24,51 +24,26 @@ Form M
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="response-hint">
                     <legend class="govuk-body">
-                        Would you like a response to your enquiry?
+                        How would you like to be contacted?
                     </legend>
 
-                    <div class="govuk-radios govuk-radios--inline">
+                    <div class="govuk-radios govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="response" name="response" type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="response">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="response-2" name="response" type="radio" value="no">
+                            <input class="govuk-radios__input" id="response-2" name="response" type="radio" value="email">
                             <label class="govuk-label govuk-radios__label" for="response-2">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="govuk-form-group govuk-form-group--error">
-                <fieldset class="govuk-fieldset"
-                    aria-describedby="preferred-contact-method-hint preferred-contact-method-error">
-                    <legend class="govuk-fieldset__legend">
-
-                        <body class="govuk-fieldset__heading">
-                            How would you prefer to be contacted?
-                        </body>
-                    </legend>
-                                        <span id="preferred-contact-method-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Select either email or telephone
-                    </span>
-                    <div class="govuk-radios govuk-radios--inline">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="preferred-contact-method"
-                                name="preferred-contact-method" type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="preferred-contact-method">
                                 Email
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="preferred-contact-method-2"
-                                name="preferred-contact-method" type="radio" value="telephone">
-                            <label class="govuk-label govuk-radios__label" for="preferred-contact-method-2">
+                            <input class="govuk-radios__input" id="response-2" name="response" type="radio" value="telephone">
+                            <label class="govuk-label govuk-radios__label" for="response-2">
                                 Telephone
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="response" name="response" type="radio" value="i-don't-want-to-be-contacted">
+                            <label class="govuk-label govuk-radios__label" for="response">
+                                I don't want to be contacted
                             </label>
                         </div>
                     </div>
@@ -116,10 +91,5 @@ Form M
 
           
 
-<a href="/forms/info-details" role="button" draggable="false" class="govuk-button govuk-button" data-module="govuk-button">
-    Continue
-    <svg class="govuk-button__start-icon" width="17" height="19" role="presentation" focusable="false">
-    </svg>
-  </a>
 
 {% endblock %}
