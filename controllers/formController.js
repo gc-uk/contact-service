@@ -89,7 +89,12 @@ exports.form_get = function (req, res) {
       // Form ID
       var view = pageData[0].value;
 
-      return res.redirect('/form/' + view);
+      req.session["formref"] = view;
+      console.log('*************************************************form ref: ')
+
+      console.log( req.session["formref"])
+
+      return res.redirect('/form/gen/info-details');
    }
 
    // Got here, somethings gone very wrong
@@ -145,7 +150,7 @@ exports.info_details_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('form/gen/info-contact')
+      res.redirect('/form/gen/info-contact')
 
    }
 }
@@ -173,7 +178,7 @@ exports.info_contact_post = function (req, res) {
 
 
    // Render the form or redirect 
-
+console.log( req.session["formref"])
    if (err) {
 
       // Form is in error
@@ -186,7 +191,10 @@ exports.info_contact_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/page/:id')
+
+   
+
+      res.redirect('/form/' +  req.session["formref"])
 
    }
 }

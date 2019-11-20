@@ -14,7 +14,7 @@ Form M
 {% endblock %}
 
 {% block content %}
-<a href="/question/page/0" class="govuk-back-link">Back</a>
+<a href="/form/gen/info-details" class="govuk-back-link">Back</a>
 
 {% if err %}
 <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
@@ -37,17 +37,19 @@ Form M
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-1">Complete the form</h1>
+       
 
-        <form>
-            <div class="govuk-form-group { % if err_response %} govuk-form-group—error {% endif %"}>
+        <form method="POST">
+            <div class="govuk-form-group {% if err_response %} govuk-form-group—error {% endif %}">
                 <fieldset class="govuk-fieldset" aria-describedby="response-hint response-error">
                   <legend class="govuk-fieldset__legend">
-                      Have you changed your name?
+                    <h1 class="govuk-heading-1">How do you wish to be contacted?</h1>
                   </legend>
+                  {% if err_response %}
                   <span id="response-error" class="govuk-error-message">
                     <span class="govuk-visually-hidden">Error:</span> Select how you wish to be contacted
                   </span>
+                  {% endif %}
                   <div class="govuk-radios govuk-radios">
                     <div class="govuk-radios__item">
                       <input class="govuk-radios__input" id="response" name="response" type="radio" value="email">
@@ -110,5 +112,11 @@ Form M
                     </div>
                 </fieldset>
             </div>
+            <button class="govuk-button" type="submit">
+                Continue
+            </button>
+        </form>
+        </div>  
+</div>
 
 {% endblock %}
