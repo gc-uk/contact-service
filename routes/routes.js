@@ -16,7 +16,6 @@ router.get('/feedback-thanks', homeController.feedback_thanks_get);
 // POSTS
 router.post('/feedback', homeController.feedback_post);
 
-
 // Question Pages
 // These are the pages which handle questions
 router.get('/question/page', questionController.question_noid_get);
@@ -28,14 +27,19 @@ router.post('/question/page', questionController.question_post);
 router.get('/link/page', linkController.link_noid_get);
 router.get('/link/page/:id', linkController.link_get);
 
-
 // Form Pages
 // These are the pages which handle forms
 router.get('/form/page', formController.form_noid_get);
 router.get('/form/page/:id', formController.form_get);
 router.get('/form/complete', formController.form_complete_get);
 
+// Repeat this for the forms
+router.get('/form/gen/info-details', formController.info_details_get);
+router.post('/form/gen/info-details', formController.info_details_post);
+
 router.get('/form/:id', formController.form_ID_get);
+
+
 
 
 module.exports = router

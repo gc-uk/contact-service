@@ -1,4 +1,5 @@
 const d = require('../data/contactcentre.json');
+var err = false;
 
 exports.form_noid_get = function (req, res) {
 
@@ -101,4 +102,53 @@ exports.form_complete_get = function (req, res) {
    // No ID has been passed into the querystring, as this is a question page, push the user back to the start - 0.
    // No messing here, the user is manipulating the URL so bump them off
    res.redirect('/form/complete')
+}
+
+exports.info_details_get = function (req, res) {
+   // console.log('info details get')
+   res.render("form/gen/info-details");
+}
+
+
+
+exports.info_details_post = function (req, res) {
+   console.log('info details post')
+
+   err = false;
+   var err_first_name = false;
+   var err_last_name = false;
+   // Create a variable for each form input to check
+
+   if (req.body['first-name'] === "") {
+      err = true;
+      err_first_name = true;
+   }
+
+   if (req.body['last-name'] === "") {
+      err = true;
+      err_last_name = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/gen/info-details', {
+         err,
+         err_first_name,         
+         err_last_name
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('form/gen/info-contact')
+
+   }
 }

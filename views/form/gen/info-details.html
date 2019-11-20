@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Form M
+{% endblock %}
+
+{% block pageDescription %}
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block content %}
+<a href="/forms/info-contact" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if err %}
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+            data-module="govuk-error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+
+                    {% if err_first_name %}
+                    <li>
+                        <a href="#first-name">Provide your first name</a>
+                    </li>
+                    {% endif %}
+
+                    {% if err_last_name %}
+                    <li>
+                        <a href="#last-name">Provide your last name</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+
+        <h1 class="govuk-heading-1">Complete the form</h1>
+
+        <form method="POST">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                    <legend class="govuk-body">
+                        Have you contacted us before?
+                    </legend>
+
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
+                                value="yes">
+                            <label class="govuk-label govuk-radios__label" for="changed-name">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+                                value="no">
+                            <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group {% if err_first_name %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="first-name">
+                    First name
+                </label>
+                {% if err_first_name %}
+                <span id="event-name-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Provide your first name
+                </span>
+                {% endif %}
+                <input class="govuk-input {% if err_first_name %}govuk-input--error{% endif %} " id="first-name"
+                    name="first-name" type="text"  value="{{data['first-name']}}">
+            </div>
+
+
+            <div class="govuk-form-group  {% if err_last_name %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="last-name">
+                    Last name
+                </label>
+                {% if err_last_name %}
+                <span id="event-name-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Provide your last name
+                </span>
+                {% endif %}
+                <input class="govuk-input {% if err_last_name %}govuk-input--error{% endif %} " id="last-name" name="last-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    What is your user ID for online gambling
+                </label>
+                <input class="govuk-input" id="user-name" name="user-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                    Email address
+                </label>
+                <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint"
+                    autocomplete="email" spellcheck="false">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="telephone-number">
+                    Telephone number
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number"
+                    type="tel" autocomplete="tel">
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button" type="submit">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}
