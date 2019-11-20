@@ -36,6 +36,8 @@ router.get('/form/complete', formController.form_complete_get);
 // Repeat this for the forms
 router.get('/form/gen/info-details', formController.info_details_get);
 router.post('/form/gen/info-details', formController.info_details_post);
+// router.get('/form/gen/info-contact', formController.info_contact_get);
+router.post('/form/gen/info-contact', formController.info_contact_post);
 
 router.get('/form/:id', formController.form_ID_get);
 

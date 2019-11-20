@@ -109,8 +109,6 @@ exports.info_details_get = function (req, res) {
    res.render("form/gen/info-details");
 }
 
-
-
 exports.info_details_post = function (req, res) {
    console.log('info details post')
 
@@ -132,7 +130,6 @@ exports.info_details_post = function (req, res) {
    // Repeat this for all the form inputs you want to check.
    // These is only checking if there is a value.
 
-
    // Render the form or redirect 
 
    if (err) {
@@ -152,3 +149,45 @@ exports.info_details_post = function (req, res) {
 
    }
 }
+
+exports.info_contact_get = function (req, res) {
+   // console.log('info details get')
+   res.render("form/gen/info-contact");
+
+}
+
+exports.info_contact_post = function (req, res) {
+   console.log('info contact post')
+
+   err = false;
+   var err_response = false;
+   // Create a variable for each form input to check
+
+   if (req.body['response'] === "") {
+      err = true;
+      err_response = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/gen/info-contact', {
+         err,
+         err_response
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/page/:id')
+
+   }
+}
+
