@@ -50,23 +50,22 @@ Form M
         <form method="POST">
 
             <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                <fieldset class="govuk-fieldset" aria-describedby="contacted-hint">
                     <legend class="govuk-body">
                         Have you contacted us before?
                     </legend>
 
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
-                                value="yes">
-                            <label class="govuk-label govuk-radios__label" for="changed-name">
+                            <input class="govuk-radios__input" id="contacted" name="contacted" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="contacted">
                                 Yes
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+                            <input class="govuk-radios__input" id="contacted-2" name="contacted" type="radio"
                                 value="no">
-                            <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                            <label class="govuk-label govuk-radios__label" for="contacted-2">
                                 No
                             </label>
                         </div>
@@ -84,7 +83,7 @@ Form M
                 </span>
                 {% endif %}
                 <input class="govuk-input {% if err_first_name %}govuk-input--error{% endif %} " id="first-name"
-                    name="first-name" type="text"  value="{{data['first-name']}}">
+                    name="first-name" type="text" value="{{data['first-name']}}">
             </div>
 
 
@@ -97,7 +96,8 @@ Form M
                     <span class="govuk-visually-hidden">Error:</span> Provide your last name
                 </span>
                 {% endif %}
-                <input class="govuk-input {% if err_last_name %}govuk-input--error{% endif %} " id="last-name" name="last-name" type="text">
+                <input class="govuk-input {% if err_last_name %}govuk-input--error{% endif %} " id="last-name"
+                    name="last-name" type="text" value="{{data['last-name']}}">
             </div>
 
             <div class="govuk-form-group">
