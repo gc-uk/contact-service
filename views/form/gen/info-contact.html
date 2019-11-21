@@ -40,14 +40,14 @@ Form M
 
 
         <form method="POST">
-            <div class="govuk-form-group {% if err_response %} govuk-form-group—error {% endif %}">
+            <div class="govuk-form-group {% if err_response %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset" aria-describedby="response-hint response-error">
                     <legend class="govuk-fieldset__legend">
                         <h1 class="govuk-heading-1">How do you wish to be contacted?</h1>
                     </legend>
                     {% if err_response %}
                     <span id="response-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Select how you wish to be contacted
+                        <span class="govuk-visually-hidden">Error:</span> How do you wish to be contacted?
                     </span>
                     {% endif %}
                     <div class="govuk-radios govuk-radios">
@@ -74,13 +74,12 @@ Form M
                     </div>
                 </fieldset>
             </div>
-        </form>
 
 
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="adjustments-needed-conditional-hint">
                 <legend class="govuk-fieldset__legend">
-                    Do you require reasonable adjustments?
+                    Do you require reasonable adjustments? (optional)
                 </legend>
                 <span id="adjustments-needed-conditional-hint" class="govuk-hint">
                     Select one option.
@@ -115,7 +114,7 @@ Form M
             </fieldset>
         </div>
         
-        <button class="govuk-button" type="submit">
+        <button class="govuk-button" data-module="govuk-button" type="submit">
             Continue
         </button>
         </form>

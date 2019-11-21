@@ -29,7 +29,7 @@ Form M
     <ul class="govuk-list govuk-error-summary__list">
       {% if err_more_detail %}
       <li>
-        <a href="#more_detail">Enter more detail</a>
+        <a href="#more_detail">Provide a summmary of your enquiry</a>
       </li>
       {% endif %}
     </ul>
@@ -41,12 +41,12 @@ Form M
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-1">Complete the form</h1>
 
-    <form>
+    <form method="POST">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
           <legend class="govuk-fieldset__legend">
             <h1 class="govuk-fieldset__heading">
-              Have you complained to the gambling business?
+              Have you complained to the gambling business? (optional)
             </h1>
           </legend>
           <span id="complained-to-operator-hint" class="govuk-hint">
@@ -73,7 +73,7 @@ Form M
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="event-name">
-          What is the name of the gambling business?
+          What is the name of the gambling business? (optional)
         </label>
         <input class="govuk-input" id="event-name" name="event-name" type="text">
       </div>
@@ -82,7 +82,7 @@ Form M
         <fieldset class="govuk-fieldset" role="group" aria-describedby="withdrawal-requested-hint">
           <legend class="govuk-fieldset__legend">
             <h1 class="govuk-fieldset__heading">
-              When did you request to withdraw money?
+              When did you request to withdraw money? (optional)
             </h1>
           </legend>
           <span id="withdrawal-requested-hint" class="govuk-hint">
@@ -122,28 +122,26 @@ Form M
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="event-name">
-          How were are you looking to withdraw?
+          How much were are you looking to withdraw? (optional)
         </label>
         <input class="govuk-input" id="event-name" name="event-name" type="text">
       </div>
 
-      <form method="POST">
-        <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-          <label class="govuk-label" for="more-detail">
-            Provide a summmary of your enquiry
-          </label>
-          <span id="more-detail-hint" class="govuk-hint">
-            Include supplimentary text about the type of information we need.
-          </span>
-          {% if err_more_detail %}
-          <span id="more-detail-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Enter more detail
-          </span>
-          {% endif %}
-          <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}" id="more-detail"
-            name="more-detail" rows="5" aria-describedby="more-detail-hint more-detail-error"></textarea>
-        </div>
-      </form>
+      <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+        <label class="govuk-label" for="more-detail">
+          Provide a summmary of your enquiry
+        </label>
+        <span id="more-detail-hint" class="govuk-hint">
+          Include supplimentary text about the type of information we need.
+        </span>
+        {% if err_more_detail %}
+        <span id="more-detail-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Provide a summmary of your enquiry
+        </span>
+        {% endif %}
+        <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}" id="more-detail"
+          name="more-detail" rows="5" aria-describedby="more-detail-hint more-detail-error"></textarea>
+      </div>
 
       <button class="govuk-button" data-module="govuk-button" type="submit">
         Continue

@@ -26,7 +26,7 @@ Form M
         <ul class="govuk-list govuk-error-summary__list">
             {% if err_more_detail %}
             <li>
-                <a href="#more_detail">Enter more detail</a>
+                <a href="#more_detail">Provide a summmary of your enquiry</a>
             </li>
             {% endif %}
         </ul>
@@ -39,12 +39,12 @@ Form M
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-1">Complete the form</h1>
 
-        <form>
+        <form method="POST">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend">
                         <h1 class="govuk-fieldset__heading">
-                            What is the name of the ADR?
+                            What is the name of the ADR? (optional)
                         </h1>
                     </legend>
                     <span id="changed-name-hint" class="govuk-hint">
@@ -130,7 +130,7 @@ Form M
                 <fieldset class="govuk-fieldset" aria-describedby="concern-hint">
                     <legend class="govuk-fieldset__legend">
                         <h1 class="govuk-fieldset__heading">
-                            What is your concern about?
+                            What is your concern about? (optional)
                         </h1>
                     </legend>
                     <span id="concern-hint" class="govuk-hint">
@@ -169,7 +169,7 @@ Form M
                 </fieldset>
             </div>
 
-            <form method="POST">
+            
                 <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
                     <label class="govuk-label" for="more-detail">
                         Provide a summmary of your enquiry
@@ -179,14 +179,14 @@ Form M
                     </span>
                     {% if err_more_detail %}
                     <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Enter more detail
+                        <span class="govuk-visually-hidden">Error:</span> Provide a summmary of your enquiry
                     </span>
                     {% endif %}
                     <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
                         id="more-detail" name="more-detail" rows="5"
                         aria-describedby="more-detail-hint more-detail-error"></textarea>
                 </div>
-            </form>
+
 
             <button class="govuk-button" data-module="govuk-button" type="submit">
                 Continue

@@ -168,7 +168,7 @@ exports.info_contact_post = function (req, res) {
    var err_response = false;
    // Create a variable for each form input to check
 
-   if (req.body['response'] === "") {
+   if (req.body['response'] === undefined) {
       err = true;
       err_response = true;
    }
@@ -233,7 +233,7 @@ exports.adr_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/continue')
+      res.redirect('/form/gen/complete')
 
    }
 }
@@ -272,7 +272,7 @@ exports.gen_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/continue')
+      res.redirect('/form/gen/complete')
 
    }
 }
@@ -311,7 +311,7 @@ exports.se_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/continue')
+      res.redirect('/form/gen/complete')
 
    }
 }
@@ -350,7 +350,7 @@ exports.sg_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/continue')
+      res.redirect('/form/gen/complete')
 
    }
 }
@@ -389,7 +389,7 @@ exports.sr_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/continue')
+      res.redirect('/form/gen/complete')
 
    }
 }
@@ -428,7 +428,7 @@ exports.w_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/continue')
+      res.redirect('/form/gen/complete')
 
    }
 }
