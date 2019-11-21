@@ -37,86 +37,89 @@ Form M
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-       
+
 
         <form method="POST">
             <div class="govuk-form-group {% if err_response %} govuk-form-group—error {% endif %}">
                 <fieldset class="govuk-fieldset" aria-describedby="response-hint response-error">
-                  <legend class="govuk-fieldset__legend">
-                    <h1 class="govuk-heading-1">How do you wish to be contacted?</h1>
-                  </legend>
-                  {% if err_response %}
-                  <span id="response-error" class="govuk-error-message">
-                    <span class="govuk-visually-hidden">Error:</span> Select how you wish to be contacted
-                  </span>
-                  {% endif %}
-                  <div class="govuk-radios govuk-radios">
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="response" name="response" type="radio" value="email">
-                      <label class="govuk-label govuk-radios__label" for="response">
-                        Email
-                      </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="response" name="response" type="radio" value="telephone">
-                      <label class="govuk-label govuk-radios__label" for="response">
-                        Telephone
-                      </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="response" name="response" type="radio" value="dont-contact">
-                      <label class="govuk-label govuk-radios__label" for="response">
-                        I don’t want to be contacted
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              
-
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="adjustments-needed-conditional-hint">
                     <legend class="govuk-fieldset__legend">
-                        Do you require reasonable adjustments?
+                        <h1 class="govuk-heading-1">How do you wish to be contacted?</h1>
                     </legend>
-                    <span id="adjustments-needed-conditional-hint" class="govuk-hint">
-                        Select one option.
+                    {% if err_response %}
+                    <span id="response-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Select how you wish to be contacted
                     </span>
-                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                    {% endif %}
+                    <div class="govuk-radios govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="adjustments-needed-conditional"
-                                name="adjustments-needed" type="radio" value="Yes"
-                                data-aria-controls="conditional-adjustments-needed-conditional">
-                            <label class="govuk-label govuk-radios__label" for="adjustments-needed-conditional">
-                                Yes
+                            <input class="govuk-radios__input" id="response" name="response" type="radio" value="email">
+                            <label class="govuk-label govuk-radios__label" for="response">
+                                Email
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
-                            id="conditional-adjustments-needed-conditional">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label" for="adjustments-needed">
-                                    Provide details
-                                </label>
-                                <input class="govuk-input govuk" id="adjustments-needed" name="adjustments-needed">
-                            </div>
-
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="response" name="response" type="radio"
+                                value="telephone">
+                            <label class="govuk-label govuk-radios__label" for="response">
+                                Telephone
+                            </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="adjustments-needed-conditional-2"
-                                name="adjustments-needed" type="radio" value="No"
-                                data-aria-controls="conditional-adjustments-needed-conditional-2">
-                            <label class="govuk-label govuk-radios__label" for="adjustments-needed-conditional-2">
-                                No
+                            <input class="govuk-radios__input" id="response" name="response" type="radio"
+                                value="dont-contact">
+                            <label class="govuk-label govuk-radios__label" for="response">
+                                I don’t want to be contacted
                             </label>
                         </div>
                     </div>
                 </fieldset>
             </div>
-            <button class="govuk-button" type="submit">
-                Continue
-            </button>
         </form>
-        </div>  
+
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="adjustments-needed-conditional-hint">
+                <legend class="govuk-fieldset__legend">
+                    Do you require reasonable adjustments?
+                </legend>
+                <span id="adjustments-needed-conditional-hint" class="govuk-hint">
+                    Select one option.
+                </span>
+                <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="adjustments-needed-conditional" name="adjustments-needed"
+                            type="radio" value="Yes" data-aria-controls="conditional-adjustments-needed-conditional">
+                        <label class="govuk-label govuk-radios__label" for="adjustments-needed-conditional">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                        id="conditional-adjustments-needed-conditional">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="adjustments-needed">
+                                Provide details
+                            </label>
+                            <input class="govuk-input govuk" id="adjustments-needed" name="adjustments-needed">
+                        </div>
+
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="adjustments-needed-conditional-2"
+                            name="adjustments-needed" type="radio" value="No"
+                            data-aria-controls="conditional-adjustments-needed-conditional-2">
+                        <label class="govuk-label govuk-radios__label" for="adjustments-needed-conditional-2">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        
+        <button class="govuk-button" type="submit">
+            Continue
+        </button>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

@@ -14,7 +14,26 @@ Form M
 {% endblock %}
 
 {% block content %}
-<a href="/question/page/0" class="govuk-back-link">Back</a>
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+
+{% if err %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+    data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            {% if err_more_detail %}
+            <li>
+                <a href="#more_detail">Enter more detail</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -150,17 +169,25 @@ Form M
                 </fieldset>
             </div>
 
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="more-detail">
-                    Provide a summary of your concerns
+            <form method="POST">
+                <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label" for="more-detail">
+                        Provide a summmary of your enquiry
+                    </label>
+                    <span id="more-detail-hint" class="govuk-hint">
+                        Include supplimentary text about the type of information we need.
+                    </span>
+                    {% if err_more_detail %}
+                    <span id="more-detail-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Enter more detail
+                    </span>
+                    {% endif %}
+                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                        id="more-detail" name="more-detail" rows="5"
+                        aria-describedby="more-detail-hint more-detail-error"></textarea>
+                </div>
+            </form>
 
-                </label>
-                <span id="more-detail-hint" class="govuk-hint">
-                    Include supplimentary text about the type of information we need
-                </span>
-                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"
-                    aria-describedby="more-detail-hint"></textarea>
-            </div>
             <button class="govuk-button" data-module="govuk-button" type="submit">
                 Continue
             </button>

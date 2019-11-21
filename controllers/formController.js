@@ -199,3 +199,236 @@ console.log( req.session["formref"])
    }
 }
 
+exports.adr_get = function (req, res) {
+   // console.log('adr form get')
+   res.render("form/adr");
+}
+
+exports.adr_post = function (req, res) {
+   console.log('adr form post')
+
+   err = false;
+   var err_more_detail = false;
+   // Create a variable for each form input to check
+
+   if (req.body['more-detail'] === "") {
+      err = true;
+      err_more_detail = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/adr', {
+         err,
+         err_more_detail,
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/continue')
+
+   }
+}
+
+exports.gen_get = function (req, res) {
+   // console.log('gen form get')
+   res.render("form/gen");
+}
+
+exports.gen_post = function (req, res) {
+   console.log('gen form post')
+
+   err = false;
+   var err_more_detail = false;
+   // Create a variable for each form input to check
+
+   if (req.body['more-detail'] === "") {
+      err = true;
+      err_more_detail = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/gen', {
+         err,
+         err_more_detail,
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/continue')
+
+   }
+}
+
+exports.se_get = function (req, res) {
+   // console.log('se form get')
+   res.render("form/se");
+}
+
+exports.se_post = function (req, res) {
+   console.log('se form post')
+
+   err = false;
+   var err_more_detail = false;
+   // Create a variable for each form input to check
+
+   if (req.body['more-detail'] === "") {
+      err = true;
+      err_more_detail = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/se', {
+         err,
+         err_more_detail,
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/continue')
+
+   }
+}
+
+exports.sg_get = function (req, res) {
+   // console.log('sg form get')
+   res.render("form/sg");
+}
+
+exports.sg_post = function (req, res) {
+   console.log('sg form post')
+
+   err = false;
+   var err_more_detail = false;
+   // Create a variable for each form input to check
+
+   if (req.body['more-detail'] === "") {
+      err = true;
+      err_more_detail = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/sg', {
+         err,
+         err_more_detail,
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/continue')
+
+   }
+}
+
+exports.sr_get = function (req, res) {
+   // console.log('sr form get')
+   res.render("form/sr");
+}
+
+exports.sr_post = function (req, res) {
+   console.log('sr form post')
+
+   err = false;
+   var err_more_detail = false;
+   // Create a variable for each form input to check
+
+   if (req.body['more-detail'] === "") {
+      err = true;
+      err_more_detail = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/sr', {
+         err,
+         err_more_detail,
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/continue')
+
+   }
+}
+
+exports.w_get = function (req, res) {
+   // console.log('w form get')
+   res.render("form/w");
+}
+
+exports.w_post = function (req, res) {
+   console.log('w form post')
+
+   err = false;
+   var err_more_detail = false;
+   // Create a variable for each form input to check
+
+   if (req.body['more-detail'] === "") {
+      err = true;
+      err_more_detail = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/w', {
+         err,
+         err_more_detail,
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/continue')
+
+   }
+}
