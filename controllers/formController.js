@@ -1,6 +1,9 @@
 const d = require('../data/contactcentre.json');
 var err = false;
 
+var NotifyClient = require('notifications-node-client').NotifyClient,
+    notify = new NotifyClient(process.env.NotifyKey);
+
 exports.form_noid_get = function (req, res) {
 
    // No ID has been passed into the querystring, as this is a question page, push the user back to the start - 0.
@@ -427,7 +430,20 @@ exports.w_post = function (req, res) {
       })
    } else {
 
-      // Form isn't in error, redirect to next page
+      // Form isn't in error, send via Notify to the inbox
+
+      // notify
+      // .sendEmail(process.env.formw, req.session.data['email'], {
+      //     personalisation: {
+      //         'firstname': req.session.data['first-name'],              
+      //         'lastname': req.session.data['last-name'],
+      //         'summary': req.session.dat['more-detail'],
+      //         'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained'])
+      //     }
+      // })
+      // .then(response => console.log("Sent"))
+      // .catch(err => console.error("errored"))
+
       res.redirect('/form/gen/complete')
 
    }
