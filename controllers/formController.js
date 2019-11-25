@@ -432,3 +432,7 @@ exports.w_post = function (req, res) {
 
    }
 }
+
+exports.complete = function (req, res) {
+   res.render("form/gen/complete");
+}

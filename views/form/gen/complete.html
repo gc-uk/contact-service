@@ -1,1 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
 Complete
+{% endblock %}
+
+{% block ogTitle %}
+Complete
+{% endblock %}
+
+{% block pageDescription %}
+Complete
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+   
+    <div class="gc-notification gc-notification--success">
+        <h1 class="govuk-heading-l">We've got your message</h1>
+      
+{% if data['response'] === 'email' or data['response'] === 'telephone' %}
+  <p class="govuk-body">
+      We'll respond to your query within [x] days. There is no need to submit another request as this may delay your response.
+  </p>
+{% endif %}
+       
+    </div>
+
+    <h2 class="govuk-heading-m">Next steps</h2>
+
+    <p class="govuk-body">Return to the <a href="https://www.gamblingcommission.gov.uk">Gambling Commission homepage</a> .</p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -55,6 +55,7 @@ router.post('/form/w', formController.w_post);
 
 router.get('/form/:id', formController.form_ID_get);
 
+router.get('/form/gen/complete', formController.complete);
 
 
 
