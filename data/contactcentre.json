@@ -88,7 +88,7 @@
             "type": "question",
             "value": null,
             "id": 180,
-            "text": "Are you looking to set up a commerical gambling business",
+            "text": "Are you looking to set up a commercial gambling business",
             "parent": 2
         },
         {
@@ -130,7 +130,7 @@
             "type": "question",
             "value": null,
             "id": 240,
-            "text": "Are you looking to set up a commerical gambling business",
+            "text": "Are you looking to set up a commercial gambling business",
             "parent": 3
         },
         {
@@ -200,7 +200,7 @@
             "type": "question",
             "value": null,
             "id": 1200,
-            "text": "Concern about other responsible gambling tools",
+            "text": "What is your responsible gambling concern about?",
             "parent": 110
         },
         {
@@ -214,7 +214,7 @@
             "type": "question",
             "value": null,
             "id": 1400,
-            "text": "Concern about unfair gameplay",
+            "text": "Concern about unfair game play",
             "parent": 120
         },
         {
@@ -361,7 +361,7 @@
             "type": "link",
             "value": "https://www.gamblingcommission.gov.uk/for-gambling-businesses/Do-I-need-a-licence/Types-of-operating-licence.aspx",
             "id": 7100,
-            "text": "Are you looking to set up a commerical gambling business?",
+            "text": "Are you looking to set up a commercial gambling business?",
             "parent": 240
         },
         {
@@ -382,7 +382,7 @@
             "type": "link",
             "value": "https://www.gamblingcommission.gov.uk/news-action-and-statistics/News/international-concern-over-blurred-lines-between-gambling-and-video-games",
             "id": 7400,
-            "text": "Informaion about Loot Boxes and Social Gaming",
+            "text": "Information about Loot Boxes and Social Gaming",
             "parent": 270
         },
         {

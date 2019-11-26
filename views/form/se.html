@@ -26,7 +26,7 @@ Form M
         <ul class="govuk-list govuk-error-summary__list">
             {% if err_more_detail %}
             <li>
-                <a href="#more_detail">Provide a summmary of your enquiry</a>
+                <a href="#more_detail">Provide a summary of your enquiry</a>
             </li>
             {% endif %}
         </ul>
@@ -41,65 +41,26 @@ Form M
         <form method="POST">
             <div class="govuk-form-group">
                 <label class="govuk-label" for="event-name">
-                    What is the name of the gambling business? (optional)
+                    What is the name of the gambling business?
                 </label>
                 <input class="govuk-input" id="event-name" name="event-name" type="text">
             </div>
 
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
-
             <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="exclusion-requested-hint">
-                    <legend class="govuk-fieldset__legend">
-                        <h1 class="govuk-fieldset__heading">
-                            When did you self exclude? (optional)
-                        </h1>
-                    </legend>
-                    <span id="exclusion-requested-hint" class="govuk-hint">
-                        For example, 12 11 2007
-                    </span>
-                    <div class="govuk-date-input" id="exclusion-requested">
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="exclusion-requested-day">
-                                    Day
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                                    id="exclusion-requested-day" name="exclusion-requested-day" type="number"
-                                    pattern="[0-9]*">
-                            </div>
-                        </div>
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="exclusion-requested-month">
-                                    Month
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                                    id="exclusion-requested-month" name="exclusion-requested-month" type="number"
-                                    pattern="[0-9]*">
-                            </div>
-                        </div>
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="exclusion-requested-year">
-                                    Year
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4"
-                                    id="exclusion-requested-year" name="exclusion-requested-year" type="number"
-                                    pattern="[0-9]*">
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
+                <label class="govuk-label" for="event-name">
+                    What is your user ID for online gambling?
+                </label>
+                <input class="govuk-input" id="user-name" name="user-name" type="text">
             </div>
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="self-exclusion-hint">
                     <legend class="govuk-fieldset__legend ">
                         <h1 class="govuk-fieldset__heading">
-                            How did you self exclude? (optional)
+                            How did you self exclude?
                         </h1>
                     </legend>
                     <span id="self-exclusion-hint" class="govuk-hint">
@@ -108,16 +69,16 @@ Form M
                     <div class="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion" name="self-exclusion"
-                                type="checkbox" value="moses">
+                                type="checkbox" value="bacta">
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion">
-                                Moses
+                                Bacta
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion-2" name="self-exclusion"
-                                type="checkbox" value="gamstop">
+                                type="checkbox" value="bingo-association">
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-2">
-                                GamStop
+                                Bingo Association
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
@@ -127,6 +88,34 @@ Form M
                                 Direct from the gambling business
                             </label>
                         </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="self-exclusion-4" name="self-exclusion"
+                                type="checkbox" value="gamstop">
+                            <label class="govuk-label govuk-checkboxes__label" for="self-exclusion">
+                                GamStop
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="self-exclusion-5" name="self-exclusion"
+                                type="checkbox" value="sense">
+                            <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-5">
+                                SENSE (National Casino Forum)
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="self-exclusion-6" name="self-exclusion"
+                                type="checkbox" value="moses">
+                            <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-6">
+                                MOSES (Multi-operator self-exclusion scheme)
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="self-exclusion-7" name="self-exclusion"
+                                type="checkbox" value="ihl">
+                            <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-7">
+                                Smart Exclusion (IHL Tech Ltd)
+                            </label>
+                        </div>
                     </div>
                 </fieldset>
             </div>
@@ -134,23 +123,23 @@ Form M
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
 
 
-                <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label" for="more-detail">
-                        Provide a summmary of your enquiry
-                    </label>
-                    <span id="more-detail-hint" class="govuk-hint">
-                        Include supplimentary text about the type of information we need.
-                    </span>
-                    {% if err_more_detail %}
-                    <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Provide a summmary of your enquiry
-                    </span>
-                    {% endif %}
-                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                        id="more-detail" name="more-detail" rows="5"
-                        aria-describedby="more-detail-hint more-detail-error"></textarea>
-                </div>
-            
+            <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="more-detail">
+                    Provide a summary of your enquiry
+                </label>
+                <span id="more-detail-hint" class="govuk-hint">
+                    Include supplementary text about the type of information we need.
+                </span>
+                {% if err_more_detail %}
+                <span id="more-detail-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                </span>
+                {% endif %}
+                <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                    id="more-detail" name="more-detail" rows="5"
+                    aria-describedby="more-detail-hint more-detail-error"></textarea>
+            </div>
+
             <button class="govuk-button" data-module="govuk-button" type="submit">
                 Continue
             </button>

@@ -26,7 +26,7 @@ Form M
         <ul class="govuk-list govuk-error-summary__list">
             {% if err_more_detail %}
             <li>
-                <a href="#more_detail">Provide a summmary of your enquiry</a>
+                <a href="#more_detail">Provide a summary of your enquiry</a>
             </li>
             {% endif %}
         </ul>
@@ -62,14 +62,14 @@ Form M
                             <input class="govuk-radios__input" id="adr-name-2" name="adr-name" type="radio"
                                 value="bacta">
                             <label class="govuk-label govuk-radios__label" for="adr-name-2">
-                                BACTA ADR Service
+                                Bacta ADR Service
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-3" name="adr-name" type="radio"
                                 value="cedr">
                             <label class="govuk-label govuk-radios__label" for="adr-name-3">
-                                Centre for Effective Dispute Resolution (CEDR)
+                                CEDR (Centre for Effective Dispute Resolution)
                             </label>
                         </div>
                         <div class="govuk-radios__item">
@@ -83,7 +83,7 @@ Form M
                             <input class="govuk-radios__input" id="adr-name-4" name="adr-name" type="radio"
                                 value="ibasl">
                             <label class="govuk-label govuk-radios__label" for="adr-name-4">
-                                Independent Betting Adjudication Service Limited
+                                IBAS (Independent Betting Adjudication Service Limited)
                             </label>
                         </div>
                         <div class="govuk-radios__item">
@@ -172,14 +172,14 @@ Form M
             
                 <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
                     <label class="govuk-label" for="more-detail">
-                        Provide a summmary of your enquiry
+                        Provide a summary of your enquiry
                     </label>
                     <span id="more-detail-hint" class="govuk-hint">
-                        Include supplimentary text about the type of information we need.
+                        Include supplementary text about the type of information we need.
                     </span>
                     {% if err_more_detail %}
                     <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Provide a summmary of your enquiry
+                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
                     </span>
                     {% endif %}
                     <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
