@@ -1,8 +1,8 @@
 const d = require('../data/contactcentre.json');
 var err = false;
 
-var NotifyClient = require('notifications-node-client').NotifyClient,
-    notify = new NotifyClient(process.env.NotifyKey);
+// var NotifyClient = require('notifications-node-client').NotifyClient,
+//     notify = new NotifyClient(process.env.NotifyKey);
 
 exports.form_noid_get = function (req, res) {
 
