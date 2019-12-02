@@ -471,20 +471,19 @@ exports.w_post = function (req, res) {
 
       // Form isn't in error, send via Notify to the inbox
 
-      // notify
-      // .sendEmail(process.env.formw, req.session.data['email'], {
-      //     personalisation: {
-      //         'firstname': req.session.data['first-name'],              
-      //         'lastname': req.session.data['last-name'],
-      //         'summary': req.session.dat['more-detail'],
-      //         'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained'])
-      //     }
-      // })
-      // .then(response => console.log("Sent"))
-      // .catch(err => console.error("errored"))
+      notify
+      .sendEmail(process.env.formw, req.session.data['email'], {
+          personalisation: {
+              'firstname': req.session.data['first-name'],              
+              'lastname': req.session.data['last-name'],
+              'summary': req.session.dat['more-detail'],
+              'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained'])
+          }
+      })
+      .then(response => console.log("Sent"))
+      .catch(err => console.error("errored"))
 
       res.redirect('/form/gen/complete')
-
    }
 }
 
