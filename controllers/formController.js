@@ -2,7 +2,7 @@ const d = require('../data/contactcentre.json');
 var err = false;
 
 // var NotifyClient = require('notifications-node-client').NotifyClient,
-//     notify = new NotifyClient(process.env.NotifyKey);
+//    notify = new NotifyClient('key')
 
 exports.form_noid_get = function (req, res) {
 
@@ -42,7 +42,6 @@ exports.form_ID_get = function (req, res) {
    //Somethings gone wrong...
    return res.redirect('/question/page/0')
 }
-
 
 
 exports.form_get = function (req, res) {
@@ -95,7 +94,7 @@ exports.form_get = function (req, res) {
       req.session["formref"] = view;
       console.log('*************************************************form ref: ')
 
-      console.log( req.session["formref"])
+      console.log(req.session["formref"])
 
       return res.redirect('/form/gen/info-details');
    }
@@ -146,7 +145,7 @@ exports.info_details_post = function (req, res) {
 
       res.render('form/gen/info-details', {
          err,
-         err_first_name,         
+         err_first_name,
          err_last_name
          // add all the other variables from the checks you'll add above.
       })
@@ -181,7 +180,7 @@ exports.info_contact_post = function (req, res) {
 
 
    // Render the form or redirect 
-console.log( req.session["formref"])
+   console.log(req.session["formref"])
    if (err) {
 
       // Form is in error
@@ -195,9 +194,9 @@ console.log( req.session["formref"])
 
       // Form isn't in error, redirect to next page
 
-   
 
-      res.redirect('/form/' +  req.session["formref"])
+
+      res.redirect('/form/' + req.session["formref"])
 
    }
 }
@@ -235,9 +234,22 @@ exports.adr_post = function (req, res) {
       })
    } else {
 
-      // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/complete')
+      // Form isn't in error, send via Notify to the inbox
 
+      notify
+         .sendEmail(process.env.formadr, req.session.data['email'], {
+            personalisation: {
+               'firstname': req.session.data['first-name'],
+               'lastname': req.session.data['last-name'],
+               'adrname': req.session.data['adr-name'],
+               'concern': req.session.data['concern'],
+               'summary': req.session.data['more-detail']
+            }
+         })
+         .then(response => console.log("Sent"))
+         .catch(err => console.error("errored"))
+
+      res.redirect('/form/gen/complete')
    }
 }
 
@@ -274,7 +286,21 @@ exports.conrep_post = function (req, res) {
       })
    } else {
 
-      // Form isn't in error, redirect to next page
+      // Form isn't in error, send via Notify to the inbox
+
+      notify
+         .sendEmail(process.env.formconrep, req.session.data['email'], {
+            personalisation: {
+               'firstname': req.session.data['first-name'],
+               'lastname': req.session.data['last-name'],
+               'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
+               'operator': req.session.data['operator-name'],
+               'summary': req.session.data['more-detail']
+            }
+         })
+         .then(response => console.log("Sent"))
+         .catch(err => console.error("errored"))
+
       res.redirect('/form/gen/complete')
 
    }
@@ -313,8 +339,21 @@ exports.gen_post = function (req, res) {
       })
    } else {
 
-      // Form isn't in error, redirect to next page
+      // Form isn't in error, send via Notify to the inbox
+
+      notify
+         .sendEmail(process.env.formconrep, req.session.data['email'], {
+            personalisation: {
+               'firstname': req.session.data['first-name'],
+               'lastname': req.session.data['last-name'],
+               'summary': req.session.data['more-detail']
+            }
+         })
+         .then(response => console.log("Sent"))
+         .catch(err => console.error("errored"))
+
       res.redirect('/form/gen/complete')
+
 
    }
 }
@@ -352,8 +391,23 @@ exports.se_post = function (req, res) {
       })
    } else {
 
-      // Form isn't in error, redirect to next page
+      // Form isn't in error, send via Notify to the inbox
+
+      notify
+         .sendEmail(process.env.formconrep, req.session.data['email'], {
+            personalisation: {
+               'firstname': req.session.data['first-name'],
+               'lastname': req.session.data['last-name'],
+               'operator': req.session.data['operator-name'],
+               'selfExclusion': req.session.data['self-exclusion'],
+               'summary': req.session.data['more-detail']
+            }
+         })
+         .then(response => console.log("Sent"))
+         .catch(err => console.error("errored"))
+
       res.redirect('/form/gen/complete')
+
 
    }
 }
@@ -391,7 +445,22 @@ exports.sg_post = function (req, res) {
       })
    } else {
 
-      // Form isn't in error, redirect to next page
+      // Form isn't in error, send via Notify to the inbox
+
+      notify
+         .sendEmail(process.env.formconrep, req.session.data['email'], {
+            personalisation: {
+               'firstname': req.session.data['first-name'],
+               'lastname': req.session.data['last-name'],
+               'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
+               'operator': req.session.data['operator-name'],
+               'gamblingTool': req.session.data['gambling-tool'],
+               'summary': req.session.data['more-detail']
+            }
+         })
+         .then(response => console.log("Sent"))
+         .catch(err => console.error("errored"))
+
       res.redirect('/form/gen/complete')
 
    }
@@ -430,9 +499,25 @@ exports.sr_post = function (req, res) {
       })
    } else {
 
-      // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/complete')
+      // Form isn't in error, send via Notify to the inbox
 
+      notify
+         .sendEmail(process.env.formconrep, req.session.data['email'], {
+            personalisation: {
+               'firstname': req.session.data['first-name'],
+               'lastname': req.session.data['last-name'],
+               'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
+               'operator': req.session.data['operator-name'],
+               'totalSpend': req.session.data['total-spend'],
+               'timePeriod': req.session.data['time-period'],
+               'interactions': req.session.data['operator-interactions'],
+               'summary': req.session.data['more-detail']
+            }
+         })
+         .then(response => console.log("Sent"))
+         .catch(err => console.error("errored"))
+
+      res.redirect('/form/gen/complete')
    }
 }
 
@@ -471,17 +556,20 @@ exports.w_post = function (req, res) {
 
       // Form isn't in error, send via Notify to the inbox
 
+      var fullDate = req.session.data['complaint-date-day'] + '/' + req.session.data['complaint-date-month'] + '/' + req.session.data['complaint-date-year']
+
       notify
-      .sendEmail(process.env.formw, req.session.data['email'], {
-          personalisation: {
-              'firstname': req.session.data['first-name'],              
-              'lastname': req.session.data['last-name'],
-              'summary': req.session.dat['more-detail'],
-              'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained'])
-          }
-      })
-      .then(response => console.log("Sent"))
-      .catch(err => console.error("errored"))
+         .sendEmail(process.env.formw, req.session.data['email'], {
+            personalisation: {
+               'firstname': req.session.data['first-name'],
+               'lastname': req.session.data['last-name'],
+               'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
+               'operator': req.session.data['operator-name'],
+               'summary': req.session.data['more-detail']
+            }
+         })
+         .then(response => console.log("Sent"))
+         .catch(err => console.error("errored"))
 
       res.redirect('/form/gen/complete')
    }
