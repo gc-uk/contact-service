@@ -41,28 +41,51 @@ Form M
 
         <form method="POST">
             <div class="govuk-form-group {% if err_response %} govuk-form-group--error {% endif %}">
-                <fieldset class="govuk-fieldset" aria-describedby="response-hint response-error">
-                    <legend class="govuk-fieldset__legend">
-                        <h1 class="govuk-heading-1">How do you wish to be contacted?</h1>
+                <fieldset class="govuk-fieldset" aria-describedby="response-conditional-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                        <h1 class="govuk-fieldset__heading">
+                            How would you prefer to be contacted?
+                        </h1>
                     </legend>
                     {% if err_response %}
                     <span id="response-error" class="govuk-error-message">
                         <span class="govuk-visually-hidden">Error:</span> How do you wish to be contacted?
                     </span>
                     {% endif %}
-                    <div class="govuk-radios govuk-radios">
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="response" name="response" type="radio" value="email">
-                            <label class="govuk-label govuk-radios__label" for="response">
+                            <input class="govuk-radios__input" id="response-conditional" name="response" type="radio"
+                                value="email" data-aria-controls="conditional-response-conditional">
+                            <label class="govuk-label govuk-radios__label" for="response-conditional">
                                 Email
                             </label>
                         </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-response-conditional">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="contact-by-email">
+                                    Email address
+                                </label>
+                                <input class="govuk-input govuk" id="contact-by-email"
+                                    name="contact-by-email" type="email" spellcheck="false">
+                            </div>
+                        </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="response" name="response" type="radio"
-                                value="telephone">
-                            <label class="govuk-label govuk-radios__label" for="response">
-                                Telephone
+                            <input class="govuk-radios__input" id="response-conditional-2" name="response" type="radio"
+                                value="phone" data-aria-controls="conditional-response-conditional-2">
+                            <label class="govuk-label govuk-radios__label" for="response-conditional-2">
+                                Phone
                             </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-response-conditional-2">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="contact-by-phone">
+                                    Phone number
+                                </label>
+                                <input class="govuk-input govuk" id="contact-by-phone"
+                                    name="contact-by-phone" type="tel">
+                            </div>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="response" name="response" type="radio"
@@ -75,8 +98,7 @@ Form M
                 </fieldset>
             </div>
 
-
-        <!-- <div class="govuk-form-group">
+            <!-- <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="adjustments-needed-conditional-hint">
                 <legend class="govuk-fieldset__legend">
                     Do you require reasonable adjustments? (optional)
@@ -113,10 +135,10 @@ Form M
                 </div>
             </fieldset>
         </div> -->
-        
-        <button class="govuk-button" data-module="govuk-button" type="submit">
-            Continue
-        </button>
+
+            <button class="govuk-button" data-module="govuk-button" type="submit">
+                Continue
+            </button>
         </form>
     </div>
 </div>

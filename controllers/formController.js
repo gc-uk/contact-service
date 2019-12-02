@@ -241,6 +241,45 @@ exports.adr_post = function (req, res) {
    }
 }
 
+exports.conrep_get = function (req, res) {
+   // console.log('conrep form get')
+   res.render("form/conrep");
+}
+
+exports.conrep_post = function (req, res) {
+   console.log('conrep form post')
+
+   err = false;
+   var err_more_detail = false;
+   // Create a variable for each form input to check
+
+   if (req.body['more-detail'] === "") {
+      err = true;
+      err_more_detail = true;
+   }
+
+   // Repeat this for all the form inputs you want to check.
+   // These is only checking if there is a value.
+
+   // Render the form or redirect 
+
+   if (err) {
+
+      // Form is in error
+
+      res.render('form/conrep', {
+         err,
+         err_more_detail,
+         // add all the other variables from the checks you'll add above.
+      })
+   } else {
+
+      // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/complete')
+
+   }
+}
+
 exports.gen_get = function (req, res) {
    // console.log('gen form get')
    res.render("form/gen");

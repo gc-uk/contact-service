@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Form M
+{% endblock %}
+
+{% block pageDescription %}
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block content %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+
+{% if err %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+    data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            {% if err_more_detail %}
+            <li>
+                <a href="#more_detail">Provide a summary of your enquiry</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-1">Complete the form</h1>
+
+            <form method="POST">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
+                        <legend class="govuk-fieldset__legend">
+                            <h1 class="govuk-fieldset__heading">
+                                Have you complained to the gambling business? 
+                            </h1>
+                        </legend>
+                        <span id="complained-to-operator-hint" class="govuk-hint">
+                            Include supplementary text about complaining in the first instance
+                        </span>
+                        <div class="govuk-radios govuk-radios--inline">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="complained-to-operator" name="complained-to-operator"
+                                    type="radio" value="yes">
+                                <label class="govuk-label govuk-radios__label" for="complained-to-operator">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="complained-to-operator-2"
+                                    name="complained-to-operator" type="radio" value="no">
+                                <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+             
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="event-name">
+                        What is the name of the gambling business?
+                    </label>
+                    <input class="govuk-input" id="event-name" name="event-name" type="text">
+                </div>
+    
+               
+                <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label" for="more-detail">
+                        Provide a summary of your enquiry
+                    </label>
+                    <span id="more-detail-hint" class="govuk-hint">
+                        Include supplementary text about the type of information we need.
+                    </span>
+                    {% if err_more_detail %}
+                    <span id="more-detail-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                    </span>
+                    {% endif %}
+                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                        id="more-detail" name="more-detail" rows="5"
+                        aria-describedby="more-detail-hint more-detail-error"></textarea>
+                </div>
+
+            <button class="govuk-button" data-module="govuk-button" type="submit">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

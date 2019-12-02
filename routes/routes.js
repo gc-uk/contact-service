@@ -42,6 +42,8 @@ router.post('/form/gen/info-contact', formController.info_contact_post);
 
 router.get('/form/adr', formController.adr_get);
 router.post('/form/adr', formController.adr_post);
+router.get('/form/conrep', formController.conrep_get);
+router.post('/form/conrep', formController.conrep_post);
 router.get('/form/gen', formController.gen_get);
 router.post('/form/gen', formController.gen_post);
 router.get('/form/se', formController.se_get);
