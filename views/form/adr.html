@@ -24,11 +24,24 @@ Form M
     </h2>
     <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
-            {% if err_more_detail %}
+            {% if err_adr_name %}
             <li>
-                <a href="#more_detail">Provide a summary of your enquiry</a>
+                <a href="#adr-name">What is the name of the ADR?</a>
             </li>
             {% endif %}
+
+            {% if err_concern %}
+            <li>
+                <a href="#concern">What is your concern about?</a>
+            </li>
+            {% endif %}
+
+            {% if err_more_detail %}
+            <li>
+                <a href="#more-detail">Provide a summary of your enquiry</a>
+            </li>
+            {% endif %}
+
         </ul>
     </div>
 </div>
@@ -40,13 +53,18 @@ Form M
         <h1 class="govuk-heading-1">Complete the form</h1>
 
         <form method="POST">
-            <div class="govuk-form-group">
+            <div class="govuk-form-group {% if err_adr_name %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend">
                         <h1 class="govuk-fieldset__heading">
-                            What is the name of the ADR? (optional)
+                            What is the name of the ADR?
                         </h1>
                     </legend>
+                    {% if err_adr_name %}
+                    <span id="adr-name-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> What is the name of the ADR?
+                    </span>
+                    {% endif %}
                     <span id="changed-name-hint" class="govuk-hint">
                         Select one answer only.
                     </span>
@@ -126,13 +144,18 @@ Form M
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
 
-            <div class="govuk-form-group">
+            <div class="govuk-form-group {% if err_concern %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset" aria-describedby="concern-hint">
                     <legend class="govuk-fieldset__legend">
                         <h1 class="govuk-fieldset__heading">
-                            What is your concern about? (optional)
+                            What is your concern about?
                         </h1>
                     </legend>
+                    {% if err_concern %}
+                    <span id="concern-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> What is your concern about?
+                    </span>
+                    {% endif %}
                     <span id="concern-hint" class="govuk-hint">
                         Select all that apply.
                     </span>
@@ -169,23 +192,23 @@ Form M
                 </fieldset>
             </div>
 
-            
-                <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label" for="more-detail">
-                        Provide a summary of your enquiry
-                    </label>
-                    <span id="more-detail-hint" class="govuk-hint">
-                        Include supplementary text about the type of information we need.
-                    </span>
-                    {% if err_more_detail %}
-                    <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
-                    </span>
-                    {% endif %}
-                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                        id="more-detail" name="more-detail" rows="5"
-                        aria-describedby="more-detail-hint more-detail-error"></textarea>
-                </div>
+
+            <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="more-detail">
+                    Provide a summary of your enquiry
+                </label>
+                <span id="more-detail-hint" class="govuk-hint">
+                    Include supplementary text about the type of information we need.
+                </span>
+                {% if err_more_detail %}
+                <span id="more-detail-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                </span>
+                {% endif %}
+                <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                    id="more-detail" name="more-detail" rows="5"
+                    aria-describedby="more-detail-hint more-detail-error"></textarea>
+            </div>
 
 
             <button class="govuk-button" data-module="govuk-button" type="submit">

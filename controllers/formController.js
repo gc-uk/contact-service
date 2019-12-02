@@ -120,9 +120,15 @@ exports.info_details_post = function (req, res) {
    console.log('info details post')
 
    err = false;
+   var err_contacted = false;
    var err_first_name = false;
    var err_last_name = false;
    // Create a variable for each form input to check
+
+   if (req.body['contacted'] === undefined) {
+      err = true;
+      err_contacted = true;
+   }
 
    if (req.body['first-name'] === "") {
       err = true;
@@ -145,6 +151,7 @@ exports.info_details_post = function (req, res) {
 
       res.render('form/gen/info-details', {
          err,
+         err_contacted,
          err_first_name,
          err_last_name
          // add all the other variables from the checks you'll add above.
@@ -168,11 +175,29 @@ exports.info_contact_post = function (req, res) {
 
    err = false;
    var err_response = false;
+   var err_contact_by_email = false;
+   var err_contact_by_phone = false;
    // Create a variable for each form input to check
 
    if (req.body['response'] === undefined) {
       err = true;
       err_response = true;
+   }
+
+   if (req.body['response'] === 'email') {
+      console.log(req.body)
+      if (req.body['contact-by-email'] === "") {
+         err = true;
+         err_contact_by_email = true;
+      }
+   }
+
+   if (req.body['response'] === 'phone') {
+      console.log(req.body)
+      if (req.body['contact-by-phone'] === "") {
+         err = true;
+         err_contact_by_phone = true;
+      }
    }
 
    // Repeat this for all the form inputs you want to check.
@@ -187,7 +212,9 @@ exports.info_contact_post = function (req, res) {
 
       res.render('form/gen/info-contact', {
          err,
-         err_response
+         err_response,
+         err_contact_by_email,
+         err_contact_by_phone
          // add all the other variables from the checks you'll add above.
       })
    } else {
@@ -210,8 +237,21 @@ exports.adr_post = function (req, res) {
    console.log('adr form post')
 
    err = false;
+   var err_adr_name = false;
+   var err_concern = false;
    var err_more_detail = false;
+
    // Create a variable for each form input to check
+
+   if (req.body['adr-name'] === undefined) {
+      err = true;
+      err_adr_name = true;
+   }
+
+   if (req.body['concern'] === undefined) {
+      err = true;
+      err_concern = true;
+   }
 
    if (req.body['more-detail'] === "") {
       err = true;
@@ -229,6 +269,8 @@ exports.adr_post = function (req, res) {
 
       res.render('form/adr', {
          err,
+         err_adr_name,
+         err_concern,
          err_more_detail,
          // add all the other variables from the checks you'll add above.
       })

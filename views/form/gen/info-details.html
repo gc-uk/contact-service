@@ -28,6 +28,12 @@ Form M
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
 
+                    {% if err_contacted %}
+                    <li>
+                        <a href="#contacted">Have you contacted us before?</a>
+                    </li>
+                    {% endif %}
+
                     {% if err_first_name %}
                     <li>
                         <a href="#first-name">Provide your first name</a>
@@ -49,22 +55,27 @@ Form M
 
         <form method="POST">
 
-            <div class="govuk-form-group">
+            <div class="govuk-form-group {% if err_contacted %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset" aria-describedby="contacted-hint">
                     <legend class="govuk-body">
-                        Have you contacted us before? (optional)
+                        Have you contacted us before?
                     </legend>
+                    {% if err_contacted %}
+                    <span id="contacted-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Have you contacted us before?
+                    </span>
+                    {% endif %}
 
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contacted" name="contacted" type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="contacted">
+                            <input class="govuk-radios__input" id="contacted" name="contacted" type="radio" value="yes" {{ checked("contacted", "yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="contacted" >
                                 Yes
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="contacted-2" name="contacted" type="radio"
-                                value="no">
+                                value="no" {{ checked("contacted", "no") }}>
                             <label class="govuk-label govuk-radios__label" for="contacted-2">
                                 No
                             </label>

@@ -29,6 +29,18 @@ Form M
                 <a href="#response">How would you like to be contacted?</a>
             </li>
             {% endif %}
+
+            {% if err_contact_by_email %}
+            <li>
+                <a href="#contact-by-email">Provide your email address</a>
+            </li>
+            {% endif %}
+
+            {% if err_contact_by_phone %}
+            <li>
+                <a href="#contact-by-phone">Provide your phone number</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </div>
@@ -54,42 +66,52 @@ Form M
                     {% endif %}
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="response-conditional" name="response" type="radio"
-                                value="email" data-aria-controls="conditional-response-conditional">
+                            <input class="govuk-radios__input {% if err_response %}govuk-input--error{% endif %}" id="response-conditional" name="response" type="radio"
+                                value="email" data-aria-controls="conditional-response-conditional" {{ checked("response", "email") }}>
                             <label class="govuk-label govuk-radios__label" for="response-conditional">
                                 Email
                             </label>
                         </div>
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
                             id="conditional-response-conditional">
-                            <div class="govuk-form-group">
+                            <div class="govuk-form-group {% if err_contact_by_email %} govuk-form-group--error {% endif %}">
                                 <label class="govuk-label" for="contact-by-email">
                                     Email address
                                 </label>
-                                <input class="govuk-input govuk" id="contact-by-email"
-                                    name="contact-by-email" type="email" spellcheck="false">
+                                {% if err_contact_by_email %}
+                                <span id="contact_by_email-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Provide your email address
+                                </span>
+                                {% endif %}
+                                <input class="govuk-input govuk {% if err_contact_by_email %}govuk-input--error{% endif %}" id="contact-by-email" name="contact-by-email"
+                                    type="text">
                             </div>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="response-conditional-2" name="response" type="radio"
-                                value="phone" data-aria-controls="conditional-response-conditional-2">
+                                value="phone" data-aria-controls="conditional-response-conditional-2" {{ checked("response", "phone") }}>
                             <label class="govuk-label govuk-radios__label" for="response-conditional-2">
                                 Phone
                             </label>
                         </div>
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
                             id="conditional-response-conditional-2">
-                            <div class="govuk-form-group">
+                            <div class="govuk-form-group {% if err_contact_by_phone %} govuk-form-group--error {% endif %}">
                                 <label class="govuk-label" for="contact-by-phone">
                                     Phone number
                                 </label>
-                                <input class="govuk-input govuk" id="contact-by-phone"
-                                    name="contact-by-phone" type="tel">
+                                {% if err_contact_by_phone %}
+                                <span id="contact_by_phone-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Provide your phone number
+                                </span>
+                                {% endif %}
+                                <input class="govuk-input govuk {% if err_contact_by_phone %}govuk-input--error{% endif %}" id="contact-by-phone" name="contact-by-phone"
+                                    type="text">
                             </div>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="response" name="response" type="radio"
-                                value="dont-contact">
+                                value="dont-contact" {{ checked("response", "dont-contact") }}>
                             <label class="govuk-label govuk-radios__label" for="response">
                                 I don’t want to be contacted
                             </label>
