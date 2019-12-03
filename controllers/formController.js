@@ -304,9 +304,21 @@ exports.conrep_post = function (req, res) {
    console.log('conrep form post')
 
    err = false;
+   var err_complaint = false;
+   var err_operator_name
    var err_more_detail = false;
    // Create a variable for each form input to check
 
+   if (req.body['complained-to-operator']  === undefined) {
+      err = true;
+      err_complaint = true;
+   }
+
+   if (req.body['operator-name'] === "") {
+      err = true;
+      err_operator_name = true;
+   }
+   
    if (req.body['more-detail'] === "") {
       err = true;
       err_more_detail = true;
@@ -323,6 +335,8 @@ exports.conrep_post = function (req, res) {
 
       res.render('form/conrep', {
          err,
+         err_complaint,
+         err_operator_name,
          err_more_detail,
          // add all the other variables from the checks you'll add above.
       })
@@ -409,8 +423,26 @@ exports.se_post = function (req, res) {
    console.log('se form post')
 
    err = false;
+   var err_operator_name = false;
+   var err_user_name = false;
+   var err_self_exclusion = false;
    var err_more_detail = false;
    // Create a variable for each form input to check
+
+   if (req.body['operator-name'] === "") {
+      err = true;
+      err_operator_name = true;
+   }
+
+   if (req.body['user-name'] === "") {
+      err = true;
+      err_user_name = true;
+   }
+
+   if (req.body['self-exclusion'] === undefined) {
+      err = true;
+      err_self_exclusion = true;
+   }
 
    if (req.body['more-detail'] === "") {
       err = true;
@@ -428,6 +460,9 @@ exports.se_post = function (req, res) {
 
       res.render('form/se', {
          err,
+         err_operator_name,
+         err_user_name,
+         err_self_exclusion,
          err_more_detail,
          // add all the other variables from the checks you'll add above.
       })
@@ -464,6 +499,7 @@ exports.sg_post = function (req, res) {
 
    err = false;
    var err_more_detail = false;
+   
    // Create a variable for each form input to check
 
    if (req.body['more-detail'] === "") {

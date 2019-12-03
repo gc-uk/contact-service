@@ -24,9 +24,21 @@ Form M
     </h2>
     <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
+            {% if err_complaint %}
+            <li>
+                <a href="#complained-to-operator">Have you complained to the gambling business?</a>
+            </li>
+            {% endif %}
+
+            {% if err_operator_name %}
+            <li>
+                <a href="#operator-name">What is the name of the gambling business?</a>
+            </li>
+            {% endif %}
+
             {% if err_more_detail %}
             <li>
-                <a href="#more_detail">Provide a summary of your enquiry</a>
+                <a href="#more-detail">Provide a summary of your enquiry</a>
             </li>
             {% endif %}
         </ul>
@@ -38,60 +50,71 @@ Form M
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-1">Complete the form</h1>
 
-            <form method="POST">
-                <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
-                        <legend class="govuk-fieldset__legend">
-                            <h1 class="govuk-fieldset__heading">
-                                Have you complained to the gambling business? 
-                            </h1>
-                        </legend>
-                        <span id="complained-to-operator-hint" class="govuk-hint">
-                            Include supplementary text about complaining in the first instance
-                        </span>
-                        <div class="govuk-radios govuk-radios--inline">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="complained-to-operator" name="complained-to-operator"
-                                    type="radio" value="yes">
-                                <label class="govuk-label govuk-radios__label" for="complained-to-operator">
-                                    Yes
-                                </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="complained-to-operator-2"
-                                    name="complained-to-operator" type="radio" value="no">
-                                <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-             
-                <div class="govuk-form-group">
-                    <label class="govuk-label" for="operator-name">
-                        What is the name of the gambling business?
-                    </label>
-                    <input class="govuk-input" id="operator-name" name="operator-name" type="text">
-                </div>
-    
-               
-                <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label" for="more-detail">
-                        Provide a summary of your enquiry
-                    </label>
-                    <span id="more-detail-hint" class="govuk-hint">
-                        Include supplementary text about the type of information we need.
-                    </span>
-                    {% if err_more_detail %}
-                    <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+        <form method="POST">
+            <div class="govuk-form-group {% if err_complaint %} govuk-form-group--error {% endif %}">
+                <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
+                    <legend class="govuk-fieldset__legend">
+                        <h1 class="govuk-fieldset__heading">
+                            Have you complained to the gambling business?
+                        </h1>
+                    </legend>
+                    {% if err_complaint %}
+                    <span id="complaint-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Have you complained to the gambling business?
                     </span>
                     {% endif %}
-                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                        id="more-detail" name="more-detail" rows="5"
-                        aria-describedby="more-detail-hint more-detail-error"></textarea>
-                </div>
+                    <span id="complained-to-operator-hint" class="govuk-hint">
+                        Include supplementary text about complaining in the first instance
+                    </span>
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator" name="complained-to-operator"
+                                type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator-2"
+                                name="complained-to-operator" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="operator-name">
+                    What is the name of the gambling business?
+                </label>
+                {% if err_operator_name %}
+                <span id="operator-name-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> What is the name of the gambling business?
+                </span>
+                {% endif %}
+                <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}" id="operator-name"
+                    name="operator-name" type="text">
+            </div>
+
+
+            <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                <label class="govuk-label" for="more-detail">
+                    Provide a summary of your enquiry
+                </label>
+                <span id="more-detail-hint" class="govuk-hint">
+                    Include supplementary text about the type of information we need.
+                </span>
+                {% if err_more_detail %}
+                <span id="more-detail-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                </span>
+                {% endif %}
+                <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                    id="more-detail" name="more-detail" rows="5"
+                    aria-describedby="more-detail-hint more-detail-error"></textarea>
+            </div>
 
             <button class="govuk-button" data-module="govuk-button" type="submit">
                 Continue
