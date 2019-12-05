@@ -8,8 +8,10 @@
         "formconrep",
         "formref",
         "formw",
+        "gamblingid",
         "lastname",
         "noid",
-        "personalisation"
+        "personalisation",
+        "previouscontact"
     ]
 }

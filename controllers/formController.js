@@ -283,6 +283,9 @@ exports.adr_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
+               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
+               'email' : req.session.data['email'],
+               'telephone' : req.session.data['phone'],
                'adrname': req.session.data['adr-name'],
                'concern': req.session.data['concern'],
                'summary': req.session.data['more-detail']
@@ -351,6 +354,9 @@ exports.conrep_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
+               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
+               'email' : req.session.data['email'],
+               'telephone' : req.session.data['phone'],
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
                'summary': req.session.data['more-detail']
@@ -400,10 +406,13 @@ exports.gen_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formconrep, req.session.data['email'], {
+         .sendEmail(process.env.formgen, req.session.data['email'], {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
+               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
+               'email' : req.session.data['email'],
+               'telephone' : req.session.data['phone'],
                'summary': req.session.data['more-detail']
             }
          })
@@ -474,10 +483,13 @@ exports.se_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formconrep, req.session.data['email'], {
+         .sendEmail(process.env.formse, req.session.data['email'], {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
+               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
+               'email' : req.session.data['email'],
+               'telephone' : req.session.data['phone'],
                'operator': req.session.data['operator-name'],
                'selfExclusion': req.session.data['self-exclusion'],
                'summary': req.session.data['more-detail']
@@ -557,10 +569,13 @@ exports.sg_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formconrep, req.session.data['email'], {
+         .sendEmail(process.env.formsg, req.session.data['email'], {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
+               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
+               'email' : req.session.data['email'],
+               'telephone' : req.session.data['phone'],
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
                'gamblingTool': req.session.data['gambling-tool'],
@@ -660,16 +675,23 @@ exports.sr_post = function (req, res) {
 
       // Form isn't in error, send via Notify to the inbox
 
+      var openedDate = req.session.data['account-opened-day'] + '/' + req.session.data['account-opened-month'] + '/' + req.session.data['account-opened-year']
+
       notify
-         .sendEmail(process.env.formconrep, req.session.data['email'], {
+         .sendEmail(process.env.formsr, req.session.data['email'], {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
+               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
+               'email' : req.session.data['email'],
+               'telephone' : req.session.data['phone'],
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
+               'gamblingid' : req.session.data['user-name'],
+               'accountDate': openedDate,
                'totalSpend': req.session.data['total-spend'],
                'timePeriod': req.session.data['time-period'],
-               'interactions': req.session.data['operator-interactions'],
+               'interactions': ((req.session.data['operator-interaction'] === undefined) ? 'Not answered' : req.session.data['operator-interaction']),
                'summary': req.session.data['more-detail']
             }
          })
@@ -751,10 +773,14 @@ exports.w_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
+               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
+               'email' : req.session.data['email'],
+               'telephone' : req.session.data['phone'],
+               'complained': ((req.session.data['complained-to-operator'] === undefined) ? 'Not answered' : req.session.data['complained-to-operator']),
                'operator': req.session.data['operator-name'],
-               'summary': req.session.data['more-detail'],
-               'date': fullDate
+               'gamblingid' : req.session.data['user-name'],
+               'date': fullDate,
+               'summary': req.session.data['more-detail']               
             }
          })
          .then(response => console.log("Sent"))
