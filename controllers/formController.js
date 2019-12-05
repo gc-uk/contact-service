@@ -753,7 +753,8 @@ exports.w_post = function (req, res) {
                'lastname': req.session.data['last-name'],
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
-               'summary': req.session.data['more-detail']
+               'summary': req.session.data['more-detail'],
+               'date': fullDate
             }
          })
          .then(response => console.log("Sent"))
