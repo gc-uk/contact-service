@@ -78,140 +78,158 @@ Form M
                     <span id="complained-to-operator-hint" class="govuk-hint">
                         Include supplementary text about complaining in the first instance
                     </span>
-                    <div class="govuk-radios govuk-radios--inline">
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="complained-to-operator" name="complained-to-operator"
-                                type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="complained-to-operator">
+                            <input class="govuk-radios__input" id="complained-to-operator-conditional"
+                                name="complained-to-operator" type="radio" value="yes"
+                                {{ checked("complained-to-operator", "yes") }}
+                                data-aria-controls="conditional-complained-to-operator-conditional">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-conditional">
                                 Yes
                             </label>
                         </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-complained-to-operator-conditional">
+                            <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
+                                <label class="govuk-label" for="operator-name">
+                                    What is the name of the gambling business?
+                                </label>
+                                {% if err_operator_name %}
+                                <span id="operator-name-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> What is the name of the gambling
+                                    business?
+                                </span>
+                                {% endif %}
+                                <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}"
+                                    id="operator-name" name="operator-name" type="text">
+                            </div>
+
+
+                            <div
+                                class="govuk-form-group {% if err_gambling_tool %} govuk-form-group--error {% endif %}">
+                                <fieldset class="govuk-fieldset" aria-describedby="gambling-tool-hint">
+                                    <legend class="govuk-fieldset__legend">
+                                        <h1 class="govuk-fieldset__heading">
+                                            What responsible gambling tool is your concern about?
+                                        </h1>
+                                    </legend>
+                                    {% if err_gambling_tool %}
+                                    <span id="gambling-tool-error" class="govuk-error-message">
+                                        <span class="govuk-visually-hidden">Error:</span> What responsible gambling tool
+                                        is your concern
+                                        about?
+                                    </span>
+                                    {% endif %}
+                                    <span id="gambling-tool-hint" class="govuk-hint">
+                                        Select all that apply.
+                                    </span>
+                                    <div class="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="gambling-tool"
+                                                name="gambling-tool" type="checkbox" value="self-exclusion">
+                                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool">
+                                                Self-exclusion
+                                            </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="gambling-tool-2"
+                                                name="gambling-tool" type="checkbox" value="time-out">
+                                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-2">
+                                                Time-out
+                                            </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="gambling-tool-3"
+                                                name="gambling-tool" type="checkbox" value="spend">
+                                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-3">
+                                                Spend limit
+                                            </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="gambling-tool-4"
+                                                name="gambling-tool" type="checkbox" value="play">
+                                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-4">
+                                                Play limit
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div
+                                class="govuk-form-group {% if err_operator_advice %} govuk-form-group--error {% endif %}">
+                                <fieldset class="govuk-fieldset" aria-describedby="operator-advice-hint">
+                                    <legend class="govuk-fieldset__legend">
+                                        <h1 class="govuk-fieldset__heading">
+                                            Did the gambling business give you advice about the tools available?
+                                        </h1>
+                                    </legend>
+                                    {% if err_operator_advice %}
+                                    <span id="operator-advice-error" class="govuk-error-message">
+                                        <span class="govuk-visually-hidden">Error:</span> Did the gambling business give
+                                        you advice
+                                        about the tools available?
+                                    </span>
+                                    {% endif %}
+                                    <div class="govuk-radios govuk-radios--inline">
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="operator-advice"
+                                                name="operator-advice" type="radio" value="yes">
+                                            <label class="govuk-label govuk-radios__label" for="operator-advice">
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="operator-advice-2"
+                                                name="operator-advice" type="radio" value="no">
+                                            <label class="govuk-label govuk-radios__label" for="operator-advice-2">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+
+                            <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                                <label class="govuk-label" for="more-detail">
+                                    Provide a summary of your enquiry
+                                </label>
+                                <span id="more-detail-hint" class="govuk-hint">
+                                    Include supplementary text about the type of information we need.
+                                </span>
+                                {% if err_more_detail %}
+                                <span id="more-detail-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                                </span>
+                                {% endif %}
+                                <textarea
+                                    class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                                    id="more-detail" name="more-detail" rows="5"
+                                    aria-describedby="more-detail-hint more-detail-error"></textarea>
+                            </div>
+
+                            <button class="govuk-button" data-module="govuk-button" type="submit">
+                                Continue
+                            </button>
+                        </div>
+
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="complained-to-operator-2"
-                                name="complained-to-operator" type="radio" value="no">
+                                name="complained-to-operator" type="radio" value="no"
+                                data-aria-controls="conditional-complained-to-operator-conditional-2">
                             <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
                                 No
                             </label>
                         </div>
-                    </div>
-                </fieldset>
-            </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-complained-to-operator-2">
 
-            <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
-                <label class="govuk-label" for="operator-name">
-                    What is the name of the gambling business?
-                </label>
-                {% if err_operator_name %}
-                <span id="operator-name-error" class="govuk-error-message">
-                    <span class="govuk-visually-hidden">Error:</span> What is the name of the gambling business?
-                </span>
-                {% endif %}
-                <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}" id="operator-name"
-                    name="operator-name" type="text">
-            </div>
-
-            <div class="govuk-form-group {% if err_gambling_tool %} govuk-form-group--error {% endif %}">
-                <fieldset class="govuk-fieldset" aria-describedby="gambling-tool-hint">
-                    <legend class="govuk-fieldset__legend">
-                        <h1 class="govuk-fieldset__heading">
-                            What responsible gambling tool is your concern about?
-                        </h1>
-                    </legend>
-                    {% if err_gambling_tool %}
-                    <span id="gambling-tool-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> What responsible gambling tool is your concern
-                        about?
-                    </span>
-                    {% endif %}
-                    <span id="gambling-tool-hint" class="govuk-hint">
-                        Select all that apply.
-                    </span>
-                    <div class="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="gambling-tool" name="gambling-tool"
-                                type="checkbox" value="self-exclusion">
-                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool">
-                                Self-exclusion
-                            </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="gambling-tool-2" name="gambling-tool"
-                                type="checkbox" value="time-out">
-                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-2">
-                                Time-out
-                            </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="gambling-tool-3" name="gambling-tool"
-                                type="checkbox" value="spend">
-                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-3">
-                                Spend limit
-                            </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="gambling-tool-4" name="gambling-tool"
-                                type="checkbox" value="play">
-                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-4">
-                                Play limit
-                            </label>
                         </div>
                     </div>
                 </fieldset>
             </div>
-
-            <div class="govuk-form-group {% if err_operator_advice %} govuk-form-group--error {% endif %}">
-                <fieldset class="govuk-fieldset" aria-describedby="operator-advice-hint">
-                    <legend class="govuk-fieldset__legend">
-                        <h1 class="govuk-fieldset__heading">
-                            Did the gambling business give you advice about the tools available?
-                        </h1>
-                    </legend>
-                    {% if err_operator_advice %}
-                    <span id="operator-advice-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Did the gambling business give you advice
-                        about the tools available?
-                    </span>
-                    {% endif %}
-                    <div class="govuk-radios govuk-radios--inline">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="operator-advice" name="operator-advice" type="radio"
-                                value="yes">
-                            <label class="govuk-label govuk-radios__label" for="operator-advice">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="operator-advice-2" name="operator-advice"
-                                type="radio" value="no">
-                            <label class="govuk-label govuk-radios__label" for="operator-advice-2">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
-
-            <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                <label class="govuk-label" for="more-detail">
-                    Provide a summary of your enquiry
-                </label>
-                <span id="more-detail-hint" class="govuk-hint">
-                    Include supplementary text about the type of information we need.
-                </span>
-                {% if err_more_detail %}
-                <span id="more-detail-error" class="govuk-error-message">
-                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
-                </span>
-                {% endif %}
-                <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                    id="more-detail" name="more-detail" rows="5"
-                    aria-describedby="more-detail-hint more-detail-error"></textarea>
-            </div>
-
-            <button class="govuk-button" data-module="govuk-button" type="submit">
-                Continue
-            </button>
         </form>
     </div>
 </div>
