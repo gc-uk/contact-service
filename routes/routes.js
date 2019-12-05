@@ -42,16 +42,22 @@ router.post('/form/gen/info-contact', formController.info_contact_post);
 
 router.get('/form/adr', formController.adr_get);
 router.post('/form/adr', formController.adr_post);
+
 router.get('/form/conrep', formController.conrep_get);
 router.post('/form/conrep', formController.conrep_post);
+
 router.get('/form/gen', formController.gen_get);
 router.post('/form/gen', formController.gen_post);
+
 router.get('/form/se', formController.se_get);
 router.post('/form/se', formController.se_post);
+
 router.get('/form/sg', formController.sg_get);
 router.post('/form/sg', formController.sg_post);
+
 router.get('/form/sr', formController.sr_get);
 router.post('/form/sr', formController.sr_post);
+
 router.get('/form/w', formController.w_get);
 router.post('/form/w', formController.w_post);
 

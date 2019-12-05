@@ -307,9 +307,10 @@ exports.conrep_post = function (req, res) {
    var err_complaint = false;
    var err_operator_name
    var err_more_detail = false;
+
    // Create a variable for each form input to check
 
-   if (req.body['complained-to-operator']  === undefined) {
+   if (req.body['complained-to-operator'] === undefined) {
       err = true;
       err_complaint = true;
    }
@@ -318,7 +319,7 @@ exports.conrep_post = function (req, res) {
       err = true;
       err_operator_name = true;
    }
-   
+
    if (req.body['more-detail'] === "") {
       err = true;
       err_more_detail = true;
@@ -338,6 +339,7 @@ exports.conrep_post = function (req, res) {
          err_complaint,
          err_operator_name,
          err_more_detail,
+
          // add all the other variables from the checks you'll add above.
       })
    } else {
@@ -427,6 +429,7 @@ exports.se_post = function (req, res) {
    var err_user_name = false;
    var err_self_exclusion = false;
    var err_more_detail = false;
+
    // Create a variable for each form input to check
 
    if (req.body['operator-name'] === "") {
@@ -498,9 +501,33 @@ exports.sg_post = function (req, res) {
    console.log('sg form post')
 
    err = false;
+   var err_complaint = false;
+   var err_operator_name = false;
+   var err_gambling_tool = false;
+   var err_operator_advice = false;
    var err_more_detail = false;
-   
+
    // Create a variable for each form input to check
+
+   if (req.body['complained-to-operator'] === undefined) {
+      err = true;
+      err_complaint = true;
+   }
+
+   if (req.body['operator-name'] === "") {
+      err = true;
+      err_operator_name = true;
+   }
+
+   if (req.body['gambling-tool'] === undefined) {
+      err = true;
+      err_gambling_tool = true;
+   }
+
+   if (req.body['operator-detail'] === undefined) {
+      err = true;
+      err_operator_advice = true;
+   }
 
    if (req.body['more-detail'] === "") {
       err = true;
@@ -518,6 +545,10 @@ exports.sg_post = function (req, res) {
 
       res.render('form/sg', {
          err,
+         err_complaint,
+         err_operator_name,
+         err_gambling_tool,
+         err_operator_advice,
          err_more_detail,
          // add all the other variables from the checks you'll add above.
       })
@@ -553,8 +584,50 @@ exports.sr_post = function (req, res) {
    console.log('sr form post')
 
    err = false;
+   var err_complaint = false;
+   var err_operator_name = false;
+   var err_user_name = false;
+   var err_account_opened = false;
+   var err_total_spend = false;
+   var err_time_period = false;
+   var err_operator_interaction = false;
    var err_more_detail = false;
    // Create a variable for each form input to check
+
+   if (req.body['complained-to-operator'] === undefined) {
+      err = true;
+      err_complaint = true;
+   }
+
+   if (req.body['operator-name'] === "") {
+      err = true;
+      err_operator_name = true;
+   }
+
+   if (req.body['user-name'] === "") {
+      err = true;
+      err_user_name = true;
+   }
+
+   if (req.body['account-opened'] === "") {
+      err = true;
+      err_account_opened = true;
+   }
+
+   if (req.body['total-spend'] === "") {
+      err = true;
+      err_total_spend = true;
+   }
+
+   if (req.body['time-period'] === "") {
+      err = true;
+      err_time_period = true;
+   }
+
+   if (req.body['operator-interaction'] === undefined) {
+      err = true;
+      err_operator_interaction = true;
+   }
 
    if (req.body['more-detail'] === "") {
       err = true;
@@ -572,7 +645,15 @@ exports.sr_post = function (req, res) {
 
       res.render('form/sr', {
          err,
+         err_complaint,
+         err_operator_name,
+         err_user_name,
+         err_account_opened,
+         err_total_spend,
+         err_time_period,
+         err_operator_interaction,
          err_more_detail,
+
          // add all the other variables from the checks you'll add above.
       })
    } else {
@@ -608,8 +689,32 @@ exports.w_post = function (req, res) {
    console.log('w form post')
 
    err = false;
+   var err_complaint = false;
+   var err_operator_name = false;
+   var err_user_name = false;
+   var err_complaint_date = false;
    var err_more_detail = false;
    // Create a variable for each form input to check
+
+   if (req.body['complained-to-operator'] === undefined) {
+      err = true;
+      err_complaint = true;
+   }
+
+   if (req.body['operator-name'] === "") {
+      err = true;
+      err_operator_name = true;
+   }
+
+   if (req.body['user-name'] === "") {
+      err = true;
+      err_user_name = true;
+   }
+
+   if (req.body['complaint-date'] === "") {
+      err = true;
+      err_complaint_date = true;
+   }
 
    if (req.body['more-detail'] === "") {
       err = true;
@@ -627,7 +732,12 @@ exports.w_post = function (req, res) {
 
       res.render('form/w', {
          err,
+         err_complaint,
+         err_operator_name,
+         err_user_name,
+         err_complaint_date,
          err_more_detail,
+
          // add all the other variables from the checks you'll add above.
       })
    } else {

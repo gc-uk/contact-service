@@ -27,9 +27,34 @@ Form M
   </h2>
   <div class="govuk-error-summary__body">
     <ul class="govuk-list govuk-error-summary__list">
+
+      {% if err_complaint %}
+      <li>
+        <a href="#complained-to-operator">Have you complained to the gambling business?</a>
+      </li>
+      {% endif %}
+
+      {% if err_operator_name %}
+      <li>
+        <a href="#operator-name">What is the name of the gambling business?</a>
+      </li>
+      {% endif %}
+
+      {% if err_user_name %}
+      <li>
+        <a href="#user-name">What is your user ID for online gambling?</a>
+      </li>
+      {% endif %}
+
+      {% if err_complaint_date %}
+      <li>
+        <a href="#complaint-date">When did you complain to the gambling business?</a>
+      </li>
+      {% endif %}
+
       {% if err_more_detail %}
       <li>
-        <a href="#more_detail">Provide a summary of your enquiry</a>
+        <a href="#more-detail">Provide a summary of your enquiry</a>
       </li>
       {% endif %}
     </ul>
@@ -42,13 +67,18 @@ Form M
     <h1 class="govuk-heading-1">Complete the form</h1>
 
     <form method="POST">
-      <div class="govuk-form-group">
+      <div class="govuk-form-group {% if err_complaint %} govuk-form-group--error {% endif %}">
         <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
           <legend class="govuk-fieldset__legend">
             <h1 class="govuk-fieldset__heading">
               Have you complained to the gambling business?
             </h1>
           </legend>
+          {% if err_complaint %}
+          <span id="complaint-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Have you complained to the gambling business?
+          </span>
+          {% endif %}
           <span id="complained-to-operator-hint" class="govuk-hint">
             Include supplementary text about complaining in the first instance
           </span>
@@ -71,56 +101,76 @@ Form M
         </fieldset>
       </div>
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group {% if err_operator_name %} govuk-form-group--error {% endif %}">
         <label class="govuk-label" for="operator-name">
           What is the name of the gambling business?
         </label>
-        <input class="govuk-input" id="operator-name" name="operator-name" type="text">
+        {% if err_operator_name %}
+        <span id="operator-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> What is the name of the gambling business?
+        </span>
+        {% endif %}
+        <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}" id="operator-name"
+          name="operator-name" type="text">
       </div>
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
         <label class="govuk-label" for="user-name">
           What is your user ID for online gambling?
         </label>
-        <input class="govuk-input" id="user-name" name="user-name" type="text">
+        {% if err_user_name %}
+        <span id="user-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> What is your user ID for online gambling?
+        </span>
+        {% endif %}
+        <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}" id="user-name"
+          name="user-name" type="text">
       </div>
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="withdrawal-requested-hint">
+      <div class="govuk-form-group {% if err_complaint_date %} govuk-form-group--error {% endif %}">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="complaint-date-hint">
           <legend class="govuk-fieldset__legend">
             <h1 class="govuk-fieldset__heading">
               When did you complain to the gambling business?
             </h1>
           </legend>
-          <span id="withdrawal-requested-hint" class="govuk-hint">
+          {% if err_complaint_date %}
+          <span id="complaint-date-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> When did you complain to the gambling business?
+          </span>
+          {% endif %}
+          <span id="complaint-date-hint" class="govuk-hint">
             For example, 12 11 2007
           </span>
-          <div class="govuk-date-input" id="withdrawal-requested">
+          <div class="govuk-date-input" id="complaint-date">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="withdrawal-requested-day">
+                <label class="govuk-label govuk-date-input__label" for="complaint-date-day">
                   Day
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="withdrawal-requested-day"
-                  name="withdrawal-requested-day" type="number" pattern="[0-9]*">
+                <input
+                  class="govuk-input govuk-date-input__input govuk-input--width-2 {% if err_complaint_date %} govuk-form-input--error {% endif %}"
+                  id="complaint-date-day" name="complaint-date-day" type="number" pattern="[0-9]*">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="withdrawal-requested-month">
+                <label class="govuk-label govuk-date-input__label" for="complaint-date-month">
                   Month
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="withdrawal-requested-month"
-                  name="withdrawal-requested-month" type="number" pattern="[0-9]*">
+                <input
+                  class="govuk-input govuk-date-input__input govuk-input--width-2 {% if err_complaint_date %} govuk-form-input--error {% endif %}"
+                  id="complaint-date-month" name="complaint-date-month" type="number" pattern="[0-9]*">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="withdrawal-requested-year">
+                <label class="govuk-label govuk-date-input__label" for="complaint-date-year">
                   Year
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="withdrawal-requested-year"
-                  name="withdrawal-requested-year" type="number" pattern="[0-9]*">
+                <input
+                  class="govuk-input govuk-date-input__input govuk-input--width-4 {% if err_complaint_date %} govuk-form-input--error {% endif %}"
+                  id="complaint-date-year" name="complaint-date-year" type="number" pattern="[0-9]*">
               </div>
             </div>
           </div>
