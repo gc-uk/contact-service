@@ -275,14 +275,14 @@
         },
         {
             "type": "form",
-            "value": "conrep",
+            "value": "gen",
             "id": 5500,
             "text": null,
             "parent": 2
         },
         {
             "type": "form",
-            "value": "gen",
+            "value": "conrep",
             "id": 5600,
             "text": null,
             "parent": 310

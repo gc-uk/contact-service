@@ -280,7 +280,7 @@ exports.adr_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formadr, req.session.data['email'], {
+         .sendEmail(process.env.formadr, process.env.recipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
@@ -294,7 +294,7 @@ exports.adr_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored"))
+         .catch(err => console.error("errored: "+ err))
 
       res.redirect('/form/gen/complete')
    }
@@ -352,7 +352,7 @@ exports.conrep_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formconrep, req.session.data['email'], {
+         .sendEmail(process.env.formconrep, process.env.recipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
@@ -366,7 +366,7 @@ exports.conrep_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored"))
+         .catch(err => console.error("errored: "+ err))
 
       res.redirect('/form/gen/complete')
 
@@ -409,7 +409,7 @@ exports.gen_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formgen, req.session.data['email'], {
+         .sendEmail(process.env.formgen, process.env.recipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
@@ -421,7 +421,7 @@ exports.gen_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored"))
+         .catch(err => console.error("errored: "+ err))
 
       res.redirect('/form/gen/complete')
 
@@ -487,7 +487,7 @@ exports.se_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formse, req.session.data['email'], {
+         .sendEmail(process.env.formse, process.env.recipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
@@ -495,13 +495,14 @@ exports.se_post = function (req, res) {
                'contactMethod': req.session.data['response'],
                'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
                'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
-               'operator': req.session.data['operator-name'],
+               'operator-name': req.session.data['operator-name'],
+               'gamblingid': req.session.data['user-name'],
                'selfExclusion': req.session.data['self-exclusion'],
                'summary': req.session.data['more-detail']
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored"))
+         .catch(err => console.error("errored: "+ err))
 
       res.redirect('/form/gen/complete')
 
@@ -541,7 +542,7 @@ exports.sg_post = function (req, res) {
       err_gambling_tool = true;
    }
 
-   if (req.body['operator-detail'] === undefined) {
+   if (req.body['operator-advice'] === undefined) {
       err = true;
       err_operator_advice = true;
    }
@@ -574,7 +575,7 @@ exports.sg_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formsg, req.session.data['email'], {
+         .sendEmail(process.env.formsg, process.env.recipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
@@ -589,7 +590,7 @@ exports.sg_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored"))
+         .catch(err => console.error("errored: "+ err))
 
       res.redirect('/form/gen/complete')
 
@@ -684,7 +685,7 @@ exports.sr_post = function (req, res) {
       var openedDate = req.session.data['account-opened-day'] + '/' + req.session.data['account-opened-month'] + '/' + req.session.data['account-opened-year']
 
       notify
-         .sendEmail(process.env.formsr, req.session.data['email'], {
+         .sendEmail(process.env.formsr, process.env.recipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
@@ -703,7 +704,7 @@ exports.sr_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored"))
+         .catch(err => console.error("errored: "+ err))
 
       res.redirect('/form/gen/complete')
    }
