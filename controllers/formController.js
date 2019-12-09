@@ -1,8 +1,9 @@
 const d = require('../data/contactcentre.json');
 var err = false;
+require('dotenv').config()
 
-// var NotifyClient = require('notifications-node-client').NotifyClient,
-//    notify = new NotifyClient('key')
+var NotifyClient = require('notifications-node-client').NotifyClient
+var notify = new NotifyClient(process.env.notifyapikey)
 
 exports.form_noid_get = function (req, res) {
 
@@ -283,9 +284,10 @@ exports.adr_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
-               'email' : req.session.data['email'],
-               'telephone' : req.session.data['phone'],
+               'previouscontact': ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']),
+               'contactMethod': req.session.data['response'],
+               'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
+               'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'adrname': req.session.data['adr-name'],
                'concern': req.session.data['concern'],
                'summary': req.session.data['more-detail']
@@ -354,9 +356,10 @@ exports.conrep_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
-               'email' : req.session.data['email'],
-               'telephone' : req.session.data['phone'],
+               'previouscontact': ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']),
+               'contactMethod': req.session.data['response'],
+               'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
+               'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
                'summary': req.session.data['more-detail']
@@ -410,9 +413,10 @@ exports.gen_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
-               'email' : req.session.data['email'],
-               'telephone' : req.session.data['phone'],
+               'previouscontact': ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']),
+               'contactMethod': req.session.data['response'],
+               'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
+               'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'summary': req.session.data['more-detail']
             }
          })
@@ -487,9 +491,10 @@ exports.se_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
-               'email' : req.session.data['email'],
-               'telephone' : req.session.data['phone'],
+               'previouscontact': ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']),
+               'contactMethod': req.session.data['response'],
+               'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
+               'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'operator': req.session.data['operator-name'],
                'selfExclusion': req.session.data['self-exclusion'],
                'summary': req.session.data['more-detail']
@@ -573,9 +578,10 @@ exports.sg_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
-               'email' : req.session.data['email'],
-               'telephone' : req.session.data['phone'],
+               'previouscontact': ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']),
+               'contactMethod': req.session.data['response'],
+               'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
+               'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
                'gamblingTool': req.session.data['gambling-tool'],
@@ -682,12 +688,13 @@ exports.sr_post = function (req, res) {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
-               'email' : req.session.data['email'],
-               'telephone' : req.session.data['phone'],
+               'previouscontact': ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']),
+               'contactMethod': req.session.data['response'],
+               'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
+               'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
-               'gamblingid' : req.session.data['user-name'],
+               'gamblingid': req.session.data['user-name'],
                'accountDate': openedDate,
                'totalSpend': req.session.data['total-spend'],
                'timePeriod': req.session.data['time-period'],
@@ -703,7 +710,7 @@ exports.sr_post = function (req, res) {
 }
 
 exports.w_get = function (req, res) {
-   // console.log('w form get')
+   console.log(process.env.NotifyKey)
    res.render("form/w");
 }
 
@@ -769,22 +776,23 @@ exports.w_post = function (req, res) {
       var fullDate = req.session.data['complaint-date-day'] + '/' + req.session.data['complaint-date-month'] + '/' + req.session.data['complaint-date-year']
 
       notify
-         .sendEmail(process.env.formw, req.session.data['email'], {
+         .sendEmail(process.env.formw, process.env.recipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
-               'previouscontact' : ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']), 
-               'email' : req.session.data['email'],
-               'telephone' : req.session.data['phone'],
+               'previouscontact': ((req.session.data['contacted'] === undefined) ? 'Not answered' : req.session.data['contacted']),
+               'contactMethod': req.session.data['response'],
+               'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
+               'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'complained': ((req.session.data['complained-to-operator'] === undefined) ? 'Not answered' : req.session.data['complained-to-operator']),
                'operator': req.session.data['operator-name'],
-               'gamblingid' : req.session.data['user-name'],
+               'gamblingid': req.session.data['user-name'],
                'date': fullDate,
-               'summary': req.session.data['more-detail']               
+               'summary': req.session.data['more-detail']
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored"))
+         .catch(err => console.error("errored: "+ err))
 
       res.redirect('/form/gen/complete')
    }
