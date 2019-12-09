@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Form M
+Have you complained to the gambling business?
 {% endblock %}
 
 {% block pageDescription %}
@@ -48,15 +48,12 @@ Form M
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-1">Complete the form</h1>
 
         <form method="POST">
             <div class="govuk-form-group {% if err_complaint %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
                     <legend class="govuk-fieldset__legend">
-                        <h1 class="govuk-fieldset__heading">
-                            Have you complained to the gambling business?
-                        </h1>
+                        <h1 class="govuk-heading-1">Have you complained to the gambling business?</h1>
                     </legend>
                     {% if err_complaint %}
                     <span id="complaint-error" class="govuk-error-message">
@@ -70,8 +67,9 @@ Form M
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="complained-to-operator-conditional"
-                                name="complained-to-operator" type="radio" value="yes" {{ checked("complained-to-operator", "yes") }}
-                                data-aria-controls="conditional-complained-to-operator-conditional" >
+                                name="complained-to-operator" type="radio" value="yes"
+                                {{ checked("complained-to-operator", "yes") }}
+                                data-aria-controls="conditional-complained-to-operator-conditional">
                             <label class="govuk-label govuk-radios__label" for="complained-to-operator-conditional">
                                 Yes
                             </label>
@@ -125,10 +123,13 @@ Form M
                             </label>
                         </div>
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
-                            id="conditional-complained-to-operator-2">
-
+                            id="conditional-complained-to-operator-conditional-2">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    Text here to tell the person how the complaints process works
+                                </p>
+                            </div>
                         </div>
-                    </div>
                 </fieldset>
             </div>
         </form>

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Form M
+What is the name of the ADR?
 {% endblock %}
 
 {% block pageDescription %}
@@ -50,15 +50,12 @@ Form M
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-1">Complete the form</h1>
-
+        
         <form method="POST">
             <div class="govuk-form-group {% if err_adr_name %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend">
-                        <h1 class="govuk-fieldset__heading">
-                            What is the name of the ADR?
-                        </h1>
+                            <h1 class="govuk-heading-1">What is the name of the ADR?</h1>
                     </legend>
                     {% if err_adr_name %}
                     <span id="adr-name-error" class="govuk-error-message">
@@ -66,7 +63,7 @@ Form M
                     </span>
                     {% endif %}
                     <span id="changed-name-hint" class="govuk-hint">
-                        Select one answer only.
+                        Choose one option.
                     </span>
                     <div class="govuk-radios">
                         <div class="govuk-radios__item">

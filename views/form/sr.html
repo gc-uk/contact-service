@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Form M
+Have you complained to the gambling business?
 {% endblock %}
 
 {% block pageDescription %}
@@ -81,211 +81,227 @@ Form M
         <h1 class="govuk-heading-1">Complete the form</h1>
 
         <form method="POST">
-                <div class="govuk-form-group {% if err_complaint %} govuk-form-group--error {% endif %}">
-                    <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
-                        <legend class="govuk-fieldset__legend">
-                            <h1 class="govuk-fieldset__heading">
-                                Have you complained to the gambling business?
-                            </h1>
-                        </legend>
-                        {% if err_complaint %}
-                        <span id="complaint-error" class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span> Have you complained to the gambling business?
-                        </span>
-                        {% endif %}
-                        <span id="complained-to-operator-hint" class="govuk-hint">
-                            Include supplementary text about complaining in the first instance
-                        </span>
-    
-                        <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="complained-to-operator-conditional"
-                                    name="complained-to-operator" type="radio" value="yes" {{ checked("complained-to-operator", "yes") }}
-                                    data-aria-controls="conditional-complained-to-operator-conditional" >
-                                <label class="govuk-label govuk-radios__label" for="complained-to-operator-conditional">
-                                    Yes
+            <div class="govuk-form-group {% if err_complaint %} govuk-form-group--error {% endif %}">
+                <fieldset class="govuk-fieldset" aria-describedby="complained-to-operator-hint">
+                    <legend class="govuk-fieldset__legend">
+                        <h1 class="govuk-fieldset__heading">
+                            Have you complained to the gambling business?
+                        </h1>
+                    </legend>
+                    {% if err_complaint %}
+                    <span id="complaint-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Have you complained to the gambling business?
+                    </span>
+                    {% endif %}
+                    <span id="complained-to-operator-hint" class="govuk-hint">
+                        Include supplementary text about complaining in the first instance
+                    </span>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator-conditional"
+                                name="complained-to-operator" type="radio" value="yes"
+                                {{ checked("complained-to-operator", "yes") }}
+                                data-aria-controls="conditional-complained-to-operator-conditional">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-conditional">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-complained-to-operator-conditional">
+                            <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
+                                <label class="govuk-label" for="operator-name">
+                                    What is the name of the gambling business?
                                 </label>
+                                {% if err_operator_name %}
+                                <span id="operator-name-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> What is the name of the gambling
+                                    business?
+                                </span>
+                                {% endif %}
+                                <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}"
+                                    id="operator-name" name="operator-name" type="text">
                             </div>
-                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
-                                id="conditional-complained-to-operator-conditional">
-                                <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
-                                    <label class="govuk-label" for="operator-name">
-                                        What is the name of the gambling business?
-                                    </label>
-                                    {% if err_operator_name %}
-                                    <span id="operator-name-error" class="govuk-error-message">
-                                        <span class="govuk-visually-hidden">Error:</span> What is the name of the gambling
-                                        business?
+
+
+                            <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
+                                <label class="govuk-label" for="user-name">
+                                    What is your user ID for online gambling?
+                                </label>
+                                {% if err_user_name %}
+                                <span id="user-name-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> What is your user ID for online
+                                    gambling?
+                                </span>
+                                {% endif %}
+                                <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}"
+                                    id="user-name" name="user-name" type="text">
+                            </div>
+
+                            <div
+                                class="govuk-form-group {% if err_account_opened %} govuk-form-group--error {% endif %}">
+                                <fieldset class="govuk-fieldset" role="group" aria-describedby="account-opened-hint">
+                                    <legend class="govuk-fieldset__legend">
+                                        <h1 class="govuk-fieldset__heading">
+                                            When did you open the account?
+                                        </h1>
+                                    </legend>
+                                    {% if err_account_opened %}
+                                    <span id="account-opened-error" class="govuk-error-message">
+                                        <span class="govuk-visually-hidden">Error:</span> When did you open the account?
                                     </span>
                                     {% endif %}
-                                    <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}"
-                                        id="operator-name" name="operator-name" type="text">
-                                </div>
-    
-    
-                               <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
-                    <label class="govuk-label" for="user-name">
-                        What is your user ID for online gambling?
-                    </label>
-                    {% if err_user_name %}
-                    <span id="user-name-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> What is your user ID for online gambling?
-                    </span>
-                    {% endif %}
-                    <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}" id="user-name"
-                        name="user-name" type="text">
-                </div>
-    
-                <div class="govuk-form-group {% if err_account_opened %} govuk-form-group--error {% endif %}">
-                    <fieldset class="govuk-fieldset" role="group" aria-describedby="account-opened-hint">
-                        <legend class="govuk-fieldset__legend">
-                            <h1 class="govuk-fieldset__heading">
-                                When did you open the account?
-                            </h1>
-                        </legend>
-                        {% if err_account_opened %}
-                        <span id="account-opened-error" class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span> When did you open the account?
-                        </span>
-                        {% endif %}
-                        <span id="account-opened-hint" class="govuk-hint">
-                            For example, 12 11 2007
-                        </span>
-                        <div class="govuk-date-input" id="account-opened">
-                            <div class="govuk-date-input__item">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="account-opened-day">
-                                        Day
-                                    </label>
-                                    <input
-                                        class="govuk-input govuk-date-input__input govuk-input--width-2 {% if err_account_opened %} govuk-form-input--error {% endif %}"
-                                        id="account-opened-day" name="account-opened-day" type="number" pattern="[0-9]*">
-                                </div>
+                                    <span id="account-opened-hint" class="govuk-hint">
+                                        For example, 12 11 2007
+                                    </span>
+                                    <div class="govuk-date-input" id="account-opened">
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label"
+                                                    for="account-opened-day">
+                                                    Day
+                                                </label>
+                                                <input
+                                                    class="govuk-input govuk-date-input__input govuk-input--width-2 {% if err_account_opened %} govuk-form-input--error {% endif %}"
+                                                    id="account-opened-day" name="account-opened-day" type="number"
+                                                    pattern="[0-9]*">
+                                            </div>
+                                        </div>
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label"
+                                                    for="account-opened-month">
+                                                    Month
+                                                </label>
+                                                <input
+                                                    class="govuk-input govuk-date-input__input govuk-input--width-2 {% if err_account_opened %} govuk-form-input--error {% endif %}"
+                                                    id="account-opened-month" name="account-opened-month" type="number"
+                                                    pattern="[0-9]*">
+                                            </div>
+                                        </div>
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label"
+                                                    for="account-opened-year">
+                                                    Year
+                                                </label>
+                                                <input
+                                                    class="govuk-input govuk-date-input__input govuk-input--width-4 {% if err_account_opened %} govuk-form-input--error {% endif %}"
+                                                    id="account-opened-year" name="account-opened-year" type="number"
+                                                    pattern="[0-9]*">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
-                            <div class="govuk-date-input__item">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="account-opened-month">
-                                        Month
-                                    </label>
-                                    <input
-                                        class="govuk-input govuk-date-input__input govuk-input--width-2 {% if err_account_opened %} govuk-form-input--error {% endif %}"
-                                        id="account-opened-month" name="account-opened-month" type="number"
-                                        pattern="[0-9]*">
-                                </div>
+
+                            <div class="govuk-form-group {% if err_total_spend %} govuk-form-group--error {% endif %}">
+                                <label class="govuk-label" for="total-spend">
+                                    How much have you spent with the gambling business?
+                                </label>
+                                {% if err_total_spend %}
+                                <span id="total-spend-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> How much have you spent with the
+                                    gambling
+                                    business?
+                                </span>
+                                {% endif %}
+                                <input class="govuk-input {% if err_total_spend%} govuk-input--error {% endif %}"
+                                    id="total-spend" name="total-spend" type="text">
                             </div>
-                            <div class="govuk-date-input__item">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="account-opened-year">
-                                        Year
-                                    </label>
-                                    <input
-                                        class="govuk-input govuk-date-input__input govuk-input--width-4 {% if err_account_opened %} govuk-form-input--error {% endif %}"
-                                        id="account-opened-year" name="account-opened-year" type="number" pattern="[0-9]*">
-                                </div>
+
+                            <div class="govuk-form-group {% if err_time_period %} govuk-form-group--error {% endif %}">
+                                <label class="govuk-label" for="time-period">
+                                    Over what period did you spend the above amount?
+                                </label>
+                                {% if err_time_period %}
+                                <span id="time-period-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Over what period did you spend the
+                                    above amount?
+                                </span>
+                                {% endif %}
+                                <input class="govuk-input {% if err_time_period%} govuk-input--error {% endif %}"
+                                    id="time-period" name="time-period" type="text">
+                            </div>
+
+                            <div
+                                class="govuk-form-group {% if err_operator_interaction %} govuk-form-group--error {% endif %}">
+                                <fieldset class="govuk-fieldset" aria-describedby="operator-interaction-hint">
+                                    <legend class="govuk-fieldset__legend">
+                                        <h1 class="govuk-fieldset__heading">
+                                            Did the gambling business interact with you during the above period?
+                                        </h1>
+                                    </legend>
+                                    {% if err_operator_interaction %}
+                                    <span id="operator_interaction-error" class="govuk-error-message">
+                                        <span class="govuk-visually-hidden">Error:</span> Did the gambling business
+                                        interact with you
+                                        during the above period?
+                                    </span>
+                                    {% endif %}
+                                    <div class="govuk-radios govuk-radios--inline">
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="operator-interaction"
+                                                name="operator-interaction" type="radio" value="yes">
+                                            <label class="govuk-label govuk-radios__label" for="operator-interaction">
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="operator-interaction-2"
+                                                name="operator-interaction" type="radio" value="no">
+                                            <label class="govuk-label govuk-radios__label" for="operator-interaction-2">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+
+                            <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                                <label class="govuk-label" for="more-detail">
+                                    Provide a summary of your enquiry
+                                </label>
+                                <span id="more-detail-hint" class="govuk-hint">
+                                    Include supplementary text about the type of information we need.
+                                </span>
+                                {% if err_more_detail %}
+                                <span id="more-detail-error" class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                                </span>
+                                {% endif %}
+                                <textarea
+                                    class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                                    id="more-detail" name="more-detail" rows="5"
+                                    aria-describedby="more-detail-hint more-detail-error"></textarea>
+                            </div>
+
+                            <button class="govuk-button" data-module="govuk-button" type="submit">
+                                Continue
+                            </button>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator-2"
+                                name="complained-to-operator" type="radio" value="no"
+                                data-aria-controls="conditional-complained-to-operator-conditional-2">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
+                                No
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-complained-to-operator-conditional-2">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    Text here to tell the person how the complaints process works
+                                </p>
                             </div>
                         </div>
-                    </fieldset>
-                </div>
-    
-                <div class="govuk-form-group {% if err_total_spend %} govuk-form-group--error {% endif %}">
-                    <label class="govuk-label" for="total-spend">
-                        How much have you spent with the gambling business?
-                    </label>
-                    {% if err_total_spend %}
-                    <span id="total-spend-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> How much have you spent with the gambling
-                        business?
-                    </span>
-                    {% endif %}
-                    <input class="govuk-input {% if err_total_spend%} govuk-input--error {% endif %}" id="total-spend"
-                        name="total-spend" type="text">
-                </div>
-    
-                <div class="govuk-form-group {% if err_time_period %} govuk-form-group--error {% endif %}">
-                    <label class="govuk-label" for="time-period">
-                        Over what period did you spend the above amount?
-                    </label>
-                    {% if err_time_period %}
-                    <span id="time-period-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Over what period did you spend the above amount?
-                    </span>
-                    {% endif %}
-                    <input class="govuk-input {% if err_time_period%} govuk-input--error {% endif %}" id="time-period"
-                        name="time-period" type="text">
-                </div>
-    
-                <div class="govuk-form-group {% if err_operator_interaction %} govuk-form-group--error {% endif %}">
-                    <fieldset class="govuk-fieldset" aria-describedby="operator-interaction-hint">
-                        <legend class="govuk-fieldset__legend">
-                            <h1 class="govuk-fieldset__heading">
-                                Did the gambling business interact with you during the above period?
-                            </h1>
-                        </legend>
-                        {% if err_operator_interaction %}
-                        <span id="operator_interaction-error" class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span> Did the gambling business interact with you
-                            during the above period?
-                        </span>
-                        {% endif %}
-                        <div class="govuk-radios govuk-radios--inline">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="operator-interaction" name="operator-interaction"
-                                    type="radio" value="yes">
-                                <label class="govuk-label govuk-radios__label" for="operator-interaction">
-                                    Yes
-                                </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="operator-interaction-2" name="operator-interaction"
-                                    type="radio" value="no">
-                                <label class="govuk-label govuk-radios__label" for="operator-interaction-2">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-    
-    
-                <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label" for="more-detail">
-                        Provide a summary of your enquiry
-                    </label>
-                    <span id="more-detail-hint" class="govuk-hint">
-                        Include supplementary text about the type of information we need.
-                    </span>
-                    {% if err_more_detail %}
-                    <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
-                    </span>
-                    {% endif %}
-                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                        id="more-detail" name="more-detail" rows="5"
-                        aria-describedby="more-detail-hint more-detail-error"></textarea>
-                </div>
-    
-                <button class="govuk-button" data-module="govuk-button" type="submit">
-                    Continue
-                </button>
-                            </div>
-    
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="complained-to-operator-2"
-                                    name="complained-to-operator" type="radio" value="no"
-                                    data-aria-controls="conditional-complained-to-operator-conditional-2">
-                                <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
-                                    No
-                                </label>
-                            </div>
-                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
-                                id="conditional-complained-to-operator-2">
-    
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-            </form>
-        </div>
+                </fieldset>
+            </div>
+        </form>
     </div>
+</div>
 
 {% endblock %}
