@@ -56,6 +56,8 @@ Complete the form
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-1">Complete the form</h1>
 
+        <p>Please tell us more information about your concerns. For example, some information that would be useful is; when and how did you self-exclude, were you able to gamble again, did you change any of your details to create an account. Please also include a summary of the response to your complaint. </p>
+
         <form method="POST">
             <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
                 <label class="govuk-label" for="operator-name">
@@ -163,7 +165,7 @@ Complete the form
                     Provide a summary of your enquiry
                 </label>
                 <span id="more-detail-hint" class="govuk-hint">
-                    Include supplementary text about the type of information we need.
+                    Please tell us more information about your enquiry.
                 </span>
                 {% if err_more_detail %}
                 <span id="more-detail-error" class="govuk-error-message">
