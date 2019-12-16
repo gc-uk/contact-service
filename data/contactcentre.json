@@ -87,20 +87,6 @@
         {
             "type": "question",
             "value": null,
-            "id": 180,
-            "text": "Are you looking to set up a commercial gambling business",
-            "parent": 2
-        },
-        {
-            "type": "question",
-            "value": null,
-            "id": 190,
-            "text": "How to make a payment to the Commission",
-            "parent": 2
-        },
-        {
-            "type": "question",
-            "value": null,
             "id": 200,
             "text": "Do you want to run a lottery/raffle",
             "parent": 3
