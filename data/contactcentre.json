@@ -317,20 +317,6 @@
         },
         {
             "type": "link",
-            "value": "ADD LINK HERE",
-            "id": 6400,
-            "text": "Contact licensing",
-            "parent": 180
-        },
-        {
-            "type": "link",
-            "value": "COMMISSION BANK DETAILS?",
-            "id": 6500,
-            "text": "How to make a payment to the Commission",
-            "parent": 190
-        },
-        {
-            "type": "link",
             "value": "http://www.gamblingcommission.gov.uk/PDF/quick-guides/Running-a-lottery-quick-guide.pdf",
             "id": 6700,
             "text": "Do you want to run a lottery/raffle?",
