@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Form M
+Get in touch with us
 {% endblock %}
 
 {% block pageDescription %}
@@ -52,9 +52,12 @@ Form M
         {% endif %}
 
         <h1 class="govuk-heading-1">Get in touch with us</h1>
-        <p class="govuk-body">Please complete the below form to tell us about your concerns with a gambling business or the industry. The information can help us identify what gambling businesses are doing well and where there may be a requirement to change the rules of practice to make gambling safer and fairer for all.
-            It is not our role to investigate complaints or obtain money back for you. We can respond to your query, but we do not provide updates on regulatory action we take. 
-            </p>
+        <p class="govuk-body-l">Please complete the below form to tell us about your concerns with a gambling business
+            or the industry.</p>
+        <p>The information can help us identify what gambling businesses are doing well and where there may be a
+            requirement to change the rules of practice to make gambling safer and fairer for all.</p>
+        <p>It is not our role to investigate complaints or obtain money back for you. We can respond to your query, but
+            we do not provide updates on regulatory action we take.</p>
 
         <form method="POST">
 
@@ -68,17 +71,18 @@ Form M
                         <span class="govuk-visually-hidden">Error:</span> Have you contacted us before?
                     </span>
                     {% endif %}
-                  
+
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contacted" name="contacted" type="radio" value="yes" {{ checked("contacted", "yes") }}>
-                            <label class="govuk-label govuk-radios__label" for="contacted" >
+                            <input class="govuk-radios__input" id="contacted" name="contacted" type="radio" value="yes"
+                                {{ checked("contacted", "yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="contacted">
                                 Yes
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contacted-2" name="contacted" type="radio"
-                                value="no" {{ checked("contacted", "no") }}>
+                            <input class="govuk-radios__input" id="contacted-2" name="contacted" type="radio" value="no"
+                                {{ checked("contacted", "no") }}>
                             <label class="govuk-label govuk-radios__label" for="contacted-2">
                                 No
                             </label>
@@ -86,7 +90,7 @@ Form M
                     </div>
                 </fieldset>
             </div>
-            
+
             <div class="govuk-form-group {% if err_first_name %}govuk-form-group--error{% endif %}">
                 <label class="govuk-label" for="first-name">
                     First name

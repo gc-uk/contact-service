@@ -56,8 +56,6 @@ Complete the form
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-1">Complete the form</h1>
 
-        <p>Please tell us more information about your concerns. For example, some information that would be useful is; when and how did you self-exclude, were you able to gamble again, did you change any of your details to create an account. Please also include a summary of the response to your complaint. </p>
-
         <form method="POST">
             <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
                 <label class="govuk-label" for="operator-name">
@@ -81,8 +79,8 @@ Complete the form
                     <span class="govuk-visually-hidden">Error:</span> What is your user ID for online gambling?
                 </span>
                 {% endif %}
-                <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}" 
-                id="user-name" name="user-name" type="text">
+                <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}" id="user-name"
+                    name="user-name" type="text">
             </div>
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
@@ -161,20 +159,26 @@ Complete the form
 
 
             <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                <label class="govuk-label" for="more-detail">
-                    Provide a summary of your enquiry
-                </label>
-                <span id="more-detail-hint" class="govuk-hint">
-                    Please tell us more information about your enquiry.
-                </span>
-                {% if err_more_detail %}
-                <span id="more-detail-error" class="govuk-error-message">
-                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
-                </span>
-                {% endif %}
-                <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                    id="more-detail" name="more-detail" rows="5"
-                    aria-describedby="more-detail-hint more-detail-error"></textarea>
+                    <label class="govuk-label" for="more-detail">
+                        Please tell us more information about your concerns
+                    </label>
+                    <span id="more-detail-hint" class="govuk-hint">
+                        <p class="govuk-body-s">For example, some
+                            information that would be useful is:</p>
+                        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+                            <li>when and how did you self-exclude</li>
+                            <li>were you able to gamble again</li>
+                            <li>did you change any of your details to create an account</li>
+                        </ul>
+                    </span>
+                    {% if err_more_detail %}
+                    <span id="more-detail-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                    </span>
+                    {% endif %}
+                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                        id="more-detail" name="more-detail" rows="5"
+                        aria-describedby="more-detail-hint more-detail-error"></textarea>
             </div>
 
             <button class="govuk-button" data-module="govuk-button" type="submit">

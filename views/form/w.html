@@ -65,7 +65,7 @@ Have you complained to the gambling business?
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p class="govuk-body">Please tell us more information about your concerns. For example, some information that would be useful is; have you withdrawn money before, how much did you try and withdraw, when did you make the request and were you asked for identification. Please also include a summary of the response to your complaint. </p>
+
 
     <form method="POST">
       <div class="govuk-form-group {% if err_complaint %} govuk-form-group--error {% endif %}">
@@ -79,7 +79,9 @@ Have you complained to the gambling business?
           </span>
           {% endif %}
           <span id="complained-to-operator-hint" class="govuk-hint">
-            We are unable to investigate complaints or get money back for you. You can find out more information about our role and also about raising a concern with a gambling business on our website. If you have not yet complained to the business, please do so before reporting an issue to us. 
+            We are unable to investigate complaints or get money back for you. You can find out more information about
+            our role and also about raising a concern with a gambling business on our website. If you have not yet
+            complained to the business, please do so before reporting an issue to us.
           </span>
 
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -106,7 +108,6 @@ Have you complained to the gambling business?
                 <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}" id="operator-name"
                   name="operator-name" type="text">
               </div>
-
 
               <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
                 <label class="govuk-label" for="user-name">
@@ -171,12 +172,21 @@ Have you complained to the gambling business?
                 </fieldset>
               </div>
 
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+
               <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
                 <label class="govuk-label" for="more-detail">
-                  Provide a summary of your enquiry
+                  Please tell us more information about your concerns
                 </label>
                 <span id="more-detail-hint" class="govuk-hint">
-                  Please tell us more information about your enquiry.
+                  <p class="govuk-body-s">For example, some
+                    information that would be useful is:</p>
+                  <ul class="govuk-list govuk-list--bullet govuk-body-s">
+                    <li>have you withdrawn money before</li>
+                    <li>how much did you try and withdraw</li>
+                    <li>when did you make the request</li>
+                    <li>were you asked for identification</li>
+                  </ul>
                 </span>
                 {% if err_more_detail %}
                 <span id="more-detail-error" class="govuk-error-message">
@@ -200,12 +210,13 @@ Have you complained to the gambling business?
                 No
               </label>
             </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-complained-to-operator-conditional-2">
-                <div class="govuk-form-group">
-            <p class = "govuk-body">
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+              id="conditional-complained-to-operator-conditional-2">
+              <div class="govuk-form-group">
+                <p class="govuk-body">
                   Text here to tell the person how the complaints process works
-              </p>
-                </div>
+                </p>
+              </div>
 
             </div>
 

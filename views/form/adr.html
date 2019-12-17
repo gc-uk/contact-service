@@ -50,11 +50,6 @@ What is the name of the ADR?
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        <p>Please tell us more information about your concerns. For example, some information that would be useful is;
-            when did you make a complaint, how often have you contacted them, when was the last response you received?
-        </p>
-
         <form method="POST">
             <div class="govuk-form-group {% if err_adr_name %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset">
@@ -196,10 +191,16 @@ What is the name of the ADR?
 
             <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
                 <label class="govuk-label" for="more-detail">
-                    Provide a summary of your enquiry
+                  Please tell us more information about your concerns
                 </label>
                 <span id="more-detail-hint" class="govuk-hint">
-                    Please tell us more information about your enquiry.
+                  <p class="govuk-body-s">For example, some
+                    information that would be useful is:</p>
+                  <ul class="govuk-list govuk-list--bullet govuk-body-s">
+                    <li>when did you make a complaint</li>
+                    <li>how often have you contacted them</li>
+                    <li>when was the last response you received</li>
+                  </ul>
                 </span>
                 {% if err_more_detail %}
                 <span id="more-detail-error" class="govuk-error-message">
