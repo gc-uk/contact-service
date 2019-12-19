@@ -108,13 +108,12 @@ Have you complained to the gambling business?
                                 <fieldset class="govuk-fieldset" aria-describedby="gambling-tool-hint">
                                     <legend class="govuk-fieldset__legend">
                                         <h1 class="govuk-fieldset__heading">
-                                            What responsible gambling tool is your concern about?
+                                            What is your responsible gambling concern about?
                                         </h1>
                                     </legend>
                                     {% if err_gambling_tool %}
                                     <span id="gambling-tool-error" class="govuk-error-message">
-                                        <span class="govuk-visually-hidden">Error:</span> What responsible gambling tool
-                                        is your concern
+                                        <span class="govuk-visually-hidden">Error:</span> What is your responsible gambling concern
                                         about?
                                     </span>
                                     {% endif %}
@@ -122,13 +121,6 @@ Have you complained to the gambling business?
                                         Select all that apply.
                                     </span>
                                     <div class="govuk-checkboxes">
-                                        <div class="govuk-checkboxes__item">
-                                            <input class="govuk-checkboxes__input" id="gambling-tool"
-                                                name="gambling-tool" type="checkbox" value="self-exclusion">
-                                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool">
-                                                Self-exclusion
-                                            </label>
-                                        </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-2"
                                                 name="gambling-tool" type="checkbox" value="time-out">
@@ -150,51 +142,37 @@ Have you complained to the gambling business?
                                                 Play limit
                                             </label>
                                         </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-
-                            <div
-                                class="govuk-form-group {% if err_operator_advice %} govuk-form-group--error {% endif %}">
-                                <fieldset class="govuk-fieldset" aria-describedby="operator-advice-hint">
-                                    <legend class="govuk-fieldset__legend">
-                                        <h1 class="govuk-fieldset__heading">
-                                            Did the gambling business give you advice about the tools available?
-                                        </h1>
-                                    </legend>
-                                    {% if err_operator_advice %}
-                                    <span id="operator-advice-error" class="govuk-error-message">
-                                        <span class="govuk-visually-hidden">Error:</span> Did the gambling business give
-                                        you advice
-                                        about the tools available?
-                                    </span>
-                                    {% endif %}
-                                    <div class="govuk-radios govuk-radios--inline">
-                                        <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="operator-advice"
-                                                name="operator-advice" type="radio" value="yes">
-                                            <label class="govuk-label govuk-radios__label" for="operator-advice">
-                                                Yes
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="gambling-tool-5"
+                                                name="gambling-tool" type="checkbox" value="underaged">
+                                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-5">
+                                                Underaged gambling 
                                             </label>
                                         </div>
-                                        <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="operator-advice-2"
-                                                name="operator-advice" type="radio" value="no">
-                                            <label class="govuk-label govuk-radios__label" for="operator-advice-2">
-                                                No
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="gambling-tool-6"
+                                                name="gambling-tool" type="checkbox" value="other">
+                                            <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-6">
+                                                Other
                                             </label>
                                         </div>
                                     </div>
                                 </fieldset>
                             </div>
-
 
                             <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
                                 <label class="govuk-label" for="more-detail">
-                                    Provide a summary of your enquiry
+                                    Please tell us more information about your concerns
                                 </label>
                                 <span id="more-detail-hint" class="govuk-hint">
-                                    Please tell us more information about your enquiry.
+                                    <p class="govuk-body-s">For example, some
+                                        information that would be useful is:</p>
+                                    <ul class="govuk-list govuk-list--bullet govuk-body-s">
+                                        <li>where you able to complain to the gambling business and did you receive a response</li>
+                                        <li>issues using a responsible gambling tool</li>
+                                        <li>not being offered responsible gambling tools</li>
+                                        <li>witnessing underaged gambling</li>
+                                    </ul>
                                 </span>
                                 {% if err_more_detail %}
                                 <span id="more-detail-error" class="govuk-error-message">
