@@ -32,28 +32,28 @@
             "type": "question",
             "value": null,
             "id": 100,
-            "text": "Are you unable to withdraw your money",
+            "text": "I am unable to withdraw my money",
             "parent": 1
         },
         {
             "type": "question",
             "value": null,
             "id": 110,
-            "text": "Do you have responsible gambling concerns",
+            "text": "I have responsible gambling concerns",
             "parent": 1
         },
         {
             "type": "question",
             "value": null,
             "id": 120,
-            "text": "Do you have other concerns about a gambling business",
+            "text": "U have other concerns about a gambling business",
             "parent": 1
         },
         {
             "type": "question",
             "value": null,
             "id": 130,
-            "text": "Do you have concern about an Alternative Dispute Resolution provider",
+            "text": "I have concern about an Alternative Dispute Resolution provider",
             "parent": 1
         },
         {
