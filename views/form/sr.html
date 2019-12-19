@@ -90,7 +90,13 @@ Have you complained to the gambling business?
                     </span>
                     {% endif %}
                     <span id="complained-to-operator-hint" class="govuk-hint">
-                        We are unable to investigate complaints or get money back for you. You can find out more information about <a href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx" class="govuk-link">our role</a> and also about <a href="https://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx">raising a concern with a gambling business</a> on our website. If you have not yet complained to the business, please do so before reporting an issue to us. 
+                        We are unable to investigate complaints or get money back for you. You can find out more
+                        information about <a
+                            href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx"
+                            class="govuk-link">our role</a> and also about <a
+                            href="https://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx">raising
+                            a concern with a gambling business</a> on our website. If you have not yet complained to the
+                        business, please do so before reporting an issue to us.
                     </span>
 
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -135,52 +141,58 @@ Have you complained to the gambling business?
 
                             <div class="govuk-form-group {% if err_total_spend %} govuk-form-group--error {% endif %}">
 
-                            <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                                <label class="govuk-label" for="more-detail">
-                                    Please tell us more information about your concerns
+                                <div
+                                    class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
+                                    <label class="govuk-label" for="more-detail">
+                                        Please tell us more information about your concerns
+                                    </label>
+                                    <span id="more-detail-hint" class="govuk-hint">
+                                        <p class="govuk-body-s">For example, some
+                                            information that would be useful is:</p>
+                                        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+                                            <li>where you able to complain to the gambling business and did you receive
+                                                a response</li>
+                                            <li>how long have you held the account for</li>
+                                            <li>how much did you gamble and over what period</li>
+                                            <li>did the business contact you during this time</li>
+                                        </ul>
+                                    </span>
+                                    {% if err_more_detail %}
+                                    <span id="more-detail-error" class="govuk-error-message">
+                                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your
+                                        enquiry
+                                    </span>
+                                    {% endif %}
+                                    <textarea
+                                        class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                                        id="more-detail" name="more-detail" rows="5"
+                                        aria-describedby="more-detail-hint more-detail-error"></textarea>
+                                </div>
+
+                                <button class="govuk-button" data-module="govuk-button" type="submit">
+                                    Continue
+                                </button>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="complained-to-operator-2"
+                                    name="complained-to-operator" type="radio" value="no"
+                                    data-aria-controls="conditional-complained-to-operator-conditional-2">
+                                <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
+                                    No
                                 </label>
-                                <span id="more-detail-hint" class="govuk-hint">
-                                    <p class="govuk-body-s">For example, some
-                                        information that would be useful is:</p>
-                                    <ul class="govuk-list govuk-list--bullet govuk-body-s">
-                                        <li>where you able to complain to the gambling business and did you receive a response</li>
-                                        <li>how long have you held the account for</li>
-                                        <li>how much did you gamble and over what period</li>
-                                        <li>did the business contact you during this time</li>
-                                    </ul>
-                                </span>
-                                {% if err_more_detail %}
-                                <span id="more-detail-error" class="govuk-error-message">
-                                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
-                                </span>
-                                {% endif %}
-                                <textarea
-                                    class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                                    id="more-detail" name="more-detail" rows="5"
-                                    aria-describedby="more-detail-hint more-detail-error"></textarea>
                             </div>
-
-                            <button class="govuk-button" data-module="govuk-button" type="submit">
-                                Continue
-                            </button>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="complained-to-operator-2"
-                                name="complained-to-operator" type="radio" value="no"
-                                data-aria-controls="conditional-complained-to-operator-conditional-2">
-                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
-                                No
-                            </label>
-                        </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
-                            id="conditional-complained-to-operator-conditional-2">
-                            <div class="govuk-form-group">
-                                <p class="govuk-body">
-                                    Text here to tell the person how the complaints process works
-                                </p>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                                id="conditional-complained-to-operator-conditional-2">
+                                <div class="govuk-form-group">
+                                    <p class="govuk-body">
+                                        Before raising a concern with us, it helps if you have tried to resolve it with
+                                        the business first.
+                                        Please follow the information above, which can help you with how to raise a
+                                        concern.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
                 </fieldset>
             </div>
         </form>
