@@ -425,7 +425,6 @@ exports.gen_post = function (req, res) {
 
       res.redirect('/form/gen/complete')
 
-
    }
 }
 

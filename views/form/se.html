@@ -44,7 +44,7 @@ Complete the form
 
             {% if err_more_detail %}
             <li>
-                <a href="#more-detail">Provide a summary of your enquiry</a>
+                <a href="#more-detail">Please tell us more information about your concerns</a>
             </li>
             {% endif %}
         </ul>
@@ -67,7 +67,7 @@ Complete the form
                 </span>
                 {% endif %}
                 <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}" id="operator-name"
-                    name="operator-name" type="text">
+                    name="operator-name" type="text" value="{{data['operator-name']}}">
             </div>
 
             <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
@@ -80,7 +80,7 @@ Complete the form
                 </span>
                 {% endif %}
                 <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}" id="user-name"
-                    name="user-name" type="text">
+                    name="user-name" type="text" value="{{data['user-name']}}">
             </div>
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
@@ -104,42 +104,43 @@ Complete the form
                     <div class="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion" name="self-exclusion"
-                                type="checkbox" value="bacta">
+                                type="checkbox" value="bacta" {{ checked("self-exclusion", "bacta") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion">
                                 Bacta
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion-2" name="self-exclusion"
-                                type="checkbox" value="bingo-association">
+                                type="checkbox" value="bingo-association"
+                                {{ checked("self-exclusion", "bingo-association") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-2">
                                 Bingo Association
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion-3" name="self-exclusion"
-                                type="checkbox" value="direct">
+                                type="checkbox" value="direct" {{ checked("self-exclusion", "direct") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-3">
                                 Direct from the gambling business
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion-4" name="self-exclusion"
-                                type="checkbox" value="gamstop">
+                                type="checkbox" value="gamstop" {{ checked("self-exclusion", "gamstop") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion">
                                 GamStop
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion-5" name="self-exclusion"
-                                type="checkbox" value="sense">
+                                type="checkbox" value="sense" {{ checked("self-exclusion", "sense") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-5">
                                 SENSE (National Casino Forum)
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="self-exclusion-6" name="self-exclusion"
-                                type="checkbox" value="moses">
+                                type="checkbox" value="moses" {{ checked("self-exclusion", "moses") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="self-exclusion-6">
                                 MOSES (Multi-operator self-exclusion scheme)
                             </label>
@@ -152,27 +153,27 @@ Complete the form
 
 
             <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label" for="more-detail">
-                        Please tell us more information about your concerns
-                    </label>
-                    <span id="more-detail-hint" class="govuk-hint">
-                        <p class="govuk-body-s">For example, some
-                            information that would be useful is:</p>
-                        <ul class="govuk-list govuk-list--bullet govuk-body-s">
-                            <li>where you able to complain to the gambling business and did you receive a response</li>
-                            <li>when and how did you self-exclude</li>
-                            <li>were you able to gamble during your self-exclusion period</li>
-                            <li>did you change any of your details to create an account</li>
-                        </ul>
-                    </span>
-                    {% if err_more_detail %}
-                    <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
-                    </span>
-                    {% endif %}
-                    <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
-                        id="more-detail" name="more-detail" rows="5"
-                        aria-describedby="more-detail-hint more-detail-error"></textarea>
+                <label class="govuk-label" for="more-detail">
+                    Please tell us more information about your concerns
+                </label>
+                <span id="more-detail-hint" class="govuk-hint">
+                    <p class="govuk-body-s">For example, some
+                        information that would be useful is:</p>
+                    <ul class="govuk-list govuk-list--bullet govuk-body-s">
+                        <li>where you able to complain to the gambling business and did you receive a response</li>
+                        <li>when and how did you self-exclude</li>
+                        <li>were you able to gamble during your self-exclusion period</li>
+                        <li>did you change any of your details to create an account</li>
+                    </ul>
+                </span>
+                {% if err_more_detail %}
+                <span id="more-detail-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Please tell us more information about your concerns
+                </span>
+                {% endif %}
+                <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
+                    id="more-detail" name="more-detail" rows="5"
+                    aria-describedby="more-detail-hint more-detail-error"></textarea>
             </div>
 
             <button class="govuk-button" data-module="govuk-button" type="submit">

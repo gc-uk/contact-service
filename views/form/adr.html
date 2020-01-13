@@ -38,7 +38,7 @@ What is the name of the ADR?
 
             {% if err_more_detail %}
             <li>
-                <a href="#more-detail">Provide a summary of your enquiry</a>
+                <a href="#more-detail">Please tell us more information about your concerns</a>
             </li>
             {% endif %}
 
@@ -67,56 +67,56 @@ What is the name of the ADR?
                     <div class="govuk-radios">
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name" name="adr-name" type="radio"
-                             value="adr-group" {{ checked("adr-name", "adr-group"") }}>
+                             value="adr-group" {{ checked("adr-name", "adr-group") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name">
                                 ADR Group
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-2" name="adr-name" type="radio"
-                            value="bacta" {{ checked("adr-name", "bacta"") }}>
+                            value="bacta" {{ checked("adr-name", "bacta") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name-2">
                                 Bacta ADR Service
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-3" name="adr-name" type="radio"
-                                value="cedr" {{ checked("adr-name", "cedr"") }}>
+                                value="cedr" {{ checked("adr-name", "cedr") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name-3">
                                 CEDR (Centre for Effective Dispute Resolution)
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-4" name="adr-name" type="radio"
-                                value="ecogra" {{ checked("adr-name", "ecogra"") }}>
+                                value="ecogra" {{ checked("adr-name", "ecogra") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name-4">
                                 eCOGRA
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-4" name="adr-name" type="radio"
-                                value="ibas" {{ checked("adr-name", "ibas"") }}>
+                                value="ibas" {{ checked("adr-name", "ibas") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name-4">
                                 IBAS (Independent Betting Adjudication Service Limited)
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-4" name="adr-name" type="radio"
-                                value="lindsays" {{ checked("adr-name", "lindsays"") }}>
+                                value="lindsays" {{ checked("adr-name", "lindsays") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name-4">
                                 Lindsays
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-4" name="adr-name" type="radio" 
-                            value="ncf" {{ checked("adr-name", "ncf"") }}>
+                            value="ncf" {{ checked("adr-name", "ncf") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name-4">
                                 National Casino Forum – Independent Panel for Casino Arbitration
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="adr-name-4" name="adr-name" type="radio"
-                                value="promediate" {{ checked("adr-name", "promediate"") }}>
+                                value="promediate" {{ checked("adr-name", "promediate") }}>
                             <label class="govuk-label govuk-radios__label" for="adr-name-4">
                                 Promediate
                             </label>
@@ -160,7 +160,6 @@ What is the name of the ADR?
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="concern" name="concern" type="checkbox"
                             value="delay" {{ checked("concern", "delay") }} >
-                                
                             <label class="govuk-label govuk-checkboxes__label" for="concern">
                                 Delay in response
                             </label>
@@ -206,7 +205,7 @@ What is the name of the ADR?
                 </span>
                 {% if err_more_detail %}
                 <span id="more-detail-error" class="govuk-error-message">
-                    <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                    <span class="govuk-visually-hidden">Error:</span> Please tell us more information about your concerns
                 </span>
                 {% endif %}
                 <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"

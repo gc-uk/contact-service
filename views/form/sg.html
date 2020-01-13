@@ -44,7 +44,7 @@ Have you complained to the gambling business?
 
             {% if err_more_detail %}
             <li>
-                <a href="#more-detail">Provide a summary of your enquiry</a>
+                <a href="#more-detail">Please tell us more information about your concerns</a>
             </li>
             {% endif %}
         </ul>
@@ -99,12 +99,12 @@ Have you complained to the gambling business?
                                 </span>
                                 {% endif %}
                                 <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}"
-                                    id="operator-name" name="operator-name" type="text">
+                                    id="operator-name" name="operator-name" type="text"
+                                    value="{{data['operator-name']}}">
                             </div>
 
 
-                            <div
-                                class="govuk-form-group {% if err_gambling_tool %} govuk-form-group--error {% endif %}">
+                            <div class="govuk-form-group {% if err_gambling_tool %} govuk-form-group--error {% endif %}">
                                 <fieldset class="govuk-fieldset" aria-describedby="gambling-tool-hint">
                                     <legend class="govuk-fieldset__legend">
                                         <h1 class="govuk-fieldset__heading">
@@ -114,8 +114,7 @@ Have you complained to the gambling business?
                                     {% if err_gambling_tool %}
                                     <span id="gambling-tool-error" class="govuk-error-message">
                                         <span class="govuk-visually-hidden">Error:</span> What is your responsible
-                                        gambling concern
-                                        about?
+                                        gambling concern about?
                                     </span>
                                     {% endif %}
                                     <span id="gambling-tool-hint" class="govuk-hint">
@@ -124,35 +123,36 @@ Have you complained to the gambling business?
                                     <div class="govuk-checkboxes">
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-2"
-                                                name="gambling-tool" type="checkbox" value="time-out">
+                                                name="gambling-tool" type="checkbox" value="time-out"
+                                                {{ checked("gambling-tool", "time-out") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-2">
                                                 Time-out
                                             </label>
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-3"
-                                                name="gambling-tool" type="checkbox" value="spend">
+                                                name="gambling-tool" type="checkbox" value="spend" {{ checked("gambling-tool", "spend") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-3">
                                                 Spend limit
                                             </label>
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-4"
-                                                name="gambling-tool" type="checkbox" value="play">
+                                                name="gambling-tool" type="checkbox" value="play" {{ checked("gambling-tool", "play") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-4">
                                                 Play limit
                                             </label>
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-5"
-                                                name="gambling-tool" type="checkbox" value="underaged">
+                                                name="gambling-tool" type="checkbox" value="underaged" {{ checked("gambling-tool", "underaged") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-5">
                                                 Underaged gambling
                                             </label>
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-6"
-                                                name="gambling-tool" type="checkbox" value="other">
+                                                name="gambling-tool" type="checkbox" value="other" {{ checked("gambling-tool", "other") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-6">
                                                 Other
                                             </label>
@@ -166,8 +166,7 @@ Have you complained to the gambling business?
                                     Please tell us more information about your concerns
                                 </label>
                                 <span id="more-detail-hint" class="govuk-hint">
-                                    <p class="govuk-body-s">For example, some
-                                        information that would be useful is:</p>
+                                    <p class="govuk-body-s">For example, some information that would be useful is:</p>
                                     <ul class="govuk-list govuk-list--bullet govuk-body-s">
                                         <li>where you able to complain to the gambling business and did you receive a
                                             response</li>
@@ -178,7 +177,8 @@ Have you complained to the gambling business?
                                 </span>
                                 {% if err_more_detail %}
                                 <span id="more-detail-error" class="govuk-error-message">
-                                    <span class="govuk-visually-hidden">Error:</span> Please tell us more information about your concerns
+                                    <span class="govuk-visually-hidden">Error:</span> Please tell us more information
+                                    about your concerns
                                 </span>
                                 {% endif %}
                                 <textarea
@@ -205,8 +205,7 @@ Have you complained to the gambling business?
                             <div class="govuk-form-group">
                                 <p class="govuk-body">
                                     Before raising a concern with us, it helps if you have tried to resolve it with the
-                                    business first.
-                                    Please follow the information above, which can help you with how to raise a concern.
+                                    business first. Please follow the information above, which can help you with how to raise a concern.
                                 </p>
                             </div>
                         </div>

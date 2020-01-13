@@ -45,7 +45,7 @@ Have you complained to the gambling business?
 
             {% if err_more_detail %}
             <li>
-                <a href="#more-detail">Provide a summary of your enquiry</a>
+                <a href="#more-detail">Please tell us more information about your concerns</a>
             </li>
             {% endif %}
         </ul>
@@ -86,7 +86,7 @@ Have you complained to the gambling business?
                                 Yes
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                       <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
                             id="conditional-complained-to-operator-conditional">
                             <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
                                 <label class="govuk-label" for="operator-name">
@@ -99,9 +99,9 @@ Have you complained to the gambling business?
                                 </span>
                                 {% endif %}
                                 <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}"
-                                    id="operator-name" name="operator-name" type="text">
+                                    id="operator-name" name="operator-name" type="text"
+                                    value="{{data['operator-name']}}">
                             </div>
-
                             <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
                                 <label class="govuk-label" for="user-name">
                                     What is your user ID for online gambling?
@@ -113,7 +113,7 @@ Have you complained to the gambling business?
                                 </span>
                                 {% endif %}
                                 <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}"
-                                    id="user-name" name="user-name" type="text">
+                                    id="user-name" name="user-name" type="text" value="{{data['user-name']}}">
                             </div>
 
                             <div class="govuk-form-group {% if err_total_spend %} govuk-form-group--error {% endif %}">
@@ -150,26 +150,27 @@ Have you complained to the gambling business?
                                     Continue
                                 </button>
                             </div>
+                        </div>
 
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="complained-to-operator-2"
-                                    name="complained-to-operator" type="radio" value="no"
-                                    data-aria-controls="conditional-complained-to-operator-conditional-2">
-                                <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
-                                    No
-                                </label>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="complained-to-operator-2"
+                                name="complained-to-operator" type="radio" value="no"
+                                data-aria-controls="conditional-complained-to-operator-conditional-2">
+                            <label class="govuk-label govuk-radios__label" for="complained-to-operator-2">
+                                No
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-complained-to-operator-conditional-2">
+                            <div class="govuk-form-group">
+                                <p class="govuk-body">
+                                    Before raising a concern with us, it helps if you have tried to resolve it with
+                                    the business first.
+                                    Please follow the information above, which can help you with how to raise a
+                                    concern.
+                                </p>
                             </div>
-                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
-                                id="conditional-complained-to-operator-conditional-2">
-                                <div class="govuk-form-group">
-                                    <p class="govuk-body">
-                                        Before raising a concern with us, it helps if you have tried to resolve it with
-                                        the business first.
-                                        Please follow the information above, which can help you with how to raise a
-                                        concern.
-                                    </p>
-                                </div>
-                            </div>
+                        </div>
                 </fieldset>
             </div>
         </form>

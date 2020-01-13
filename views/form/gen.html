@@ -26,7 +26,7 @@ Complete the form
         <ul class="govuk-list govuk-error-summary__list">
             {% if err_more_detail %}
             <li>
-                <a href="#more_detail">Provide a summary of your enquiry</a>
+                <a href="#more_detail">Please tell us more information about your concerns</a>
             </li>
             {% endif %}
         </ul>
@@ -41,14 +41,14 @@ Complete the form
             <form method="POST">
                 <div class="govuk-form-group {% if err_more_detail %}govuk-form-group--error{% endif %}">
                     <label class="govuk-label" for="more-detail">
-                        Provide a summary of your enquiry
+                        Please tell us more information about your concerns
                     </label>
                     <span id="more-detail-hint" class="govuk-hint">
                         Please tell us more information about your enquiry.
                     </span>
                     {% if err_more_detail %}
                     <span id="more-detail-error" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                        <span class="govuk-visually-hidden">Error:</span> Please tell us more information about your concerns
                     </span>
                     {% endif %}
                     <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"

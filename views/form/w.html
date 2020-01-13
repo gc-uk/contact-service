@@ -54,7 +54,7 @@ Have you complained to the gambling business?
 
       {% if err_more_detail %}
       <li>
-        <a href="#more-detail">Provide a summary of your enquiry</a>
+        <a href="#more-detail">Please tell us more information about your concerns</a>
       </li>
       {% endif %}
     </ul>
@@ -79,7 +79,12 @@ Have you complained to the gambling business?
           </span>
           {% endif %}
           <span id="complained-to-operator-hint" class="govuk-hint">
-            We are unable to investigate complaints or get money back for you. You can find out more information about <a href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx" class="govuk-link">our role</a> and also about <a href="https://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx">raising a concern with a gambling business</a> on our website. If you have not yet complained to the business, please do so before reporting an issue to us. 
+            We are unable to investigate complaints or get money back for you. You can find out more information about
+            <a href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx"
+              class="govuk-link">our role</a> and also about <a
+              href="https://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx">raising
+              a concern with a gambling business</a> on our website. If you have not yet complained to the business,
+            please do so before reporting an issue to us.
           </span>
 
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -104,7 +109,7 @@ Have you complained to the gambling business?
                 </span>
                 {% endif %}
                 <input class="govuk-input {% if err_operator_name%} govuk-input--error {% endif %}" id="operator-name"
-                  name="operator-name" type="text">
+                  name="operator-name" type="text" value="{{data['operator-name']}}">
               </div>
 
               <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
@@ -117,7 +122,7 @@ Have you complained to the gambling business?
                 </span>
                 {% endif %}
                 <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}" id="user-name"
-                  name="user-name" type="text">
+                  name="user-name" type="text" value="{{data['user-name']}}">
               </div>
 
               <div class="govuk-form-group {% if err_complaint_date %} govuk-form-group--error {% endif %}">
@@ -131,7 +136,7 @@ Have you complained to the gambling business?
                   <span id="complaint-date-error" class="govuk-error-message">
                     <span class="govuk-visually-hidden">Error:</span> When did you complain to the gambling business?
                   </span>
-                  {% endif %}  
+                  {% endif %}
                   <span id="complaint-date-hint" class="govuk-hint">
                     For example, 12 11 2007
                   </span>
@@ -189,7 +194,7 @@ Have you complained to the gambling business?
                 </span>
                 {% if err_more_detail %}
                 <span id="more-detail-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span> Provide a summary of your enquiry
+                  <span class="govuk-visually-hidden">Error:</span> Please tell us more information about your concerns
                 </span>
                 {% endif %}
                 <textarea class="govuk-textarea {% if err_more_detail %}govuk-textarea--error{% endif %}"
