@@ -522,7 +522,6 @@ exports.sg_post = function (req, res) {
    var err_complaint = false;
    var err_operator_name = false;
    var err_gambling_tool = false;
-   var err_operator_advice = false;
    var err_more_detail = false;
 
    // Create a variable for each form input to check
@@ -540,11 +539,6 @@ exports.sg_post = function (req, res) {
    if (req.body['gambling-tool'] === undefined) {
       err = true;
       err_gambling_tool = true;
-   }
-
-   if (req.body['operator-advice'] === undefined) {
-      err = true;
-      err_operator_advice = true;
    }
 
    if (req.body['more-detail'] === "") {
@@ -566,7 +560,6 @@ exports.sg_post = function (req, res) {
          err_complaint,
          err_operator_name,
          err_gambling_tool,
-         err_operator_advice,
          err_more_detail,
          // add all the other variables from the checks you'll add above.
       })
@@ -584,7 +577,6 @@ exports.sg_post = function (req, res) {
                'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
                'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
-               'operator': req.session.data['operator-name'],
                'gamblingTool': req.session.data['gambling-tool'],
                'summary': req.session.data['more-detail']
             }
