@@ -612,7 +612,6 @@ exports.sr_post = function (req, res) {
    var err_account_opened = false;
    var err_total_spend = false;
    var err_time_period = false;
-   var err_operator_interaction = false;
    var err_more_detail = false;
    // Create a variable for each form input to check
 
@@ -646,11 +645,6 @@ exports.sr_post = function (req, res) {
       err_time_period = true;
    }
 
-   if (req.body['operator-interaction'] === undefined) {
-      err = true;
-      err_operator_interaction = true;
-   }
-
    if (req.body['more-detail'] === "") {
       err = true;
       err_more_detail = true;
@@ -673,7 +667,6 @@ exports.sr_post = function (req, res) {
          err_account_opened,
          err_total_spend,
          err_time_period,
-         err_operator_interaction,
          err_more_detail,
 
          // add all the other variables from the checks you'll add above.
