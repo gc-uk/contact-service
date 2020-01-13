@@ -601,9 +601,6 @@ exports.sr_post = function (req, res) {
    var err_complaint = false;
    var err_operator_name = false;
    var err_user_name = false;
-   var err_account_opened = false;
-   var err_total_spend = false;
-   var err_time_period = false;
    var err_more_detail = false;
    // Create a variable for each form input to check
 
@@ -620,21 +617,6 @@ exports.sr_post = function (req, res) {
    if (req.body['user-name'] === "") {
       err = true;
       err_user_name = true;
-   }
-
-   if (req.body['account-opened'] === "") {
-      err = true;
-      err_account_opened = true;
-   }
-
-   if (req.body['total-spend'] === "") {
-      err = true;
-      err_total_spend = true;
-   }
-
-   if (req.body['time-period'] === "") {
-      err = true;
-      err_time_period = true;
    }
 
    if (req.body['more-detail'] === "") {
@@ -656,9 +638,6 @@ exports.sr_post = function (req, res) {
          err_complaint,
          err_operator_name,
          err_user_name,
-         err_account_opened,
-         err_total_spend,
-         err_time_period,
          err_more_detail,
 
          // add all the other variables from the checks you'll add above.
@@ -681,10 +660,6 @@ exports.sr_post = function (req, res) {
                'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
                'gamblingid': req.session.data['user-name'],
-               'accountDate': openedDate,
-               'totalSpend': req.session.data['total-spend'],
-               'timePeriod': req.session.data['time-period'],
-               'interactions': ((req.session.data['operator-interaction'] === undefined) ? 'Not answered' : req.session.data['operator-interaction']),
                'summary': req.session.data['more-detail']
             }
          })
