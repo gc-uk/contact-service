@@ -700,7 +700,7 @@ exports.w_post = function (req, res) {
       err_user_name = true;
    }
 
-   if (req.body['complaint-date'] === "") {
+   if (req.body['complaint-date-day'] === "" | req.body['complaint-date-month'] === "" | req.body['complaint-date-year'] === "") {
       err = true;
       err_complaint_date = true;
    }

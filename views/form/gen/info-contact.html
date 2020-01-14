@@ -14,7 +14,7 @@ Form M
 {% endblock %}
 
 {% block content %}
-<a href="/form/gen/info-details" class="govuk-back-link">Back</a>
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
 
 {% if err %}
 <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"

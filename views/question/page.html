@@ -19,16 +19,22 @@ Find answers to common questions and contact the Gambling Commission
 {% endblock %}
 
 {% block beforeContent %}
+
+{% if pageData[0].parent !== 0 %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endif %}
+
 {% endblock %}
 
 
 
 {% block content %}
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-   
-    <form method="POST" action="/question/page">
+      <form method="POST" action="/question/page">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -36,6 +42,9 @@ Find answers to common questions and contact the Gambling Commission
               What does your query relate to?
             </h1>
           </legend>
+          
+
+
           <div class="govuk-radios">
 
             {% for i in pageData %}
@@ -56,6 +65,9 @@ Find answers to common questions and contact the Gambling Commission
       <button class="govuk-button" data-module="govuk-button" type="submit">
         Continue
       </button>
+
+
+    
 
     </form>
   </div>

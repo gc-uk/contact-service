@@ -40,7 +40,7 @@ exports.question_get = function (req, res) {
         if (pageData[0].type === 'question') {
             // Question page
             return res.render('question/page', {
-                pageData
+                pageData 
             });
         }
 
