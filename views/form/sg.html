@@ -67,13 +67,14 @@ Have you complained to the gambling business?
                     </span>
                     {% endif %}
                     <span id="complained-to-operator-hint" class="govuk-hint">
-                        We are unable to investigate complaints or get money back for you. You can find out more
-                        information about <a
-                            href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx"
+                        We are unable to investigate complaints or get money back for you. <br />You can find out more
+                        information
+                        about
+                        <a href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx"
                             class="govuk-link">our role</a> and also about <a
                             href="https://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx">raising
-                            a concern with a gambling business</a> on our website. If you have not yet complained to the
-                        business, please do so before reporting an issue to us.
+                            a concern with a gambling business</a> on our website. <br>If you have not yet complained to
+                        the business, please do so before reporting an issue to us.
                     </span>
 
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -104,7 +105,8 @@ Have you complained to the gambling business?
                             </div>
 
 
-                            <div class="govuk-form-group {% if err_gambling_tool %} govuk-form-group--error {% endif %}">
+                            <div
+                                class="govuk-form-group {% if err_gambling_tool %} govuk-form-group--error {% endif %}">
                                 <fieldset class="govuk-fieldset" aria-describedby="gambling-tool-hint">
                                     <legend class="govuk-fieldset__legend">
                                         <h1 class="govuk-fieldset__heading">
@@ -131,28 +133,32 @@ Have you complained to the gambling business?
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-3"
-                                                name="gambling-tool" type="checkbox" value="spend" {{ checked("gambling-tool", "spend") }}>
+                                                name="gambling-tool" type="checkbox" value="spend"
+                                                {{ checked("gambling-tool", "spend") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-3">
                                                 Spend limit
                                             </label>
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-4"
-                                                name="gambling-tool" type="checkbox" value="play" {{ checked("gambling-tool", "play") }}>
+                                                name="gambling-tool" type="checkbox" value="play"
+                                                {{ checked("gambling-tool", "play") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-4">
                                                 Play limit
                                             </label>
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-5"
-                                                name="gambling-tool" type="checkbox" value="underage" {{ checked("gambling-tool", "underage") }}>
+                                                name="gambling-tool" type="checkbox" value="underage"
+                                                {{ checked("gambling-tool", "underage") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-5">
                                                 Underage gambling
                                             </label>
                                         </div>
                                         <div class="govuk-checkboxes__item">
                                             <input class="govuk-checkboxes__input" id="gambling-tool-6"
-                                                name="gambling-tool" type="checkbox" value="other" {{ checked("gambling-tool", "other") }}>
+                                                name="gambling-tool" type="checkbox" value="other"
+                                                {{ checked("gambling-tool", "other") }}>
                                             <label class="govuk-label govuk-checkboxes__label" for="gambling-tool-6">
                                                 Other
                                             </label>
@@ -205,7 +211,8 @@ Have you complained to the gambling business?
                             <div class="govuk-form-group">
                                 <p class="govuk-body">
                                     Before raising a concern with us, it helps if you have tried to resolve it with the
-                                    business first. Please follow the information above, which can help you with how to raise a concern.
+                                    business first. Please follow the information above, which can help you with how to
+                                    raise a concern.
                                 </p>
                             </div>
                         </div>

@@ -60,13 +60,14 @@ Have you complained to the gambling business?
                     </span>
                     {% endif %}
                     <span id="complained-to-operator-hint" class="govuk-hint">
-                        We are unable to investigate complaints or get money back for you. You can find out more
-                        information about <a
-                            href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx"
+                        We are unable to investigate complaints or get money back for you. <br />You can find out more
+                        information
+                        about
+                        <a href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx"
                             class="govuk-link">our role</a> and also about <a
                             href="https://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx">raising
-                            a concern with a gambling business</a> on our website. If you have not yet complained to the
-                        business, please do so before reporting an issue to us.
+                            a concern with a gambling business</a> on our website. <br>If you have not yet complained to
+                        the business, please do so before reporting an issue to us.
                     </span>
 
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -79,7 +80,7 @@ Have you complained to the gambling business?
                                 Yes
                             </label>
                         </div>
-                       <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
                             id="conditional-complained-to-operator-conditional">
                             <div class="govuk-form-group {% if err_operator_name %}govuk-form-group--error{% endif %}">
                                 <label class="govuk-label" for="operator-name">
@@ -99,8 +100,8 @@ Have you complained to the gambling business?
                                 <label class="govuk-label" for="user-name">
                                     What is your user ID for online gambling?
                                 </label>
-                                <input class="govuk-input" id="user-name"
-                                    name="user-name" type="text" value="{{data['user-name']}}">
+                                <input class="govuk-input" id="user-name" name="user-name" type="text"
+                                    value="{{data['user-name']}}">
                             </div>
 
                             <div class="govuk-form-group {% if err_total_spend %} govuk-form-group--error {% endif %}">
