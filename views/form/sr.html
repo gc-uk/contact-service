@@ -36,13 +36,6 @@ Have you complained to the gambling business?
             </li>
             {% endif %}
 
-            {% if err_user_name %}
-            <li>
-                <a href="#user-name">What is your user ID for online gambling?</a>
-            </li>
-            {% endif %}
-
-
             {% if err_more_detail %}
             <li>
                 <a href="#more-detail">Please tell us more information about your concerns</a>
@@ -102,18 +95,12 @@ Have you complained to the gambling business?
                                     id="operator-name" name="operator-name" type="text"
                                     value="{{data['operator-name']}}">
                             </div>
-                            <div class="govuk-form-group {% if err_user_name %} govuk-form-group--error {% endif %}">
+                            <div class="govuk-form-group">
                                 <label class="govuk-label" for="user-name">
                                     What is your user ID for online gambling?
                                 </label>
-                                {% if err_user_name %}
-                                <span id="user-name-error" class="govuk-error-message">
-                                    <span class="govuk-visually-hidden">Error:</span> What is your user ID for online
-                                    gambling?
-                                </span>
-                                {% endif %}
-                                <input class="govuk-input {% if err_user_name %} govuk-form-input--error {% endif %}"
-                                    id="user-name" name="user-name" type="text" value="{{data['user-name']}}">
+                                <input class="govuk-input" id="user-name"
+                                    name="user-name" type="text" value="{{data['user-name']}}">
                             </div>
 
                             <div class="govuk-form-group {% if err_total_spend %} govuk-form-group--error {% endif %}">

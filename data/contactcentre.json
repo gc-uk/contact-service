@@ -4,7 +4,7 @@
             "type": "question",
             "value": null,
             "id": 1,
-            "text": "I have a concern about a gambling business or Alternative Dispute Resolution provider",
+            "text": "I have a concern about a gambling business or Alternative Dispute Resolution (ADR) provider",
             "parent": 0
         },
         {
@@ -39,7 +39,7 @@
             "type": "question",
             "value": null,
             "id": 110,
-            "text": "I have responsible gambling concerns",
+            "text": "I have responsible/safer gambling concerns",
             "parent": 1
         },
         {
@@ -53,7 +53,7 @@
             "type": "question",
             "value": null,
             "id": 130,
-            "text": "I have concern about an Alternative Dispute Resolution provider",
+            "text": "I have concerns about an Alternative Dispute Resolution (ADR) provider",
             "parent": 1
         },
         {
@@ -95,7 +95,7 @@
             "type": "question",
             "value": null,
             "id": 210,
-            "text": "I want to run a prize competition or free prize draw",
+            "text": "I want to run a prize competition or free draw",
             "parent": 3
         },
         {
@@ -109,7 +109,7 @@
             "type": "question",
             "value": null,
             "id": 230,
-            "text": "I want to run or take part in a bingo or poker",
+            "text": "I want to run or take part in a bingo or poker event",
             "parent": 3
         },
         {
@@ -137,35 +137,35 @@
             "type": "question",
             "value": null,
             "id": 270,
-            "text": "I want information about Loot Boxes and Social Gaming",
+            "text": "I want information about loot boxes and social gaming",
             "parent": 4
         },
         {
             "type": "question",
             "value": null,
             "id": 280,
-            "text": "I want to read Gambling Safety Guidance for parents",
+            "text": "I want advice on protecting children from gambling harms",
             "parent": 4
         },
         {
             "type": "question",
             "value": null,
             "id": 290,
-            "text": "I want General Consumer Guidance ",
+            "text": "I want general consumer guidance ",
             "parent": 4
         },
         {
             "type": "question",
             "value": null,
             "id": 300,
-            "text": "I want information about tools to help you control your gambling",
+            "text": "I want information about tools to help you control my gambling",
             "parent": 4
         },
         {
             "type": "question",
             "value": null,
             "id": 310,
-            "text": "I have an other enquiry",
+            "text": "I have another enquiry",
             "parent": 4
         },
         {
@@ -186,14 +186,14 @@
             "type": "question",
             "value": null,
             "id": 1200,
-            "text": "I have an other responsible gambling concern?",
+            "text": "I have another responsible gambling concern",
             "parent": 110
         },
         {
             "type": "question",
             "value": null,
             "id": 1300,
-            "text": "I have a concern about Marketing & Advertising",
+            "text": "I have a concern about marketing and advertising",
             "parent": 120
         },
         {
@@ -221,7 +221,7 @@
             "type": "question",
             "value": null,
             "id": 1700,
-            "text": "Ihave a concern about how your data has been used",
+            "text": "I have concerns about how my data has been used",
             "parent": 120
         },
         {

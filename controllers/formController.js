@@ -438,7 +438,6 @@ exports.se_post = function (req, res) {
 
    err = false;
    var err_operator_name = false;
-   var err_user_name = false;
    var err_self_exclusion = false;
    var err_more_detail = false;
 
@@ -447,11 +446,6 @@ exports.se_post = function (req, res) {
    if (req.body['operator-name'] === "") {
       err = true;
       err_operator_name = true;
-   }
-
-   if (req.body['user-name'] === "") {
-      err = true;
-      err_user_name = true;
    }
 
    if (req.body['self-exclusion'] === undefined) {
@@ -476,7 +470,6 @@ exports.se_post = function (req, res) {
       res.render('form/se', {
          err,
          err_operator_name,
-         err_user_name,
          err_self_exclusion,
          err_more_detail,
          // add all the other variables from the checks you'll add above.
@@ -599,7 +592,6 @@ exports.sr_post = function (req, res) {
    err = false;
    var err_complaint = false;
    var err_operator_name = false;
-   var err_user_name = false;
    var err_more_detail = false;
    // Create a variable for each form input to check
 
@@ -611,11 +603,6 @@ exports.sr_post = function (req, res) {
    if (req.body['operator-name'] === "") {
       err = true;
       err_operator_name = true;
-   }
-
-   if (req.body['user-name'] === "") {
-      err = true;
-      err_user_name = true;
    }
 
    if (req.body['more-detail'] === "") {
@@ -636,7 +623,6 @@ exports.sr_post = function (req, res) {
          err,
          err_complaint,
          err_operator_name,
-         err_user_name,
          err_more_detail,
 
          // add all the other variables from the checks you'll add above.
@@ -680,7 +666,6 @@ exports.w_post = function (req, res) {
    err = false;
    var err_complaint = false;
    var err_operator_name = false;
-   var err_user_name = false;
    var err_complaint_date = false;
    var err_more_detail = false;
    // Create a variable for each form input to check
@@ -693,11 +678,6 @@ exports.w_post = function (req, res) {
    if (req.body['operator-name'] === "") {
       err = true;
       err_operator_name = true;
-   }
-
-   if (req.body['user-name'] === "") {
-      err = true;
-      err_user_name = true;
    }
 
    if (req.body['complaint-date-day'] === "" | req.body['complaint-date-month'] === "" | req.body['complaint-date-year'] === "") {
@@ -723,7 +703,6 @@ exports.w_post = function (req, res) {
          err,
          err_complaint,
          err_operator_name,
-         err_user_name,
          err_complaint_date,
          err_more_detail,
 
