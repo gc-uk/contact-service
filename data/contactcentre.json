@@ -377,6 +377,41 @@
             "id": 7700,
             "text": "Tools to help you control your gambling",
             "parent": 300
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Complain-about-a-gambling-advertisement.aspx",
+            "id": 7900,
+            "text": "I have a concern about marketing and advertising",
+            "parent": 1300
+        },
+        {
+            "type": "link",
+            "value": "https://www.gamblingcommission.gov.uk/for-gambling-businesses/Compliance/Sector-specific-compliance/Remote-and-software/Live-RTP-performance-monitoring.aspx",
+            "id": 8000,
+            "text": "I have a concern about unfair game play",
+            "parent": 1400
+        },
+        {
+            "type": "link",
+            "value": "http://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx",
+            "id": 8100,
+            "text": "I have a concern about customer service",
+            "parent": 1500
+        },
+        {
+            "type": "link",
+            "value": "http://www.gamblingcommission.gov.uk/for-the-public/Your-rights/Concern-about-a-gambling-business.aspx",
+            "id": 8200,
+            "text": "I have a concern about a technical fault",
+            "parent": 1600
+        },
+        {
+            "type": "link",
+            "value": "http://www.gamblingcommission.gov.uk/for-gambling-businesses/Compliance/General-compliance/General-Data-Protection-Regulation-GDPR.aspx",
+            "id": 8300,
+            "text": "I have concerns about how my data has been used",
+            "parent": 1700
         }
     ]
 }
