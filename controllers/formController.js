@@ -107,7 +107,7 @@ exports.form_get = function (req, res) {
 
 exports.form_complete_get = function (req, res) {
 
-req.session.destroy();
+
    // No ID has been passed into the querystring, as this is a question page, push the user back to the start - 0.
    // No messing here, the user is manipulating the URL so bump them off
    res.render('/form/complete')
@@ -207,7 +207,7 @@ exports.info_contact_post = function (req, res) {
 
 
    // Render the form or redirect 
-   console.log(req.session["formref"])
+   console.log("Form contact - Form ref: " + req.session["formref"] )
    if (err) {
 
       // Form is in error
@@ -223,9 +223,19 @@ exports.info_contact_post = function (req, res) {
 
       // Form isn't in error, redirect to next page
 
+   console.log("Licensing: " + req.session.data["licensingpage"] )
+
+   if (req.session.data["licensingpage"] === 'true') {
+      return res.redirect('/form/conrep')
+   }
+
       if (req.session["formref"] === undefined) {
-         return res.redirect('/form/conrep')
+         return res.redirect('/form/gen')
       }
+
+
+
+     
 
       return res.redirect('/form/' + req.session["formref"])
 
@@ -427,6 +437,10 @@ exports.gen_post = function (req, res) {
          })
          .then(response => console.log("Sent"))
          .catch(err => console.error("errored: " + err))
+
+         req.session.data = {};
+
+         console.log(req.session.data);
 
       res.redirect('/form/gen/complete')
 

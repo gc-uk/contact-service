@@ -20,6 +20,7 @@ exports.question_get = function (req, res) {
         return res.redirect('/question/page/0');
     }
 
+
     // We have an ID - we don't know if it's valid though... 
 
     // Our JSON ID's are integers, can we convert the querystring into an integer?
@@ -30,6 +31,13 @@ exports.question_get = function (req, res) {
         return value.parent === parent;
     });
 
+    console.log("Parent: " + pageData[0].parent)
+    if (pageData[0].parent === 2) {
+        req.session.data["licensingpage"] = 'true';
+        console.log("licensing page:")
+        console.log(req.session.data["licensingpage"])
+    }
+
     // DEBUG
     // console.log(pageData);
 
@@ -39,8 +47,9 @@ exports.question_get = function (req, res) {
         //Are they questions?
         if (pageData[0].type === 'question') {
             // Question page
+          
             return res.render('question/page', {
-                pageData 
+                pageData
             });
         }
 
@@ -74,6 +83,11 @@ exports.question_post = function (req, res) {
 
     // DEBUG
     // console.log(req.session.data);
+
+    var queryID = req.params.id;
+
+
+
 
     // Redirect to the question page with the ID of the selected item
     res.redirect('/question/page/' + req.session.data['question']);
