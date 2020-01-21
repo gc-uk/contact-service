@@ -78,7 +78,7 @@ exports.form_get = function (req, res) {
    // There should only be 1 form for a parent ID
    if (pageData.length === 0) {
       // No form, redirect to first page
-      return res.redirect('/question/page/0');
+      return res.redirect('/form/gen');
    }
 
    if (pageData.length > 1) {
@@ -107,9 +107,10 @@ exports.form_get = function (req, res) {
 
 exports.form_complete_get = function (req, res) {
 
+req.session = null;
    // No ID has been passed into the querystring, as this is a question page, push the user back to the start - 0.
    // No messing here, the user is manipulating the URL so bump them off
-   res.redirect('/form/complete')
+   res.render('/form/complete')
 }
 
 exports.info_details_get = function (req, res) {
@@ -222,9 +223,11 @@ exports.info_contact_post = function (req, res) {
 
       // Form isn't in error, redirect to next page
 
+      if (req.session["formref"] === undefined) {
+         return res.redirect('/form/conrep')
+      }
 
-
-      res.redirect('/form/' + req.session["formref"])
+      return res.redirect('/form/' + req.session["formref"])
 
    }
 }
@@ -294,7 +297,7 @@ exports.adr_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored: "+ err))
+         .catch(err => console.error("errored: " + err))
 
       res.redirect('/form/gen/complete')
    }
@@ -352,7 +355,7 @@ exports.conrep_post = function (req, res) {
       // Form isn't in error, send via Notify to the inbox
 
       notify
-         .sendEmail(process.env.formconrep, process.env.recipient, {
+         .sendEmail(process.env.formconrep, process.env.licensingrecipient, {
             personalisation: {
                'firstname': req.session.data['first-name'],
                'lastname': req.session.data['last-name'],
@@ -366,7 +369,7 @@ exports.conrep_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored: "+ err))
+         .catch(err => console.error("errored: " + err))
 
       res.redirect('/form/gen/complete')
 
@@ -408,6 +411,8 @@ exports.gen_post = function (req, res) {
 
       // Form isn't in error, send via Notify to the inbox
 
+      //Where is this email going to?
+
       notify
          .sendEmail(process.env.formgen, process.env.recipient, {
             personalisation: {
@@ -421,7 +426,7 @@ exports.gen_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored: "+ err))
+         .catch(err => console.error("errored: " + err))
 
       res.redirect('/form/gen/complete')
 
@@ -494,7 +499,7 @@ exports.se_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored: "+ err))
+         .catch(err => console.error("errored: " + err))
 
       res.redirect('/form/gen/complete')
 
@@ -574,7 +579,7 @@ exports.sg_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored: "+ err))
+         .catch(err => console.error("errored: " + err))
 
       res.redirect('/form/gen/complete')
 
@@ -649,7 +654,7 @@ exports.sr_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored: "+ err))
+         .catch(err => console.error("errored: " + err))
 
       res.redirect('/form/gen/complete')
    }
@@ -731,7 +736,7 @@ exports.w_post = function (req, res) {
             }
          })
          .then(response => console.log("Sent"))
-         .catch(err => console.error("errored: "+ err))
+         .catch(err => console.error("errored: " + err))
 
       res.redirect('/form/gen/complete')
    }
