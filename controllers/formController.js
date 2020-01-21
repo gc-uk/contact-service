@@ -234,9 +234,6 @@ exports.info_contact_post = function (req, res) {
       }
 
 
-
-     
-
       return res.redirect('/form/' + req.session["formref"])
 
    }

@@ -164,13 +164,6 @@
         {
             "type": "question",
             "value": null,
-            "id": 310,
-            "text": "I have another enquiry",
-            "parent": 4
-        },
-        {
-            "type": "question",
-            "value": null,
             "id": 1000,
             "text": "I have a concern about self-exclusion",
             "parent": 110
