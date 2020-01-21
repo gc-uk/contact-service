@@ -107,7 +107,7 @@ exports.form_get = function (req, res) {
 
 exports.form_complete_get = function (req, res) {
 
-req.session = null;
+req.session.destroy();
    // No ID has been passed into the querystring, as this is a question page, push the user back to the start - 0.
    // No messing here, the user is manipulating the URL so bump them off
    res.render('/form/complete')
