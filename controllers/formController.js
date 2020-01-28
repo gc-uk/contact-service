@@ -181,7 +181,9 @@ exports.info_details_post = function (req, res) {
          err,
          err_contacted,
          err_first_name,
-         err_last_name
+         err_last_name,
+         err_business_name,
+         err_account_name
          // add all the other variables from the checks you'll add above.
       })
    } else {
@@ -257,9 +259,9 @@ exports.info_contact_post = function (req, res) {
       if (req.session.data["generalpage"] === 'true') {
          return res.redirect('/form/gen')
       }
-   
-         return res.redirect('/form/' + req.session["formref"])
-      
+
+      return res.redirect('/form/' + req.session["formref"])
+
    }
 }
 
