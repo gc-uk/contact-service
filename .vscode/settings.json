@@ -6,11 +6,18 @@
         "firstname",
         "formadr",
         "formconrep",
+        "formgen",
         "formref",
+        "formse",
+        "formsg",
+        "formsr",
         "formw",
         "gamblingid",
+        "generalquestion",
         "lastname",
+        "licensingrecipient",
         "noid",
+        "notifyapikey",
         "personalisation",
         "previouscontact"
     ]

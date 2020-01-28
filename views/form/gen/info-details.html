@@ -52,12 +52,36 @@ Get in touch with us
         {% endif %}
 
         <h1 class="govuk-heading-1">Get in touch with us</h1>
+
+        {% if formref === "gen" %}
+
+        <p class="govuk-body-l">Please complete this form to provide your personal information and tell us what your
+            query is</p>
+        <p>You can find out more information about <a
+                href="https://www.gamblingcommission.gov.uk/about/Who-we-are-and-what-we-do/Who-we-are-and-what-we-do.aspx"
+                class="govuk-link">what we do</a> on our website. There are some things we don’t do, such as getting
+            money back for consumers or provide legal advice about gambling business ideas.</p>
+
+        {% elseif formref === "conrep" %}
+
+        <p class="govuk-body-l">Please complete this form to provide your personal information and tell us what your
+            query is</p>
+        <p>You can find a large amount of information for <a
+                href="https://www.gamblingcommission.gov.uk/for-gambling-businesses/for-gambling-businesses.aspx"
+                class="govuk-link">gambling businesses or licence holders</a> on our website. We don’t give legal advice
+            to help develop business models or ideas. But we do provide general information and advice about the Act and
+            our approach.</p>
+
+        {% else %}
+
         <p class="govuk-body-l">Please complete this form to tell us about your concerns with a gambling business
             or the industry.</p>
         <p>The information can help us identify where we need to take regulatory action or change the rules of practice
             to make gambling fairer and safer.
             It is not our role to investigate complaints or obtain money back for you. We can respond to your query, but
             we do not provide updates on regulatory action we take.</p>
+
+        {% endif %}
 
         <form method="POST">
 
@@ -117,6 +141,25 @@ Get in touch with us
                 <input class="govuk-input {% if err_last_name %}govuk-input--error{% endif %} " id="last-name"
                     name="last-name" type="text" value="{{data['last-name']}}">
             </div>
+
+            <!-- {% if formref === "conrep" %} -->
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="business-name">
+                    Business name
+                </label>
+                <input class="govuk-input" id="business-name" name="business-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="account-name">
+                    Account name
+                </label>
+                <input class="govuk-input" id="account-name" name="account-name" type="text">
+            </div>
+
+            <!-- {% endif %} -->
+
 
             <button class="govuk-button" data-module="govuk-button" type="submit">
                 Continue

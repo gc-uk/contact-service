@@ -116,7 +116,20 @@ exports.form_complete_get = function (req, res) {
 
 exports.info_details_get = function (req, res) {
    // console.log('info details get')
-   res.render("form/gen/info-details");
+
+   var id = req.params.id;
+   var formref = undefined;
+
+   if(id !== undefined ){
+      if(id === "4")
+      {formref = "gen" }
+
+      if(id === "2"){
+         formref = "conrep"
+      }
+   }
+
+   res.render("form/gen/info-details",{formref});
 }
 
 exports.info_details_post = function (req, res) {
@@ -162,8 +175,6 @@ exports.info_details_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
-      res.redirect('/form/gen/info-contact')
-
    }
 }
 
@@ -230,13 +241,13 @@ exports.info_contact_post = function (req, res) {
          return res.redirect('/form/conrep')
       }
 
-      if (req.session["formref"] === undefined) {
+      if (req.session["generalquestion"] === 'true') {
          return res.redirect('/form/gen')
       }
 
-
+      if (req.session["formref"] === undefined) {
       return res.redirect('/form/' + req.session["formref"])
-
+      }
    }
 }
 
