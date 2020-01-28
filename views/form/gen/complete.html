@@ -21,31 +21,14 @@ Complete
 {% block beforeContent %}
 {% endblock %}
 
-
-
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
     <div class="gc-notification gc-notification--success">
       <h1 class="govuk-heading-l">We've got your message</h1>
-
-      {% if formref === "conrep" %}
-
-      Thank you for your message. We will consider the information you have provided and respond to you within three
-      working days.
-
-      {% elseif formref === "gen" %}
-
-      Thank you for your message. We will consider the information you have provided and respond to you within twenty
-      working days.
-
-      {% else %}
-
+      
         {% if data['response'] === 'email' or data['response'] === 'phone' %}
-
-
         <p class="govuk-body">Thank you for completing this form. We will contact you within the next 20 working days.</p>
         <p>Please remember that we cannot get money back for you or provide you with updates on any regulatory action. The
         information can help us identify where we need to take regulatory action or change the rules of practice to make
@@ -54,7 +37,6 @@ Complete
         0808 8020 0133. They are available 24 hours a day, seven days a week. </p>
 
         {% else %}
-
        <p class="govuk-body">Thank you for completing this form.</p>
         <p>Please remember that we cannot get money back for you or provide you with updates on any regulatory action. The
         information can help us identify where we need to take regulatory action or change the rules of practice to make
@@ -63,18 +45,11 @@ Complete
        <p>If you would like any advice, support or information about problem gambling, please contact GamCare for free on
         0808 8020 0133. They are available 24 hours a day, seven days a week.</p>
 
-       {% endif %}
-
-      {% end if %}
-
+        {% endif %}
     </div>
 
     <h2 class="govuk-heading-m">Next steps</h2>
-
-    <p class="govuk-body">Return to the <a href="https://www.gamblingcommission.gov.uk">Gambling Commission homepage</a>
-      .</p>
-
+    <p class="govuk-body">Return to the <a href="https://www.gamblingcommission.gov.uk">Gambling Commission homepage</a>.</p>
   </div>
 </div>
-
 {% endblock %}

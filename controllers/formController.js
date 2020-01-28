@@ -106,13 +106,22 @@ exports.form_get = function (req, res) {
 }
 
 exports.form_complete_get = function (req, res) {
-   req.session.data['first-name'] = "Andy";
+   req.session.data['first-name'] = null;
    req.session.data['last-name'] = null;
 
    // No ID has been passed into the querystring, as this is a question page, push the user back to the start - 0.
    // No messing here, the user is manipulating the URL so bump them off
    res.render('/form/complete')
 }
+
+exports.form_complete_conrep_get = function (req, res) {
+   res.render('/form/gen/complete-conrep')
+}
+
+exports.form_complete_gen_get = function (req, res) {
+   res.render('/form/gen/complete-gen')
+}
+
 
 exports.info_details_get = function (req, res) {
    // console.log('info details get')
@@ -122,11 +131,10 @@ exports.info_details_get = function (req, res) {
 
    if(id !== undefined ){
       if(id === "4")
-      {formref = "gen" }
+      {formref = "gen"}
 
       if(id === "2"){
-         formref = "conrep"
-      }
+         formref = "conrep"}
    }
 
    res.render("form/gen/info-details",{formref});
@@ -175,6 +183,7 @@ exports.info_details_post = function (req, res) {
    } else {
 
       // Form isn't in error, redirect to next page
+      res.redirect('/form/gen/info-contact');
    }
 }
 
@@ -241,7 +250,7 @@ exports.info_contact_post = function (req, res) {
          return res.redirect('/form/conrep')
       }
 
-      if (req.session["generalquestion"] === 'true') {
+      if (req.session.data["generalpage"] === 'true') {
          return res.redirect('/form/gen')
       }
 
@@ -390,7 +399,7 @@ exports.conrep_post = function (req, res) {
          .then(response => console.log("Sent"))
          .catch(err => console.error("errored: " + err))
       req.session.destroy();
-      res.redirect('/form/gen/complete')
+      res.redirect('/form/gen/complete-conrep')
 
    }
 }
@@ -451,7 +460,7 @@ exports.gen_post = function (req, res) {
 
       console.log(req.session.data);
       req.session.destroy();
-      res.redirect('/form/gen/complete')
+      res.redirect('/form/gen/complete-gen')
 
    }
 }
@@ -768,4 +777,12 @@ exports.w_post = function (req, res) {
 
 exports.complete = function (req, res) {
    res.render("form/gen/complete");
+}
+
+exports.complete_conrep = function (req, res) {
+   res.render("form/gen/complete-conrep");
+}
+
+exports.complete_gen = function (req, res) {
+   res.render("form/gen/complete-gen");
 }

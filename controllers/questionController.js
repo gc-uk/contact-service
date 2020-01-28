@@ -38,6 +38,14 @@ exports.question_get = function (req, res) {
         console.log(req.session.data["licensingpage"])
     }
 
+    console.log("Parent: " + pageData[0].parent)
+    if (pageData[0].parent === 4) {
+        req.session.data["generalpage"] = 'true';
+        console.log("general page:")
+        console.log(req.session.data["generalpage"])
+    }
+
+
     // DEBUG
     // console.log(pageData);
 

@@ -83,7 +83,7 @@ Get in touch with us
 
         {% endif %}
 
-        <form method="POST">
+        <form method="POST" action="/form/gen/info-details">
 
             <div class="govuk-form-group {% if err_contacted %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset" aria-describedby="contacted-hint">
@@ -142,7 +142,7 @@ Get in touch with us
                     name="last-name" type="text" value="{{data['last-name']}}">
             </div>
 
-            <!-- {% if formref === "conrep" %} -->
+            {% if formref === "conrep" %}
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="business-name">
@@ -158,7 +158,7 @@ Get in touch with us
                 <input class="govuk-input" id="account-name" name="account-name" type="text">
             </div>
 
-            <!-- {% endif %} -->
+            {% endif %}
 
 
             <button class="govuk-button" data-module="govuk-button" type="submit">
