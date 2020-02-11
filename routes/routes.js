@@ -32,8 +32,7 @@ router.get('/link/page/:id', linkController.link_get);
 router.get('/form/page', formController.form_noid_get);
 router.get('/form/page/:id', formController.form_get);
 router.get('/form/complete', formController.form_complete_get);
-router.get('/form/complete-conrep', formController.form_complete_conrep_get);
-router.get('/form/complete-gen', formController.form_complete_gen_get);
+
 
 // Repeat this for the forms
 router.get('/form/gen/info-details', formController.info_details_get);
@@ -67,7 +66,4 @@ router.post('/form/w', formController.w_post);
 router.get('/form/:id', formController.form_ID_get);
 
 router.get('/form/gen/complete', formController.complete);
-router.get('/form/gen/complete-conrep', formController.complete_conrep);
-router.get('/form/gen/complete-gen', formController.complete_gen);
-
 module.exports = router

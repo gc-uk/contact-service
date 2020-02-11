@@ -114,15 +114,6 @@ exports.form_complete_get = function (req, res) {
    res.render('/form/complete')
 }
 
-exports.form_complete_conrep_get = function (req, res) {
-   res.render('/form/gen/complete-conrep')
-}
-
-exports.form_complete_gen_get = function (req, res) {
-   res.render('/form/gen/complete-gen')
-}
-
-
 exports.info_details_get = function (req, res) {
    // console.log('info details get')
 
@@ -340,16 +331,10 @@ exports.conrep_post = function (req, res) {
    console.log('conrep form post')
 
    err = false;
-   var err_complaint = false;
    var err_operator_name
    var err_more_detail = false;
 
    // Create a variable for each form input to check
-
-   if (req.body['complained-to-operator'] === undefined) {
-      err = true;
-      err_complaint = true;
-   }
 
    if (req.body['operator-name'] === "") {
       err = true;
@@ -372,7 +357,6 @@ exports.conrep_post = function (req, res) {
 
       res.render('form/conrep', {
          err,
-         err_complaint,
          err_operator_name,
          err_more_detail,
 
@@ -391,7 +375,6 @@ exports.conrep_post = function (req, res) {
                'contactMethod': req.session.data['response'],
                'email': ((req.session.data['contact-by-email'] === "") ? 'Not provided' : req.session.data['contact-by-email']),
                'telephone': ((req.session.data['contact-by-phone'] === "") ? 'Not provided' : req.session.data['contact-by-phone']),
-               'complained': ((req.session.data['complained'] === undefined) ? 'Not answered' : req.session.data['complained']),
                'operator': req.session.data['operator-name'],
                'summary': req.session.data['more-detail']
             }
@@ -399,7 +382,7 @@ exports.conrep_post = function (req, res) {
          .then(response => console.log("Sent"))
          .catch(err => console.error("errored: " + err))
       req.session.destroy();
-      res.redirect('/form/gen/complete-conrep')
+      res.redirect('/form/gen/complete')
 
    }
 }
@@ -460,7 +443,7 @@ exports.gen_post = function (req, res) {
 
       console.log(req.session.data);
       req.session.destroy();
-      res.redirect('/form/gen/complete-gen')
+      res.redirect('/form/gen/complete')
 
    }
 }
@@ -779,10 +762,3 @@ exports.complete = function (req, res) {
    res.render("form/gen/complete");
 }
 
-exports.complete_conrep = function (req, res) {
-   res.render("form/gen/complete-conrep");
-}
-
-exports.complete_gen = function (req, res) {
-   res.render("form/gen/complete-gen");
-}
