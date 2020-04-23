@@ -28,25 +28,29 @@ Complete
     <div class="gc-notification gc-notification--success">
       <h1 class="govuk-heading-l">We've got your message</h1>
 
-      <p class="govuk-body">Thank you for completing this form. If you have asked for a response, we will contact you
-        within our <a
-          href="http://www.gamblingcommission.gov.uk/about/Being-open-about-what-we-do/Publication-scheme/Service-standards.aspx">service
-          standards for enquiries</a>.</p>
+      {% if data['response'] === 'email' or data['response'] === 'phone' %}
 
-      <p class="govuk-body">If you have contacted us about a concern with a gambling business, please remember that we
-        cannot get money back for you or provide updates on any regulatory action.</p>
+      <p class="govuk-body">Thank you for completing this form. We will contact you within the next 20 working days.</p>
+      <p>Please remember that we cannot get money back for you or provide you with updates on any regulatory action. The
+        information can help us identify where we need to take regulatory action or change the rules of practice to make
+        gambling fairer and safer.</p>
+      <p>If you would like any advice, support or information about problem gambling, please contact GamCare for free on
+        0808 8020 0133. They are available 24 hours a day, seven days a week. </p>
 
-      <p class="govuk-body">Information that we receive can help us identify where we need to take regulatory action
-      or change the rules to make gambling fairer and safer. You can find out more about what we do with information we receive in our <a
-        href="https://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx">privacy statement</a>.</p>
+      {% else %}
+      <p class="govuk-body">Thank you for completing this form.</p>
+      <p>Please remember that we cannot get money back for you or provide you with updates on any regulatory action. The
+        information can help us identify where we need to take regulatory action or change the rules of practice to make
+        gambling fairer and safer. As per your request, we will not contact you back
+        about this issue.</p>
+      <p>If you would like any advice, support or information about problem gambling, please contact GamCare for free on
+        0808 8020 0133. They are available 24 hours a day, seven days a week.</p>
 
-      <p class="govuk-body">We cannot provide you with any legal advice on any concerns you may have or any business
-        ideas.</p>
+      {% endif %}
 
-      <p class="govuk-body">If you would like any advice, support or information about problem gambling, please contact
-        <a href="https://www.gamcare.org.uk/">GamCare</a>, for free, on 0808 8020 133. They are available 24 hours a
-        day, seven days</p>
-
+      <p class="govuk-body">For information about how and why we use personal information and who to contact with any
+        queries about this, please see our <a
+          href="https://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx">Privacy statement</a>.</p>
     </div>
 
     <h2 class="govuk-heading-m">Next steps</h2>

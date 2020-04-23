@@ -120,15 +120,19 @@ exports.info_details_get = function (req, res) {
    var id = req.params.id;
    var formref = undefined;
 
-   if(id !== undefined ){
-      if(id === "4")
-      {formref = "gen"}
+   if (id !== undefined) {
+      if (id === "4") {
+         formref = "gen"
+      }
 
-      if(id === "2"){
-         formref = "conrep"}
+      if (id === "2") {
+         formref = "conrep"
+      }
    }
 
-   res.render("form/gen/info-details",{formref});
+   res.render("form/gen/info-details", {
+      formref
+   });
 }
 
 exports.info_details_post = function (req, res) {
@@ -168,7 +172,9 @@ exports.info_details_post = function (req, res) {
          err,
          err_contacted,
          err_first_name,
-         err_last_name
+         err_last_name,
+         err_business_name,
+         err_account_name
          // add all the other variables from the checks you'll add above.
       })
    } else {
@@ -245,9 +251,8 @@ exports.info_contact_post = function (req, res) {
          return res.redirect('/form/gen')
       }
 
-      if (req.session["formref"] === undefined) {
       return res.redirect('/form/' + req.session["formref"])
-      }
+
    }
 }
 
